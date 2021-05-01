@@ -1,31 +1,35 @@
-<!doctype html>
-<html lang="en">
-
-<head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Constructalia</title>
-    <meta content="Elio Camisón Costa" name="author" />
-    <meta content="Constructalia" name="description" />
-
-</head>
-<body style="background-color: #2C3E50">
-<header><h1 style="color: white">Constructalia</h1></header>
-<nav></nav>
-<section>
-
-    <div style="background-color: #808B96; width: 250px; height: 1000px">
-        <ul>
-            <li><a href="">Maquinaria</a></li>
-            <li><a href="">Pedidos</a></li>
-            <li><a href="">Personal</a></li>
-            <li><a href="">Configuración</a></li>
-        </ul>
-    </div>
-
-</section>
-</body>
 
 
+<?php
 
-</html>
+    require_once("Config/Config.php");
+
+    $url = !empty($_GET['url']) ? $_GET['url'] : 'home/home';
+    $arrUrl = explode("/",$url); // Convertirmos la variable en un array
+    $controller = $arrUrl[0];
+    $method = $arrUrl[0];
+    $params = "";
+
+    if (!empty($arrUrl[1])) {
+        if($arrUrl[1] != ""){
+            $method = $arrUrl[1];
+        }
+    }
+
+    if (!empty($arrUrl[2])) {
+        if($arrUrl[2] != ""){
+
+
+            for ($i = 2; $i < count($arrUrl); $i++) {
+                $params .= $arrUrl[$i].',';
+            }
+            $params = trim($params,','); // Elimina la última coma
+            //echo $params;
+        }
+    }
+
+
+    require_once("Libraries/Core/Autoload.php");
+    require_once("Libraries/Core/Load.php");
+
+?>
