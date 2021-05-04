@@ -15,6 +15,12 @@
         return $format;
     }
 
+    function getModal(string $nameModal, $data)
+    {
+        $viewModal= "Views/modals/{$nameModal}.php";
+        require_once $viewModal;
+    }
+
     function token()
     {
         $section1 = bin2hex(random_bytes(10));
