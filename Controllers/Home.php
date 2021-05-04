@@ -16,37 +16,37 @@
             $this->views->getView($this,"home", $data);
         }
 
-        public function insertar() {
-            $data = $this->model->setUser("thelior",md5('1234'),"Elio","Camison","email@email.com","699000000");
-            print_r($data);
-        }
-
-        public function verusuario($id)
-        {
-            $data = $this->model->getUser($id);
-            print_r($data);
-        }
-
-        public function actualizar()
-        {
-            $data = $this->model->updateUser(5,"Marta");
-            print_r($data);
-        }
-
-        public function verusuarios()
-        {
-            $data = $this->model->getUsers();
-            echo "<pre>";
-            print_r($data);
-            echo "</pre>";
-        }
-
-        public function eliminarUsuario($id)
-        {
-            $data = $this->model->deleteUser($id);
-            print_r($data);
-
-        }
+//        public function insertar() {
+//            $data = $this->model->setUser("thelior",md5('1234'),"Elio","Camison","email@email.com","699000000");
+//            print_r($data);
+//        }
+//
+//        public function verusuario($id)
+//        {
+//            $data = $this->model->getUser($id);
+//            print_r($data);
+//        }
+//
+//        public function actualizar()
+//        {
+//            $data = $this->model->updateUser(5,"Marta");
+//            print_r($data);
+//        }
+//
+//        public function verusuarios()
+//        {
+//            $data = $this->model->getUsers();
+//            echo "<pre>";
+//            print_r($data);
+//            echo "</pre>";
+//        }
+//
+//        public function eliminarUsuario($id)
+//        {
+//            $data = $this->model->deleteUser($id);
+//            print_r($data);
+//
+//        }
 
     }
 
