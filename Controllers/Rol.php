@@ -21,8 +21,79 @@
         public function getRoles(){
             $arrData = $this->model->getRoles();
 
-            dep($arrData);
+            echo json_encode($arrData, JSON_UNESCAPED_UNICODE);
+            die();
         }
+
+
+        public function createRol() {
+
+            if(isset( $_POST) && !empty($_POST)) {
+
+                foreach ($_POST as $key => $value) {
+
+                    $$key = addslashes($value);
+                }
+                $requestRol = $this->model->insertRol($_POST['name']);
+
+                if ($requestRol > 0) {
+                      $arrResponse = array('success'=>true,'message'=>'Se ha creado un rol correctametne');
+                } else if ($requestRol == "exit"){
+                      $arrResponse = array('success'=>false,'message'=>'Ha ocurrido un error');
+                } else {
+                      $arrResponse = array('success'=>false,'message'=>'Ha ocurrido un error');
+                }
+
+                echo json_encode($arrResponse,JSON_UNESCAPED_UNICODE);
+                die();
+            }
+
+        }
+
+
+        public function editRol($rolId) {
+
+//            echo $_GET;
+//            $rolId="";
+            if(isset( $rolId) && !empty($rolId)) {
+
+                $requestRol = $this->model->getRol($rolId);
+
+//                if ($requestRol > 0) {
+//                    $arrResponse = array('success'=>true,'message'=>'Se ha creado un rol correctametne');
+//                } else if ($requestRol == "exit"){
+//                    $arrResponse = array('success'=>false,'message'=>'Ha ocurrido un error');
+//                } else {
+//                    $arrResponse = array('success'=>false,'message'=>'Ha ocurrido un error');
+//                }
+            }
+
+            echo json_encode(array('success'=>true,'rol'=>$requestRol),JSON_UNESCAPED_UNICODE);
+            die();
+
+//            if(isset( $_POST) && !empty($_POST)) {
+//
+//                foreach ($_POST as $key => $value) {
+//
+//                    $$key = addslashes($value);
+//                }
+//                $requestRol = $this->model->insertRol($_POST['name']);
+//
+//                if ($requestRol > 0) {
+//                    $arrResponse = array('success'=>true,'message'=>'Se ha creado un rol correctametne');
+//                } else if ($requestRol == "exit"){
+//                    $arrResponse = array('success'=>false,'message'=>'Ha ocurrido un error');
+//                } else {
+//                    $arrResponse = array('success'=>false,'message'=>'Ha ocurrido un error');
+//                }
+//
+//                echo json_encode($arrResponse,JSON_UNESCAPED_UNICODE);
+//                die();
+//            }
+
+        }
+
+
 //
 //        public function insertar()
 //        {

@@ -3,20 +3,48 @@
 
     class rolModel extends Mysql
     {
+        private $id;
+        private $name;
 
         public function __construct()
         {
             parent::__construct();
         }
 
-//        public function setUser(string $username, string $password, string $name, string $surname, string $email,
-//                                string $phone)
-//        {
-//            $queryInsert = "INSERT INTO USER(username, pswd, name, surname, email, phone) VALUES(?,?,?,?,?,?)";
-//            $arrData = array($username, $password, $name, $surname, $email, $phone);
-//            $requestInsert = $this->insert($queryInsert, $arrData);
-//            return $requestInsert;
-//        }
+        public function getRoles()
+        {
+            $query = "SELECT * FROM ROL";
+            $result = $this->selectAll($query);
+            return $result;
+        }
+
+        public function getRol($id)
+        {
+            $query = "SELECT * FROM ROL WHERE id =" . $id;
+            $result = $this->select($query);
+            return $result;
+        }
+
+        public function insertRol(string $name)
+        {
+            $response = "";
+            $this->name = $name;
+
+            $query = "SELECT * FROM ROL WHERE name = '{$this->name}'";
+            $result = $this->selectAll($query);
+
+            if(empty($result)) {
+                $queryInsert = "INSERT INTO ROL(name) VALUES(?)";
+                $arrData = array($this->name);
+                $requestInsert = $this->insert($queryInsert, $arrData);
+                $response .= $requestInsert;
+            } else {
+                $response .= "exit";
+            }
+            return $response;
+        }
+
+
 //
 //
 //        public function getUser($id)
@@ -34,12 +62,6 @@
 //            return $requestUpdate;
 //        }
 
-        public function getRoles()
-        {
-            $query = "SELECT * FROM ROL";
-            $result = $this->selectAll($query);
-            return $result;
-        }
 
 //        public function deleteUser($id)
 //        {
