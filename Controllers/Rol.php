@@ -1,16 +1,13 @@
 <?php
 
 
-    class Rol extends Controllers
-    {
-        public function __construct()
-        {
-            parent::__construct();
+    class Rol extends Controllers {
 
+        public function __construct() {
+            parent::__construct();
         }
 
-        public function Rol()
-        {
+        public function Rol() {
             $data['page_id'] = 3;
             $data['tag_page'] = "Roles de usuario";
             $data['page_title'] = "Roles usuario";
@@ -18,7 +15,7 @@
             $this->views->getView($this, "rol", $data);
         }
 
-        public function getRoles(){
+        public function getRoles() {
             $arrData = $this->model->getRoles();
 
             echo json_encode($arrData, JSON_UNESCAPED_UNICODE);
@@ -26,20 +23,27 @@
         }
 
 
-        public function createRol() {
+        public function setRol() {
 
             if(isset( $_POST) && !empty($_POST)) {
 
+                $is_active = "";
                 foreach ($_POST as $key => $value) {
-
                     $$key = addslashes($value);
                 }
-                $requestRol = $this->model->insertRol($_POST['name']);
+
+                $is_active =  $is_active == "on" ? 1 : 0;
+
+                if($rolId) {
+                    $requestRol = $this->model->updateRol($rolId, $name, $description, $is_active);
+                } else {
+                    $requestRol = $this->model->insertRol($name, $description, $is_active);
+                }
 
                 if ($requestRol > 0) {
                       $arrResponse = array('success'=>true,'message'=>'Se ha creado un rol correctametne');
-                } else if ($requestRol == "exit"){
-                      $arrResponse = array('success'=>false,'message'=>'Ha ocurrido un error');
+                } else if ($requestRol == "updated") {
+                      $arrResponse = array('success'=>true,'message'=>'Se ha actualizado el rol correctamente');
                 } else {
                       $arrResponse = array('success'=>false,'message'=>'Ha ocurrido un error');
                 }
@@ -47,88 +51,44 @@
                 echo json_encode($arrResponse,JSON_UNESCAPED_UNICODE);
                 die();
             }
-
         }
 
 
-        public function editRol($rolId) {
+        public function editRol(int $rolId) {
 
-//            echo $_GET;
-//            $rolId="";
             if(isset( $rolId) && !empty($rolId)) {
 
                 $requestRol = $this->model->getRol($rolId);
 
-//                if ($requestRol > 0) {
-//                    $arrResponse = array('success'=>true,'message'=>'Se ha creado un rol correctametne');
-//                } else if ($requestRol == "exit"){
-//                    $arrResponse = array('success'=>false,'message'=>'Ha ocurrido un error');
-//                } else {
-//                    $arrResponse = array('success'=>false,'message'=>'Ha ocurrido un error');
-//                }
+                if ($requestRol > 0) {
+                    $arrResponse = array('success'=>true,
+                                         'rol' => $requestRol,
+                                         'message'=>'Se ha creado un rol correctametne');
+                } else if ($requestRol == "exit"){
+                    $arrResponse = array('success'=>false,'message'=>'Ha ocurrido un error');
+                } else {
+                    $arrResponse = array('success'=>false,'message'=>'Ha ocurrido un error');
+                }
+
+            }
+            echo json_encode($arrResponse,JSON_UNESCAPED_UNICODE);
+            die();
+        }
+
+        public function deleteRol(int $rolId) {
+            $data = $this->model->deleteRol($rolId);
+
+            if ($data){
+                $arrResponse = array("success" => true,"message"=>"Rol eliminado correctamente");
+            } else {
+                $arrResponse = array("success" => false,"message"=>"Ha ocurrido un error");
             }
 
-            echo json_encode(array('success'=>true,'rol'=>$requestRol),JSON_UNESCAPED_UNICODE);
-            die();
-
-//            if(isset( $_POST) && !empty($_POST)) {
-//
-//                foreach ($_POST as $key => $value) {
-//
-//                    $$key = addslashes($value);
-//                }
-//                $requestRol = $this->model->insertRol($_POST['name']);
-//
-//                if ($requestRol > 0) {
-//                    $arrResponse = array('success'=>true,'message'=>'Se ha creado un rol correctametne');
-//                } else if ($requestRol == "exit"){
-//                    $arrResponse = array('success'=>false,'message'=>'Ha ocurrido un error');
-//                } else {
-//                    $arrResponse = array('success'=>false,'message'=>'Ha ocurrido un error');
-//                }
-//
-//                echo json_encode($arrResponse,JSON_UNESCAPED_UNICODE);
-//                die();
-//            }
+            echo json_encode($arrResponse,JSON_UNESCAPED_UNICODE);
 
         }
 
-
-//
-//        public function insertar()
-//        {
-//            $data = $this->model->setUser("thelior", md5('1234'), "Elio", "Camison", "email@email.com", "699000000");
-//            print_r($data);
-//        }
-//
-//        public function verusuario($id)
-//        {
-//            $data = $this->model->getUser($id);
-//            print_r($data);
-//        }
-//
-//        public function actualizar()
-//        {
-//            $data = $this->model->updateUser(5, "Marta");
-//            print_r($data);
-//        }
-//
-//        public function verusuarios()
-//        {
-//            $data = $this->model->getUsers();
-//            echo "<pre>";
-//            print_r($data);
-//            echo "</pre>";
-//        }
-//
-//        public function eliminarUsuario($id)
-//        {
-//            $data = $this->model->deleteUser($id);
-//            print_r($data);
-//
-//        }
-
-    }
+    } // fin clase ROL
 
 
 ?>

@@ -14,10 +14,8 @@ if(isset( $_POST) && !empty($_POST)) {
 
 
     $stmt = $pdo->prepare("SELECT * FROM user WHERE username = ? AND pswd = ?");
-//    var_dump($username, $pswd);
     $stmt->execute([$username, md5($pswd)]);
     $user = $stmt->fetch(PDO::FETCH_OBJ);
-    var_dump($user);
     if($user){
         $_SESSION['user']=$user;
         header("Location:http://localhost/tfg/constructalia/index.php");
