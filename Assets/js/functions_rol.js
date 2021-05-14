@@ -1,4 +1,5 @@
 let tableRoles;
+let tablePermissionRol;
 
 // TODO CAMBIAR LA URL
 // Autoinvoke, no confudir con jquery
@@ -13,11 +14,34 @@ let tableRoles;
         columns:[
             {title:"ID",data:"id"},
             {title:"Nombre",data:"name"},
+            {title:"Descripción",data:"description"},
+            {title:"Estado",data:"is_active",
+                render:function (data, type, row){
+                    let button = '';
+                    if(row.is_active == 0){
+                        button = '<span class="badge bg-danger" title="Estado inactivo">Inactivo</span>'
+                    } else {
+                        button = '<span class="badge bg-light text-dark" title="Estado activo">Activo</span>'
+                    }
+                    return button;
+                }
+            },
             {title:"Acciones", data:null,
                 render: function(data, type, row){
-                    return '<button type="button" onclick="editRol('+row.id+')" class="btn btn-success">Editar</button>' +
+                    return '<button type="button" onclick="editPermission('+row.id+')" ' +
+                                    'class="btn btn-outline-secondary" title="Editar permisos">' +
+                                    '<i class="far fa-id-card"></i>' +
+                           '</button>' +
                            '&nbsp'+
-                           '<button type="button" onclick="deleteRol('+row.id+')" class="btn btn-danger">Eliminar</button>'
+                           '<button type="button" onclick="editRol('+row.id+')" ' +
+                                    'class="btn btn-outline-dark" title="Editar rol">' +
+                                    '<i class="far fa-edit"></i>' +
+                           '</button>' +
+                           '&nbsp'+
+                           '<button type="button" onclick="deleteRol('+row.id+')" ' +
+                                    'class="btn btn-dark" title="Eliminar rol">' +
+                                    '<i class="fas fa-trash-alt"></i>' +
+                           '</button>'
                 }
             }
         ],
@@ -55,7 +79,7 @@ $(function (){
             // TODO la url debería de ser base_url
             $.ajax({
                 type: "POST",
-                url: 'http://localhost/tfg/constructalia/rol/createRol',
+                url: 'http://localhost/tfg/constructalia/rol/setRol',
                 dataType: "json",
                 data: $('#formRol').serialize(),
                 success: function(response) {
@@ -105,6 +129,7 @@ function editRol(rol_id) {
         response=JSON.parse(response);
         if(response.success) {
             $('#modalFormRol').modal('show');
+            $('#rol_id').val(response.rol.id)
             $('#modalLabelFormRol').text('Editar rol');
             $('#nombreRol').val(response.rol.name);
         }
@@ -112,6 +137,82 @@ function editRol(rol_id) {
 }
 
 function deleteRol(rol_id){
-    alert(rol_id)
+    bootbox.confirm({
+        message: "¿Seguro que quiere eliminar el rol?",
+        buttons: {
+            confirm: {
+                label: 'Confirmar',
+                className: 'btn-default'
+            },
+            cancel: {
+                label: 'Cancelar',
+                className: 'btn-dark'
+            }
+        },
+        callback: function (result) {
+
+            if(result) {
+                $.get( "http://localhost/tfg/constructalia/rol/deleteRol/"+ rol_id, function( response ) {
+                    response=JSON.parse(response);
+                    if(response.success) {
+                        tableRoles.ajax.reload();
+                        toastr.error(response.message);
+                    }
+                });
+            }
+
+        }
+    });
+}
+
+function editPermission(rol_id){
+    $.get( "http://localhost/tfg/constructalia/permission/getPermissionRol/"+rol_id, function( response ) {
+        $('#contentAjax').html(response)
+        $('#modalFormPermission').modal('show');
+    });
+}
+
+function savePermissionRol() {
+
+    $('#formPermissionRol').submit(function (e){
+        e.preventDefault();
+
+        let dataString = $('#formPermissionRol').serialize();
+        $.post( "http://localhost/tfg/constructalia/permission/setPermissions/",dataString, function( response ) {
+            response=JSON.parse(response);
+            if(response.success) {
+                $('#modalFormPermission').modal('hide');
+                toastr.success(response.message);
+            }
+        });
+    })
+}
+
+function removeAllPermissions(){
+    bootbox.confirm({
+        message: "¿Seguro que quiere retirar todos los permisos al rol?",
+        buttons: {
+            confirm: {
+                label: 'Confirmar',
+                className: 'btn-default'
+            },
+            cancel: {
+                label: 'Cancelar',
+                className: 'btn-dark'
+            }
+        },
+        callback: function (result) {
+            if(result) {
+                let rolId = $('#rolId').val()
+                $.get( "http://localhost/tfg/constructalia/permission/removeAllPermissons/"+ rolId, function( response ) {
+                    response=JSON.parse(response);
+                    if(response.success) {
+                        $('#modalFormPermission').modal('hide');
+                        toastr.error(response.message);
+                    }
+                });
+            }
+        }
+    });
 }
 

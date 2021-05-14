@@ -14,7 +14,7 @@
 
 
     <!-- FontAwesome   -->
-    <!--<link rel="stylesheet" href="./assets/font-awesome/css/font-awesome.min.css">-->
+    <script src="./../Assets/plugins/awesome/awesome.js"></script>
 
     <!-- Bootstrap -->
     <link rel="stylesheet" href="./../Assets/css/bootstrap.min.css" type="text/css" media="screen" />
@@ -24,6 +24,10 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel="stylesheet" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 
+    <!--  Bootbox  -->
+    <script src="./../Assets/plugins/bootbox/bootbox.min.js"></script>
+    <script src="./../Assets/plugins/bootbox/bootbox.locales.js"></script>
+
     <!-- DataTables -->
     <link rel="stylesheet" type="text/css" href="./../Assets/plugins/DataTables1.10.24/css/jquery.dataTables.css" media="screen"/>
     <script type="text/javascript" src="./../Assets/plugins/DataTables1.10.24/js/jquery.dataTables.js"></script>
@@ -32,12 +36,12 @@
 
 </head>
 <body>
-
     <h1>
         <?php echo $data['tag_page']?>
-        <button type="button" class="btn btn-primary" onclick="openModal();">Añadir un rol</button>
+        <button type="button" class="btn btn btn-outline-dark" title="Crear un rol" onclick="openModal();">Añadir un rol</button>
     </h1>
 
+    <div id="contentAjax"></div>
     <div class="row">
         <div class="col-md-12">
             <div class="table-responsive">

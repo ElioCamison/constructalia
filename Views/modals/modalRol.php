@@ -7,9 +7,18 @@
             </div>
             <div class="modal-body">
                 <form id="formRol" name="formRol">
+                    <input id="rol_id" name="rolId" hidden>
                     <div class="mb-3">
                         <label for="nombreRol" class="col-form-label">Nombre</label>
                         <input type="text" class="form-control" id="nombreRol" name="name" autocomplete="off" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="descriptionRol" class="col-form-label">Descripción</label>
+                        <textarea class="form-control" id="descriptionRol" name="description" maxlength="100"></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <label class="custom-control-label" for="is_activeRol">Activo</label>
+                        <input type="checkbox" class="custom-control-input" id="is_activeRol" name="is_active">
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
