@@ -1,3 +1,4 @@
+<?php getModal('modalBuildingSite',$data); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -53,6 +54,7 @@
 </header>
 <h1>
     <?php echo $data['page_title']?>
+    <button type="button" class="btn btn btn-outline-dark" title="Añadir obra" onclick="openModal();">Añadir una obra</button>
 </h1>
 <div class="row" >
     <div class="col-md-2">
@@ -102,6 +104,17 @@
             </ul>
             <hr>
         </div>
+    </div>
+    <div class="col-md-10" >
+        <section>
+            <div class="row">
+                <div class="col-md-11">
+                    <div class="table-responsive">
+                        <table class="table table-hover table-bordered" id="table-buildingSite"></table>
+                    </div>
+                </div>
+            </div>
+        </section>
     </div>
 </div>
 <!-- BEGIN FOOTER -->

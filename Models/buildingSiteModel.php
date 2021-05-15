@@ -7,11 +7,25 @@ class buildingSiteModel extends Mysql {
     private $name;
     private $description;
     private $responsible;
-    private $machinery;
     private $is_active = false;
 
     public function __construct() {
         parent::__construct();
+    }
+
+    public function getBuildingSites() {
+        $query = "SELECT 
+                  building_site.id, 
+                  building_site.code, 
+                  building_site.name,                    
+                  building_site.description,
+                  building_site.is_active,                     
+                  concat(user.name,' ',user.surname) AS responsible                  
+                  FROM BUILDING_SITE 
+                  INNER JOIN USER 
+                  	ON building_site.responsible = user.id";
+        $result = $this->selectAll($query);
+        return $result;
     }
 
 
