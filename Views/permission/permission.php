@@ -1,1 +1,0 @@
-<table class="table table-hover table-bordered" id="table-rol"></table>

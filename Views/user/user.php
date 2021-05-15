@@ -1,4 +1,4 @@
-<?php getModal('modalRol',$data); ?>
+<?php getModal('modalUser',$data); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -28,6 +28,7 @@
     <script src="http://localhost/tfg/constructalia/Assets/plugins/bootbox/bootbox.min.js"></script>
     <script src="http://localhost/tfg/constructalia/Assets/plugins/bootbox/bootbox.locales.js"></script>
 
+
     <!-- DataTables -->
     <link rel="stylesheet" type="text/css" href="http://localhost/tfg/constructalia/Assets/plugins/DataTables1.10.24/css/jquery.dataTables.css" media="screen"/>
     <script type="text/javascript" src="http://localhost/tfg/constructalia/Assets/plugins/DataTables1.10.24/js/jquery.dataTables.js"></script>
@@ -51,62 +52,60 @@
         </ul>
     </div>
 </header>
-    <h1>
-        <?php echo $data['tag_page']?>
-        <button type="button" class="btn btn btn-outline-dark" title="Crear un rol" onclick="openModal();">Añadir un rol</button>
-    </h1>
-    <div class="row" >
-        <div class="col-md-2">
-            <div class="d-flex flex-column flex-shrink-0 p-3 text-white" style="width: 280px;background-color: #0a53be">
-                <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
-                    <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"></use></svg>
-                    <span class="fs-4">Constructalia</span>
-                </a>
-                <hr>
-                <ul class="nav nav-pills flex-column mb-auto">
-                    <li class="nav-item">
-                        <a href="http://localhost/tfg/constructalia/home" class="nav-link active" aria-current="page">
-                            <svg class="bi me-2" width="16" height="16"><use xlink:href="#home"></use></svg>
-                            Home
-                        </a>
-                    </li>
-                    <li>
-                        <a href="http://localhost/tfg/constructalia/rol" class="nav-link text-white" title="Roles de usuario">
-                            <svg class="bi me-2" width="16" height="16"><use xlink:href="#speedometer2"></use></svg>
-                            Roles
-                        </a>
-                    </li>
-                    <li>
-                        <a href="http://localhost/tfg/constructalia/user" class="nav-link text-white" title="Usuarios">
-                            <svg class="bi me-2" width="16" height="16"><use xlink:href="#table"></use></svg>
-                            Usuarios
-                        </a>
-                    </li>
-                </ul>
-                <hr>
-            </div>
-        </div>
-        <div class="col-md-10" >
-            <section>
-                <div id="contentAjax"></div>
-                <div class="row">
-                    <div class="col-md-11">
-                        <div class="table-responsive">
-                            <table class="table table-hover table-bordered" id="table-rol"></table>
-                        </div>
-                    </div>
-                </div>
-            </section>
+<h1>
+    <?php echo $data['page_title']?>
+        <button type="button" class="btn btn btn-outline-dark" title="Crear un rol" onclick="openModal();">Añadir un usuario</button>
+</h1>
+<div class="row" >
+    <div class="col-md-2">
+        <div class="d-flex flex-column flex-shrink-0 p-3 text-white" style="width: 280px;background-color: #0a53be">
+            <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+                <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"></use></svg>
+                <span class="fs-4">Sidebar</span>
+            </a>
+            <hr>
+            <ul class="nav nav-pills flex-column mb-auto">
+                <li class="nav-item">
+                    <a href="http://localhost/tfg/constructalia/home" class="nav-link active" aria-current="page">
+                        <svg class="bi me-2" width="16" height="16"><use xlink:href="#home"></use></svg>
+                        Home
+                    </a>
+                </li>
+                <li>
+                    <a href="http://localhost/tfg/constructalia/rol" class="nav-link text-white" title="Roles de usuario">
+                        <svg class="bi me-2" width="16" height="16"><use xlink:href="#speedometer2"></use></svg>
+                        Roles
+                    </a>
+                </li>
+                <li>
+                    <a href="http://localhost/tfg/constructalia/user" class="nav-link text-white" title="Usuarios">
+                        <svg class="bi me-2" width="16" height="16"><use xlink:href="#table"></use></svg>
+                        Usuarios
+                    </a>
+                </li>
+            </ul>
+            <hr>
         </div>
     </div>
-    <!-- BEGIN FOOTER -->
-    <footer>
-        <div>
-            <p><a class="custom-footer" href="mailto:eliocamison@gmail.com">eliocamison@gmail.com</a></p>
-        </div>
-    </footer>
-    <!-- END FOOTER -->
-
+    <div class="col-md-10" >
+        <section>
+            <div class="row">
+                <div class="col-md-11">
+                    <div class="table-responsive">
+                        <table class="table table-hover table-bordered" id="table-user"></table>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
+<!-- BEGIN FOOTER -->
+<footer>
+    <div>
+        <p><a class="custom-footer" href="mailto:eliocamison@gmail.com">eliocamison@gmail.com</a></p>
+    </div>
+</footer>
+<!-- END FOOTER -->
 </body>
 </html>
-<script  src="http://localhost/tfg/constructalia/Assets/js/functions_rol.js"></script>
+<script  src="http://localhost/tfg/constructalia/Assets/js/functions_user.js"></script>
