@@ -83,10 +83,10 @@ INSERT INTO USER(username, pswd, name, surname, email, phone, rol) VALUES ('supe
                                                     
 
 
-# Tablas del modelo Machinery
+# Tablas del modelo machineryModel
 # -------------------
 
-# Tabla Warehouse
+# Tabla warehouseModel
 CREATE TABLE IF NOT EXISTS WAREHOUSE(
 	id INT AUTO_INCREMENT UNIQUE PRIMARY KEY,
     name VARCHAR(100),
@@ -94,7 +94,7 @@ CREATE TABLE IF NOT EXISTS WAREHOUSE(
 );
 
 
-# Tabla Ubication
+# Tabla ubicationModel
 CREATE TABLE IF NOT EXISTS UBICATION(
 	id INT AUTO_INCREMENT UNIQUE PRIMARY KEY,
     warehouse int,
@@ -104,14 +104,14 @@ CREATE TABLE IF NOT EXISTS UBICATION(
 
 
 
-# Tabla Machinery Family
+# Tabla machineryModel Family
 CREATE TABLE IF NOT EXISTS MACHINERY_FAMILY(
 	id INT AUTO_INCREMENT UNIQUE PRIMARY KEY,
     name VARCHAR(250) NOT NULL
 );
 
 
-# Tabla Machinery
+# Tabla machineryModel
 CREATE TABLE IF NOT EXISTS MACHINERY(
 	id INT AUTO_INCREMENT UNIQUE PRIMARY KEY,
     code VARCHAR(50) NOT NULL,
@@ -129,7 +129,7 @@ CREATE TABLE IF NOT EXISTS MACHINERY(
 
 
 
-# Tablas del modelo BuildingSite
+# Tablas del modelo buildingSiteModel
 # -------------------
 
 # Tabla Building Site
@@ -146,7 +146,7 @@ CREATE TABLE IF NOT EXISTS BUILDING_SITE(
 );
 
 
-# FK de la tabla Building Site a Ubication
+# FK de la tabla Building Site a ubicationModel
 ALTER TABLE UBICATION ADD FOREIGN KEY (building_site) REFERENCES BUILDING_SITE(id);
 
 
