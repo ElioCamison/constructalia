@@ -145,6 +145,28 @@ function getSelectRols(){
 }
 
 function editUser(user_id){
+    $.get( "http://localhost/tfg/constructalia/user/getUser/"+ user_id, function( response ) {
+        response = JSON.parse(response);
+        if(response.success){
+            let userInfo = response.userInfo;
+            $('#modalFormUser').modal('show');
+            $('#user_id').val(userInfo.id);
 
+            // TODO Editar credenciales en otro form
+            $('.nick').hide();
+            $('.pswd').hide();
+
+            // Resto de campos
+            $('#user_name').val(userInfo.name);
+            $('#user_surname').val(userInfo.surname);
+            $('#user_email').val(userInfo.email);
+            $('#user_phone').val(userInfo.phone);
+            $('#user_state').val(userInfo.is_active);
+            //TODO Marcar selected
+            $('#user_rol').val(userInfo.rol);
+        }else{
+            toastr.error(response.message);
+        }
+    });
 }
 

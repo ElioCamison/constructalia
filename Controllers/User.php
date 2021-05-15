@@ -52,7 +52,7 @@ class User extends Controllers {
             $is_active =  $is_active == "on" ? 1 : 0;
 
             if($userId) {
-                $requestUser = $this->model->updateUser($nick,$pswd,$name,$surname,$email,$phone,$is_active,$rol);
+                $requestUser = $this->model->updateUser($userId,$name,$surname,$email,$phone,$is_active,$rol);
             } else {
                 $requestUser = $this->model->insertUser($nick,$pswd,$name,$surname,$email,$phone,$is_active,$rol);
             }

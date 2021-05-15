@@ -48,9 +48,9 @@ class userModel extends Mysql
     }
 
 
-    public function updateUser($rolId, $name, $description, $is_active) {
-        $queryUpdate = "UPDATE ROL SET name = ?, description = ?, is_active = ? WHERE id = ".$rolId;
-        $arrData = array($name, $description, $is_active);
+    public function updateUser($id,$name,$surname,$email,$phone,$is_active,$rol) {
+        $queryUpdate = "UPDATE USER SET name = ?, surname = ?, email = ?, phone = ?, is_active = ?, rol = ? WHERE id = ".$id;
+        $arrData = array($name,$surname,$email,$phone,$is_active,$rol);
         $requestUpdate = $this->update($queryUpdate, $arrData);
 
         return $requestUpdate == "1" ? "updated" : 0;
@@ -83,14 +83,17 @@ class userModel extends Mysql
         $this->id = $id;
         $query = "SELECT user.id,
                   	     user.username,
+                         user.name,
+                         user.surname,
                          concat(user.name,' ',user.surname) AS full_name,
                          user.email,
                          user.phone,
-                         user.is_active, 
+                         user.is_active,
+                         user.rol,    
                          rol.name AS rol_name
                   FROM user 
                   INNER JOIN rol ON user.rol = rol.id 
-                  WHERE user.rol =".$id;
+                  WHERE user.id =".$id;
         $result = $this->select($query);
         return $result;
     }

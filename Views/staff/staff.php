@@ -1,4 +1,3 @@
-<?php getModal('modalUser',$data); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title><?php echo $data['page_title']?></title>
     <meta content="Elio Camisón Costa" name="author" />
-    <meta content="Users" name="description" />
+    <meta content="Staff" name="description" />
 
     <!-- jQuery  -->
     <script src="http://localhost/tfg/constructalia/Assets/js/jquery_3.6.0.js"></script>
@@ -27,7 +26,6 @@
     <!--  Bootbox  -->
     <script src="http://localhost/tfg/constructalia/Assets/plugins/bootbox/bootbox.min.js"></script>
     <script src="http://localhost/tfg/constructalia/Assets/plugins/bootbox/bootbox.locales.js"></script>
-
 
     <!-- DataTables -->
     <link rel="stylesheet" type="text/css" href="http://localhost/tfg/constructalia/Assets/plugins/DataTables1.10.24/css/jquery.dataTables.css" media="screen"/>
@@ -53,8 +51,7 @@
     </div>
 </header>
 <h1>
-    <?php echo $data['page_title']?>
-        <button type="button" class="btn btn btn-outline-dark" title="Crear un rol" onclick="openModal();">Añadir un usuario</button>
+    <?php echo $data['tag_page']?>
 </h1>
 <div class="row" >
     <div class="col-md-2">
@@ -93,17 +90,6 @@
             <hr>
         </div>
     </div>
-    <div class="col-md-10" >
-        <section>
-            <div class="row">
-                <div class="col-md-11">
-                    <div class="table-responsive">
-                        <table class="table table-hover table-bordered" id="table-user"></table>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </div>
 </div>
 <!-- BEGIN FOOTER -->
 <footer>
@@ -112,6 +98,7 @@
     </div>
 </footer>
 <!-- END FOOTER -->
+
 </body>
 </html>
-<script  src="http://localhost/tfg/constructalia/Assets/js/functions_user.js"></script>
+<script  src="http://localhost/tfg/constructalia/Assets/js/functions_staff.js"></script>

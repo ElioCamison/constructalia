@@ -2,58 +2,63 @@
     <div class="modal-dialog modal-xl">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="modalLabelFormUser"></h5>
+                <h5 class="modal-title" id="modalLabelFormUser">Nuevo usuario</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
                 <form id="formUser" name="formUser">
                     <input id="user_id" name="userId" hidden>
-                    <div class="form-row" id="user_profile">
-                        <div class="form-group col-md-4">
-                            <label for="user_nick">Nombre de usuario</label>
-                            <input type="text" class="form-control" id="user_nick" name="nick" placeholder="Nombre">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-row">
+                                <div class="form-group nick" >
+                                    <label for="user_nick">Nombre de usuario</label>
+                                    <input type="text" class="form-control" id="user_nick" name="nick" placeholder="Nombre" autocomplete="off">
+                                </div>
+                                <div class="form-group">
+                                    <label for="user_name">Nombre</label>
+                                    <input type="text" class="form-control" id="user_name" name="name" placeholder="Nombre" autocomplete="off">
+                                </div>
+                                <div class="form-group">
+                                    <label for="user_email">Email</label>
+                                    <input type="email" class="form-control" id="user_email" name="email" placeholder="ejemplo@ejemplo.com" autocomplete="off">
+                                </div>
+                                <div class="form-group">
+                                    <label for="user_rol">Rol de usuario</label>
+                                    <select id="user_rol" name="rol" class="form-control"></select>
+                                </div>
+                            </div>
                         </div>
-                        <div class="form-group col-md-4">
-                            <label for="user_pswd">Contraseña</label>
-                            <input type="password" class="form-control" id="user_pswd" name="pswd" placeholder="Contraseña">
-                        </div>
-                        <div class="form-group col-md-4">
-                            <label for="user_rol">Rol de usuario</label>
-                            <select id="user_rol" name="rol" class="form-control">
-                            </select>
+                        <div class="col-md-6">
+                            <div class="form-row">
+                                <div class="form-group pswd">
+                                    <label for="user_pswd">Contraseña</label>
+                                    <input type="password" class="form-control" id="user_pswd" name="pswd" placeholder="Contraseña" autocomplete="off">
+                                </div>
+                                <div class="form-group">
+                                    <label for="user_surname">Apellidos</label>
+                                    <input type="text" class="form-control" id="user_surname" name="surname" placeholder="Apellidos" autocomplete="off">
+                                </div>
+                                <div class="form-group">
+                                    <label for="user_phone">Teléfono</label>
+                                    <input type="tel" class="form-control" id="user_phone" name="phone" autocomplete="off">
+                                </div>
+                                <div class="form-group">
+                                    <label for="user_state">Estado</label>
+                                    <select id="user_state" name="state" class="form-control">
+                                        <option value="" selected>------</option>
+                                        <option value="1">Activo</option>
+                                        <option value="0">Inactivo</option>
+                                    </select>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <div class="form-row">
-                        <div class="form-group col-md-6">
-                            <label for="user_name">Nombre</label>
-                            <input type="text" class="form-control" id="user_name" name="name" placeholder="Nombre">
+                    <div class="row">
+                        <div class="modal-footer">
+                            <button type="submit" id="userSave" class="btn btn-primary">Guardar</button>
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
                         </div>
-                        <div class="form-group col-md-6">
-                            <label for="user_surname">Apellidos</label>
-                            <input type="text" class="form-control" id="user_surname" name="surname" placeholder="Apellidos">
-                        </div>
-                    </div>
-                    <div class="form-row">
-                        <div class="form-group col-md-6">
-                            <label for="user_email">Email</label>
-                            <input type="email" class="form-control" id="user_email" name="email" placeholder="ejemplo@ejemplo.com">
-                        </div>
-                        <div class="form-group col-md-2">
-                            <label for="user_phone">Teléfono</label>
-                            <input type="tel" class="form-control" id="user_phone" name="phone">
-                        </div>
-                        <div class="form-group col-md-4">
-                            <label for="user_state">Estado</label>
-                            <select id="user_state" name="state" class="form-control">
-                                <option value="" selected>------</option>
-                                <option value="1">Activo</option>
-                                <option value="0">Inactivo</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                        <button type="submit" class="btn btn-primary">Guardar</button>
                     </div>
                 </form>
             </div>
@@ -73,7 +78,7 @@
                 <input id="userInfoId" name="userInfoId" hidden>
                 <div class="row">
                     <div class="col-md-6">
-                        <div class="form-row" id="user_profile">
+                        <div class="form-row">
                             <div class="form-group">
                                 <label for="userInfo_fullName">Nombre completo</label>
                                 <input type="text" class="form-control" id="userInfo_fullName" readonly>
