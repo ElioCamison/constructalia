@@ -1,6 +1,6 @@
 <?php
 
-class MaterialModel extends Mysql {
+class materialModel extends Mysql {
 
     private $id;
     private $name;
@@ -14,6 +14,6 @@ class MaterialModel extends Mysql {
     }
 
 
-}// fin clase MaterialModel
+}// fin clase materialModel
 
 ?>

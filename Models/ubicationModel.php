@@ -1,6 +1,6 @@
 <?php
 
-class UbicationModel extends Mysql {
+class ubicationModel extends Mysql {
 
     private $id;
     private $warehouse;
@@ -10,4 +10,4 @@ class UbicationModel extends Mysql {
         parent::__construct();
     }
 
-}// fin clase UbicationModel
+}// fin clase ubicationModel

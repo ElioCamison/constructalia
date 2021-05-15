@@ -1,6 +1,6 @@
 <?php
 
-class CompanyModel extends Mysql {
+class companyModel extends Mysql {
 
     private $id;
     private $name;
@@ -12,6 +12,6 @@ class CompanyModel extends Mysql {
     }
 
 
-}// fin clase CompanyModel
+}// fin clase companyModel
 
 ?>

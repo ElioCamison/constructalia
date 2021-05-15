@@ -7,7 +7,6 @@ class Staff extends Controllers {
 
     }
 
-
     public function Staff() {
         $data['tag_page'] = "Personal propio";
         $data['page_title'] = "Personal propio";

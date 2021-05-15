@@ -1,6 +1,6 @@
 <?php
 
-class TruckModel extends Mysql {
+class truckModel extends Mysql {
 
     private $id;
     private $name;
@@ -12,6 +12,6 @@ class TruckModel extends Mysql {
     }
 
 
-}// fin clase TruckModel
+}// fin clase truckModel
 
 ?>

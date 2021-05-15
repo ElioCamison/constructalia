@@ -1,6 +1,6 @@
 <?php
 
-class DocumentationTypeModel extends Mysql {
+class documentationTypeModel extends Mysql {
 
     private $id;
     private $name;
@@ -11,6 +11,6 @@ class DocumentationTypeModel extends Mysql {
     }
 
 
-}// fin clase DocumentationTypeModel
+}// fin clase documentationTypeModel
 
 ?>

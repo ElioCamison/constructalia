@@ -5,10 +5,9 @@ class staffModel extends Mysql
 
     private $id;
     private $name;
+    private $surname;
     private $dni;
     private $description;
-    private $responsible;
-    private $machinery;
     private $medical_examination;
     private $state;
     private $has_epi;
@@ -20,6 +19,6 @@ class staffModel extends Mysql
         parent::__construct();
     }
 
-} // fin clase Staff
+} // fin clase staffModel
 
 ?>
