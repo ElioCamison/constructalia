@@ -34,7 +34,7 @@
             $result = $this->selectAll($query);
 
             if(empty($result)) {
-                $queryInsert = "INSERT INTO ROL(name,description,is_Active) VALUES(?,?,?)";
+                $queryInsert = "INSERT INTO ROL(name,description,is_active) VALUES(?,?,?)";
                 $arrData = array($this->name,$this->description,$this->is_active);
                 $requestInsert = $this->insert($queryInsert, $arrData);
                 $response .= $requestInsert;
