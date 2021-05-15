@@ -60,7 +60,7 @@
             <div class="d-flex flex-column flex-shrink-0 p-3 text-white" style="width: 280px;background-color: #0a53be">
                 <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
                     <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"></use></svg>
-                    <span class="fs-4">Constructalia</span>
+                    <span class="fs-4">Menú</span>
                 </a>
                 <hr>
                 <ul class="nav nav-pills flex-column mb-auto">
@@ -80,6 +80,12 @@
                         <a href="http://localhost/tfg/constructalia/user" class="nav-link text-white" title="Usuarios">
                             <svg class="bi me-2" width="16" height="16"><use xlink:href="#table"></use></svg>
                             Usuarios
+                        </a>
+                    </li>
+                    <li>
+                        <a href="http://localhost/tfg/constructalia/staff" class="nav-link text-white" title="Personal">
+                            <svg class="bi me-2" width="16" height="16"><use xlink:href="#table"></use></svg>
+                            Personal
                         </a>
                     </li>
                 </ul>
