@@ -1,4 +1,4 @@
-let tableUser;
+let tableStaff;
 function openModal() {
     $('#modalFormStaff').modal('show');
 }
@@ -9,53 +9,40 @@ $(function (){
         processing:true,
         serverSide: true,
         ajax:{
-            url: "http://localhost/tfg/constructalia/user/getUsers",
+            url: "http://localhost/tfg/constructalia/staff/getStaff",
             dataSrc:''
         },
         columns:[
             {title:"ID",data:"id", visible:false},
-            {title:"Nombre de usuario",data:"username"},
-            {title:"Nombre",data:"name",
-                // TODO Esto dará problemas con el buscador del dt
-                render:function (data, type, row) {
-                    return row.name + ' ' + row.surname;
-                }
-            },
-            {title:"Email",data:"email"},
+            {title:"Nombre",data:"name"},
+            {title:"Apellidos",data:"surname"},
             {title:"Teléfono",data:"phone"},
-            {title:"Rol",data:"rol",
-                render:function (data, type, row) {
-                    let name = "";
-                    // $.get( "http://localhost/tfg/constructalia/user/getRolNameByRolId/"+ row.rol, function( response ) {
-                    //     response=JSON.parse(response);
-                    //     if(response.success) {
-                    //         debugger
-                    //         name = response.rol_name;
-                    //     }
-                    // });
-                    // return name;
-                    return row.rol;
-                    // return getRolNameByRolId(row.rol)
-                }
-            },
-            {title:"Acciones", data:null,
+            {title:"DNI",data:"dni"},
+            {title:"EPI",data:"has_epi"},
+            {title:"Cita médica",data:"has_appointment"},
+            {title:"Recurso preventivo",data:"is_preventive_resource"},
+            {title:"Carnet de conducir",data:"has_driving_license"},
+            {title:"Estado",data:"username"},
+            {title:"Obra",data:"building_site_name"},
+            {title:"Categoria",data:"category_name"},
+            {title:"Acciones",data:null,
                 render: function(data, type, row){
-                    return '<button type="button" onclick="viewUser('+row.id+')" ' +
+                    return '<button type="button" onclick="viewStaff('+row.id+')" ' +
                         'class="btn btn-outline-dark" title="Consultar">' +
                         '<i class="fas fa-eye"></i>' +
                         '</button>' +
                         '&nbsp'+
-                        '<button type="button" onclick="editUser('+row.id+')" ' +
+                        '<button type="button" onclick="editStaff('+row.id+')" ' +
                         'class="btn btn-outline-dark" title="Editar usuario">' +
                         '<i class="far fa-edit"></i>' +
                         '</button>' +
                         '&nbsp'+
-                        '<button type="button" onclick="deleteUser('+row.id+')" ' +
+                        '<button type="button" onclick="deleteStaff('+row.id+')" ' +
                         'class="btn btn-dark" title="Eliminar usuario">' +
                         '<i class="fas fa-trash-alt"></i>' +
                         '</button>'
                 }
-            }
+            },
         ],
         language:{
             url: "https://cdn.datatables.net/plug-ins/1.10.24/i18n/Spanish.json"
@@ -80,6 +67,27 @@ $(function (){
     //
     //     });
     // });
-    //
-    // getSelectRols();
+
+    getSelectBuildingSite();
+    getSelectCategories();
 });
+
+function getSelectBuildingSite(){
+
+}
+
+function getSelectCategories(){
+
+}
+
+function viewStaff(){
+
+}
+
+function editStaff(){
+
+}
+
+function deleteStaff(){
+
+}

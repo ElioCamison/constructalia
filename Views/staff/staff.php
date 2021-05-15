@@ -1,3 +1,4 @@
+<?php getModal('modalStaff',$data); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -52,6 +53,7 @@
 </header>
 <h1>
     <?php echo $data['tag_page']?>
+    <button type="button" class="btn btn btn-outline-dark" title="Añadir personal propio" onclick="openModal();">Añadir un personal</button>
 </h1>
 <div class="row" >
     <div class="col-md-2">
@@ -92,7 +94,6 @@
     </div>
     <div class="col-md-10" >
         <section>
-            <div id="contentAjax"></div>
             <div class="row">
                 <div class="col-md-11">
                     <div class="table-responsive">

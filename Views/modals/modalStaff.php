@@ -15,9 +15,17 @@
                                     <label for="staff_name">Nombre</label>
                                     <input type="text" class="form-control" id="staff_name" name="name" placeholder="Nombre" autocomplete="off">
                                 </div>
+                                <div class="form-group" >
+                                    <label for="staff_phone">Teléfono</label>
+                                    <input type="tel" class="form-control" id="staff_phone" name="phone" placeholder="Teléfono" autocomplete="off">
+                                </div>
                                 <div class="form-group">
                                     <label for="staff_buildingSite">Obra</label>
                                     <select id="staff_buildingSite" name="buildingSite" class="form-control"></select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="staff_category">Categoria</label>
+                                    <select id="staff_category" name="category" class="form-control"></select>
                                 </div>
                                 <div class="form-group">
                                     <label for="staff_hasEpi">EPI</label>
@@ -26,10 +34,6 @@
                                 <div class="form-group">
                                     <label for="staff_hasDrivingLicense">Permiso de conducir</label>
                                     <input type="checkbox" id="staff_hasDrivingLicense" name="hasDrivingLicense">
-                                </div>
-                                <div class="form-group">
-                                    <label for="staff_isPreventiveResource">Recurso preventivo</label>
-                                    <input type="checkbox" id="staff_isPreventiveResource" name="isPreventiveResource">
                                 </div>
                                 <div class="form-group">
                                     <label for="staff_medicaExamination">Revisión médica</label>
@@ -48,6 +52,14 @@
                                     <input type="password" class="form-control" id="staff_dni" name="dni" placeholder="DNI/NIE/PASAPORTE" autocomplete="off">
                                 </div>
                                 <div class="form-group">
+                                    <label for="staff_state">Estado</label>
+                                    <select id="staff_state" name="state" class="form-control">
+                                        <option value="" selected>------</option>
+                                        <option value="1">Activo</option>
+                                        <option value="0">Inactivo</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
                                     <label for="staff_training">Formación</label>
                                     <select id="staff_training" name="training" class="form-control"></select>
                                 </div>
@@ -56,12 +68,8 @@
                                     <input type="checkbox" id="staff_hasAppointment" name="hasAppointment">
                                 </div>
                                 <div class="form-group">
-                                    <label for="staff_state">Estado</label>
-                                    <select id="staff_state" name="state" class="form-control">
-                                        <option value="" selected>------</option>
-                                        <option value="1">Activo</option>
-                                        <option value="0">Inactivo</option>
-                                    </select>
+                                    <label for="staff_isPreventiveResource">Recurso preventivo</label>
+                                    <input type="checkbox" id="staff_isPreventiveResource" name="isPreventiveResource">
                                 </div>
 
                             </div>

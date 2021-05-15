@@ -14,6 +14,13 @@ class Staff extends Controllers {
         $this->views->getView($this,"staff", $data);
     }
 
+    public function getStaff(){
+        $arrData = $this->model->getStaff();
+
+        echo json_encode($arrData, JSON_UNESCAPED_UNICODE);
+        die();
+    }
+
 
 }
 
