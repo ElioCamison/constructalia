@@ -1,6 +1,6 @@
 <?php
 
-class SupplierModel extends Mysql {
+class supplierModel extends Mysql {
 
     private $id;
     private $name;
@@ -14,6 +14,6 @@ class SupplierModel extends Mysql {
     }
 
 
-}// fin clase SupplierModel
+}// fin clase supplierModel
 
 ?>

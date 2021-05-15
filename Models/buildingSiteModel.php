@@ -1,6 +1,6 @@
 <?php
 
-class BuildingSiteModel extends Mysql {
+class buildingSiteModel extends Mysql {
 
     private $id;
     private $code;
@@ -17,4 +17,4 @@ class BuildingSiteModel extends Mysql {
 
 
 
-}// fin clase BuildingSiteModel
+}// fin clase buildingSiteModel

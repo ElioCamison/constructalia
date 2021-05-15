@@ -1,6 +1,6 @@
 <?php
 
-class OutsourcedModel extends Mysql {
+class outsourcedModel extends Mysql {
 
     private $id;
     private $ita;
@@ -14,6 +14,6 @@ class OutsourcedModel extends Mysql {
     }
 
 
-}// fin clase OutsourceModel
+}// fin clase outsourcedModel
 
 ?>

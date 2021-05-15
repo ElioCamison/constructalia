@@ -1,7 +1,7 @@
 <?php
 
 
-class MachineryModel extends Mysql {
+class machineryModel extends Mysql {
 
     private $conn;
 
@@ -21,4 +21,4 @@ class MachineryModel extends Mysql {
         parent::__construct();
     }
 
-}// fin clase MachineryModel
+}// fin clase machineryModel

@@ -1,6 +1,6 @@
 <?php
 
-class MachineryFamilyModel extends Mysql{
+class machineryFamilyModel extends Mysql{
 
     private $id;
     private $name;
@@ -10,4 +10,4 @@ class MachineryFamilyModel extends Mysql{
         parent::__construct();
     }
 
-}// fin clase MachineryFamilyModel
+}// fin clase machineryFamilyModel

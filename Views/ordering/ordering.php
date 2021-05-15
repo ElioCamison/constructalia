@@ -99,6 +99,30 @@
                         Maquinaria
                     </a>
                 </li>
+                <li>
+                    <a href="http://localhost/tfg/constructalia/outsource" class="nav-link text-white" title="Subcontratas">
+                        <svg class="bi me-2" width="16" height="16"><use xlink:href="#table"></use></svg>
+                        Subcontratas
+                    </a>
+                </li>
+                <li>
+                    <a href="http://localhost/tfg/constructalia/outsourced" class="nav-link text-white" title="Subcontratados">
+                        <svg class="bi me-2" width="16" height="16"><use xlink:href="#table"></use></svg>
+                        Subcontratados
+                    </a>
+                </li>
+                <li>
+                    <a href="http://localhost/tfg/constructalia/material" class="nav-link text-white" title="Material">
+                        <svg class="bi me-2" width="16" height="16"><use xlink:href="#table"></use></svg>
+                        Material
+                    </a>
+                </li>
+                <li>
+                    <a href="http://localhost/tfg/constructalia/ordering" class="nav-link text-white" title="Pedidos">
+                        <svg class="bi me-2" width="16" height="16"><use xlink:href="#table"></use></svg>
+                        Pedidos
+                    </a>
+                </li>
             </ul>
             <hr>
         </div>
@@ -113,4 +137,4 @@
 <!-- END FOOTER -->
 </body>
 </html>
-<script  src="http://localhost/tfg/constructalia/Assets/js/functions_buildingSite.js"></script>
+<script  src="http://localhost/tfg/constructalia/Assets/js/functions_outsourced.js"></script>

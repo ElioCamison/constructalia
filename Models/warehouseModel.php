@@ -1,7 +1,7 @@
 <?php
 
 
-class WarehouseModel extends Mysql {
+class warehouseModel extends Mysql {
     private $conn;
 
     private $id;
@@ -12,4 +12,4 @@ class WarehouseModel extends Mysql {
         parent::__construct();
     }
 
-}// fin clase WarehouseModel
+}// fin clase warehouseModel

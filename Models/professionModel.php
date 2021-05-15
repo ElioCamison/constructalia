@@ -1,6 +1,6 @@
 <?php
 
-class ProfessionModel extends Mysql {
+class professionModel extends Mysql {
 
     private $id;
     private $name;
@@ -11,6 +11,6 @@ class ProfessionModel extends Mysql {
     }
 
 
-}// fin clase TrainingModel
+}// fin clase professionModel
 
 ?>

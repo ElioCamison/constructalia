@@ -90,6 +90,18 @@
             <hr>
         </div>
     </div>
+    <div class="col-md-10" >
+        <section>
+            <div id="contentAjax"></div>
+            <div class="row">
+                <div class="col-md-11">
+                    <div class="table-responsive">
+                        <table class="table table-hover table-bordered" id="table-staff"></table>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
 </div>
 <!-- BEGIN FOOTER -->
 <footer>

@@ -1,16 +1,38 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title><?php echo $data['page_title']?></title>
+    <meta content="Elio Camisón Costa" name="author" />
+    <meta content="Users" name="description" />
+
     <!-- jQuery  -->
-    <script src="./Assets/js/jquery_3.6.0.js"></script>
+    <script src="http://localhost/tfg/constructalia/Assets/js/jquery_3.6.0.js"></script>
+    <script src="http://localhost/tfg/constructalia/Assets/js/jquery_validate.js"></script>
 
-    <!-- Bootstrap CSS -->
-    <link href="./Assets/css/bootstrap.min.css" rel="stylesheet">
-    <script src="./Assets/js/bootstrap.min.js"></script>
 
+    <!-- FontAwesome   -->
+    <script src="http://localhost/tfg/constructalia/Assets/plugins/awesome/awesome.js"></script>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="http://localhost/tfg/constructalia/Assets/css/bootstrap.min.css" type="text/css" media="screen" />
+    <script src="http://localhost/tfg/constructalia/Assets/js/bootstrap.min.js"></script>
+
+    <!--  TODO meter en assets  -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+
+    <!--  Bootbox  -->
+    <script src="http://localhost/tfg/constructalia/Assets/plugins/bootbox/bootbox.min.js"></script>
+    <script src="http://localhost/tfg/constructalia/Assets/plugins/bootbox/bootbox.locales.js"></script>
+
+
+    <!-- DataTables -->
+    <link rel="stylesheet" type="text/css" href="http://localhost/tfg/constructalia/Assets/plugins/DataTables1.10.24/css/jquery.dataTables.css" media="screen"/>
+    <script type="text/javascript" src="http://localhost/tfg/constructalia/Assets/plugins/DataTables1.10.24/js/jquery.dataTables.js"></script>
+
+    <!-- Custom CSS -->
 
 </head>
 <body>
@@ -30,13 +52,12 @@
     </div>
 </header>
 <h1>
-    <?php echo $data['tag_page']?>
+    <?php echo $data['page_title']?>
 </h1>
-
 <div class="row" >
     <div class="col-md-2">
         <div class="d-flex flex-column flex-shrink-0 p-3 text-white" style="width: 280px;background-color: #0a53be">
-            <a href="http://localhost/tfg/constructalia/home" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+            <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
                 <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"></use></svg>
                 <span class="fs-4">Menú</span>
             </a>
@@ -67,9 +88,27 @@
                     </a>
                 </li>
                 <li>
-                    <a href="http://localhost/tfg/constructalia/buildingSite" class="nav-link text-white" title="Obras">
+                    <a href="http://localhost/tfg/constructalia/buildingSite" class="nav-link text-white" title="Personal">
                         <svg class="bi me-2" width="16" height="16"><use xlink:href="#table"></use></svg>
                         Obras
+                    </a>
+                </li>
+                <li>
+                    <a href="http://localhost/tfg/constructalia/machinery" class="nav-link text-white" title="Personal">
+                        <svg class="bi me-2" width="16" height="16"><use xlink:href="#table"></use></svg>
+                        Maquinaria
+                    </a>
+                </li>
+                <li>
+                    <a href="http://localhost/tfg/constructalia/outsource" class="nav-link text-white" title="Subcontratas">
+                        <svg class="bi me-2" width="16" height="16"><use xlink:href="#table"></use></svg>
+                        Subcontratas
+                    </a>
+                </li>
+                <li>
+                    <a href="http://localhost/tfg/constructalia/outsourced" class="nav-link text-white" title="Subcontratados">
+                        <svg class="bi me-2" width="16" height="16"><use xlink:href="#table"></use></svg>
+                        Subcontratados
                     </a>
                 </li>
             </ul>
@@ -86,3 +125,4 @@
 <!-- END FOOTER -->
 </body>
 </html>
+<script  src="http://localhost/tfg/constructalia/Assets/js/functions_outsourced.js"></script>
