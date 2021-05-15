@@ -47,6 +47,24 @@ class staffModel extends Mysql
         return $result;
     }
 
+    public function getSelectCategories() {
+        $query = "SELECT id,name FROM CATEGORY";
+        $result = $this->selectAll($query);
+        return $result;
+    }
+
+    public function getSelectTraining() {
+        $query = "SELECT id,name FROM TRAINING";
+        $result = $this->selectAll($query);
+        return $result;
+    }
+
+    public function getSelectBuildingSite() {
+        $query = "SELECT id,name FROM BUILDING_SITE";
+        $result = $this->selectAll($query);
+        return $result;
+    }
+
 } // fin clase staffModel
 
 ?>

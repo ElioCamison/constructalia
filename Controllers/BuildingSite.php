@@ -21,6 +21,20 @@ class BuildingSite extends Controllers {
         die();
     }
 
+    public function getSelectResponsible(){
+        $htmlOptions = "";
+        $arrData = $this->model->getSelectResponsible();
+
+        if (count($arrData)>0){
+            for ($i=0;$i<count($arrData);$i++){
+                $htmlOptions .= '<option value="'.$arrData[$i]['id'].'">'.$arrData[$i]['full_name'].'</option>';
+            }
+        }
+        echo $htmlOptions;
+        die();
+
+    }
+
 }
 
 

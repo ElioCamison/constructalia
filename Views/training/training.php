@@ -1,4 +1,4 @@
-<?php getModal('modalUser',$data); ?>
+<?php getModal('modalTraining',$data); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -54,7 +54,7 @@
 </header>
 <h1>
     <?php echo $data['page_title']?>
-        <button type="button" class="btn btn btn-outline-dark" title="Crear un rol" onclick="openModal();">Añadir un usuario</button>
+    <button type="button" class="btn btn btn-outline-dark" title="Añadir obra" onclick="openModal();">Añadir una formación</button>
 </h1>
 <div class="row" >
     <div class="col-md-2">
@@ -113,6 +113,18 @@
                         Subcontratados
                     </a>
                 </li>
+                <li>
+                    <a href="http://localhost/tfg/constructalia/category" class="nav-link text-white" title="Categoria">
+                        <svg class="bi me-2" width="16" height="16"><use xlink:href="#table"></use></svg>
+                        Categoria
+                    </a>
+                </li>
+                <li>
+                    <a href="http://localhost/tfg/constructalia/training" class="nav-link text-white" title="Formación">
+                        <svg class="bi me-2" width="16" height="16"><use xlink:href="#table"></use></svg>
+                        Formación
+                    </a>
+                </li>
             </ul>
             <hr>
         </div>
@@ -122,7 +134,7 @@
             <div class="row">
                 <div class="col-md-11">
                     <div class="table-responsive">
-                        <table class="table table-hover table-bordered" id="table-user"></table>
+                        <table class="table table-hover table-bordered" id="table-training"></table>
                     </div>
                 </div>
             </div>
@@ -138,4 +150,4 @@
 <!-- END FOOTER -->
 </body>
 </html>
-<script  src="http://localhost/tfg/constructalia/Assets/js/functions_user.js"></script>
+<script  src="http://localhost/tfg/constructalia/Assets/js/functions_training.js"></script>

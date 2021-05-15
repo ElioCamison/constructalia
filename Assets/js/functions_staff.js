@@ -33,12 +33,12 @@ $(function (){
                         '</button>' +
                         '&nbsp'+
                         '<button type="button" onclick="editStaff('+row.id+')" ' +
-                        'class="btn btn-outline-dark" title="Editar usuario">' +
+                        'class="btn btn-outline-dark" title="Editar personal">' +
                         '<i class="far fa-edit"></i>' +
                         '</button>' +
                         '&nbsp'+
                         '<button type="button" onclick="deleteStaff('+row.id+')" ' +
-                        'class="btn btn-dark" title="Eliminar usuario">' +
+                        'class="btn btn-dark" title="Eliminar personal">' +
                         '<i class="fas fa-trash-alt"></i>' +
                         '</button>'
                 }
@@ -70,14 +70,25 @@ $(function (){
 
     getSelectBuildingSite();
     getSelectCategories();
+    getSelectTraining();
 });
 
 function getSelectBuildingSite(){
-
+    $.get( "http://localhost/tfg/constructalia/staff/getSelectBuildingSite/", function( response ) {
+        $('#staff_buildingSite').html(response);
+    });
 }
 
 function getSelectCategories(){
+    $.get( "http://localhost/tfg/constructalia/staff/getSelectCategories/", function( response ) {
+        $('#staff_category').html(response);
+    });
+}
 
+function getSelectTraining(){
+    $.get( "http://localhost/tfg/constructalia/staff/getSelectTraining/", function( response ) {
+        $('#staff_training').html(response);
+    });
 }
 
 function viewStaff(){

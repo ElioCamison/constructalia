@@ -10,6 +10,12 @@ class categoryModel extends Mysql {
         parent::__construct();
     }
 
+    public function getCategories() {
+        $query = "SELECT * FROM CATEGORY";
+        $result = $this->selectAll($query);
+        return $result;
+    }
+
 
 }// fin clase categoryModel
 

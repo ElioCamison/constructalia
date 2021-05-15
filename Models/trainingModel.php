@@ -10,6 +10,16 @@ class trainingModel extends Mysql {
         parent::__construct();
     }
 
+    public function getTraining() {
+        $query = "SELECT 
+                  id, 
+                  name, 
+                  hour
+                  FROM TRAINING";
+        $result = $this->selectAll($query);
+        return $result;
+    }
+
 
 }// fin clase trainingModel
 

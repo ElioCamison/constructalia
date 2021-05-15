@@ -1,37 +1,29 @@
-let tableBuildingSite;
+let tableTraining;
 function openModal() {
-    $('#modalFormBuildingSite').modal('show');
+    $('#modalFormTraining').modal('show');
 }
 
 $(function (){
-
-    tableBuildingSite = $('#table-buildingSite').DataTable({
+    tableTraining = $('#table-training').DataTable({
         processing:true,
         serverSide: true,
         ajax:{
-            url: "http://localhost/tfg/constructalia/buildingSite/getBuildingSites",
+            url: "http://localhost/tfg/constructalia/training/getTraining",
             dataSrc:''
         },
         columns:[
             {title:"ID",data:"id", visible:false},
-            {title:"Código",data:"code"},
             {title:"Nombre",data:"name"},
-            {title:"Estado",data:"is_active"},
-            {title:"Responsable",data:"responsible"},
+            {title:"Hora",data:"hour"},
             {title:"Acciones",data:null,
                 render: function(data, type, row){
-                    return '<button type="button" onclick="viewBuildingSite('+row.id+')" ' +
-                        'class="btn btn-outline-dark" title="Consultar obra">' +
-                        '<i class="fas fa-eye"></i>' +
-                        '</button>' +
-                        '&nbsp'+
-                        '<button type="button" onclick="editBuildingSite('+row.id+')" ' +
-                        'class="btn btn-outline-dark" title="Editar obra">' +
+                    return '<button type="button" onclick="editTraining('+row.id+')" ' +
+                        'class="btn btn-outline-dark" title="Editar formación">' +
                         '<i class="far fa-edit"></i>' +
                         '</button>' +
                         '&nbsp'+
-                        '<button type="button" onclick="deleteBuildingSite('+row.id+')" ' +
-                        'class="btn btn-dark" title="Eliminar obra">' +
+                        '<button type="button" onclick="deleteTraining('+row.id+')" ' +
+                        'class="btn btn-dark" title="Eliminar formación">' +
                         '<i class="fas fa-trash-alt"></i>' +
                         '</button>'
                 }
@@ -61,23 +53,13 @@ $(function (){
     //     });
     // });
 
-    getSelectResponsible();
 });
 
-function getSelectResponsible(){
-    $.get( "http://localhost/tfg/constructalia/buildingSite/getSelectResponsible/", function( response ) {
-        $('#buildingSite_responsible').html(response);
-    });
-}
 
-function viewBuildingSite(){
+function editTraining(){
 
 }
 
-function editBuildingSite(){
-
-}
-
-function deleteBuildingSite(){
+function deleteTraining(){
 
 }

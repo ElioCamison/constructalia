@@ -28,6 +28,14 @@ class buildingSiteModel extends Mysql {
         return $result;
     }
 
+    public function getSelectResponsible() {
+        $query = "SELECT id, 
+                         concat(name,' ',surname) AS full_name 
+                  FROM USER";
+        $result = $this->selectAll($query);
+        return $result;
+    }
+
 
 
 
