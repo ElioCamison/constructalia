@@ -13,6 +13,12 @@ class supplierModel extends Mysql {
         parent::__construct();
     }
 
+    public function getSupplier() {
+        $query = "SELECT * FROM SUPPLIER";
+        $result = $this->selectAll($query);
+        return $result;
+    }
+
 
 }// fin clase supplierModel
 

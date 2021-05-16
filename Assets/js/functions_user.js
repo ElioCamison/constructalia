@@ -34,17 +34,17 @@ $(function (){
             {title:"Acciones", data:null,
                 render: function(data, type, row){
                     return '<button type="button" onclick="viewUser('+row.id+')" ' +
-                                'class="btn btn-outline-dark" title="Consultar">' +
+                                'class="btn btn-outline-primary" title="Consultar">' +
                                 '<i class="fas fa-eye"></i>' +
                             '</button>' +
                             '&nbsp'+
                             '<button type="button" onclick="editUser('+row.id+')" ' +
-                                    'class="btn btn-outline-dark" title="Editar usuario">' +
+                                    'class="btn btn-primary" title="Editar usuario">' +
                                     '<i class="far fa-edit"></i>' +
                             '</button>' +
                             '&nbsp'+
                             '<button type="button" onclick="deleteUser('+row.id+')" ' +
-                                    'class="btn btn-dark" title="Eliminar usuario">' +
+                                    'class="btn btn-danger" title="Eliminar usuario">' +
                                     '<i class="fas fa-trash-alt"></i>' +
                             '</button>'
                 }

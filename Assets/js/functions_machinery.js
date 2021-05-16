@@ -21,12 +21,12 @@ $(function (){
             {title:"Acciones",data:null,
                 render: function(data, type, row){
                     return '<button type="button" onclick="editMachinery('+row.id+')" ' +
-                        'class="btn btn-outline-dark" title="Editar maquinaria">' +
+                        'class="btn btn-primary" title="Editar maquinaria">' +
                         '<i class="far fa-edit"></i>' +
                         '</button>' +
                         '&nbsp'+
                         '<button type="button" onclick="deleteMachinery('+row.id+')" ' +
-                        'class="btn btn-dark" title="Eliminar maquinaria">' +
+                        'class="btn btn-danger" title="Eliminar maquinaria">' +
                         '<i class="fas fa-trash-alt"></i>' +
                         '</button>'
                 }
@@ -36,6 +36,9 @@ $(function (){
             url: "https://cdn.datatables.net/plug-ins/1.10.24/i18n/Spanish.json"
         },
         responsive: true,
+        searching: false,
+        info:false,
+        paging: false
     });
 
 

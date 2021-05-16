@@ -14,19 +14,19 @@
                                 <label for="supplier_code">Código</label>
                                 <input type="text" class="form-control" id="supplier_code" name="code" placeholder="Código" autocomplete="off">
                             </div>
-                            <div class="form-group">
+                            <div class="mb-3">
                                 <label for="supplier_name">Nombre</label>
                                 <input type="text" class="form-control" id="supplier_name" name="name" placeholder="Nombre" autocomplete="off">
                             </div>
-                            <div class="form-group">
+                            <div class="mb-3">
                                 <label for="supplier_email">Email</label>
                                 <input type="email" class="form-control" id="supplier_email" name="email" placeholder="email" autocomplete="off">
                             </div>
-                            <div class="form-group">
+                            <div class="mb-3">
                                 <label for="supplier_address">Dirección</label>
                                 <input type="text" class="form-control" id="supplier_address" name="address" placeholder="Direccion" autocomplete="off">
                             </div>
-                            <div class="form-group">
+                            <div class="mb-3">
                                 <label for="supplier_phone">Teléfono</label>
                                 <input type="tel" class="form-control" id="supplier_phone" name="phone" autocomplete="off">
                             </div>
