@@ -9,7 +9,9 @@
     <meta content="Users" name="description" />
 
     <!-- jQuery  -->
-    <script src="http://localhost/tfg/constructalia/Assets/js/jquery_3.6.0.js"></script>
+<!--    <script src="http://localhost/tfg/constructalia/Assets/js/jquery_3.6.0.js"></script>-->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+            integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script src="http://localhost/tfg/constructalia/Assets/js/jquery_validate.js"></script>
 
 
@@ -17,8 +19,13 @@
     <script src="http://localhost/tfg/constructalia/Assets/plugins/awesome/awesome.js"></script>
 
     <!-- Bootstrap -->
-    <link rel="stylesheet" href="http://localhost/tfg/constructalia/Assets/css/bootstrap.min.css" type="text/css" media="screen" />
-    <script src="http://localhost/tfg/constructalia/Assets/js/bootstrap.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+            integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js"
+            integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT" crossorigin="anonymous"></script>
+<!--    <script src="http://localhost/tfg/constructalia/Assets/js/bootstrap.min.js"></script>-->
 
     <!--  TODO meter en assets  -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel="stylesheet" />
@@ -30,8 +37,11 @@
 
 
     <!-- DataTables -->
-    <link rel="stylesheet" type="text/css" href="http://localhost/tfg/constructalia/Assets/plugins/DataTables1.10.24/css/jquery.dataTables.css" media="screen"/>
-    <script type="text/javascript" src="http://localhost/tfg/constructalia/Assets/plugins/DataTables1.10.24/js/jquery.dataTables.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.24/css/dataTables.bootstrap4.min.css" media="screen"/>
+<!--    <link rel="stylesheet" type="text/css" href="http://localhost/tfg/constructalia/Assets/plugins/DataTables1.10.24/css/jquery.dataTables.css" media="screen"/>-->
+    <script type="text/javascript" src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/1.10.24/js/dataTables.bootstrap4.min.js"></script>
+<!--    <script type="text/javascript" src="http://localhost/tfg/constructalia/Assets/plugins/DataTables1.10.24/js/jquery.dataTables.js"></script>-->
 
     <!-- Custom CSS -->
 
@@ -54,7 +64,7 @@
 </header>
 <h1>
     <?php echo $data['page_title']?>
-        <button type="button" class="btn btn btn-outline-dark" title="Crear un rol" onclick="openModal();">Añadir un usuario</button>
+        <button type="button" class="btn btn btn-outline-dark pull-right" title="Crear un rol" onclick="openModal();">Añadir un usuario</button>
 </h1>
 <div class="row" >
     <div class="col-md-2">
@@ -79,25 +89,25 @@
                 </li>
                 <li>
                     <a href="http://localhost/tfg/constructalia/user" class="nav-link text-white" title="Usuarios">
-                        <svg class="bi me-2" width="16" height="16"><use xlink:href="#table"></use></svg>
+                        <i class="fa fa-users" aria-hidden="true"></i>
                         Usuarios
                     </a>
                 </li>
                 <li>
                     <a href="http://localhost/tfg/constructalia/staff" class="nav-link text-white" title="Personal">
-                        <svg class="bi me-2" width="16" height="16"><use xlink:href="#table"></use></svg>
+                        <i class="far fa-address-card"></i>
                         Personal
                     </a>
                 </li>
                 <li>
-                    <a href="http://localhost/tfg/constructalia/buildingSite" class="nav-link text-white" title="Personal">
-                        <svg class="bi me-2" width="16" height="16"><use xlink:href="#table"></use></svg>
+                    <a href="http://localhost/tfg/constructalia/buildingSite" class="nav-link text-white" title="Obras">
+                        <i class="fas fa-building"></i>
                         Obras
                     </a>
                 </li>
                 <li>
-                    <a href="http://localhost/tfg/constructalia/machinery" class="nav-link text-white" title="Personal">
-                        <svg class="bi me-2" width="16" height="16"><use xlink:href="#table"></use></svg>
+                    <a href="http://localhost/tfg/constructalia/machinery" class="nav-link text-white" title="Maquinaria">
+                        <i class="fas fa-industry"></i>
                         Maquinaria
                     </a>
                 </li>
@@ -115,20 +125,14 @@
                 </li>
                 <li>
                     <a href="http://localhost/tfg/constructalia/category" class="nav-link text-white" title="Categoria">
-                        <svg class="bi me-2" width="16" height="16"><use xlink:href="#table"></use></svg>
+                        <i class="fa fa-list-alt" aria-hidden="true"></i>
                         Categoria
                     </a>
                 </li>
                 <li>
                     <a href="http://localhost/tfg/constructalia/training" class="nav-link text-white" title="Formación">
-                        <svg class="bi me-2" width="16" height="16"><use xlink:href="#table"></use></svg>
+                        <i class="fas fa-book"></i>
                         Formación
-                    </a>
-                </li>
-                <li>
-                    <a href="http://localhost/tfg/constructalia/machinery" class="nav-link text-white" title="Maquinaria">
-                        <svg class="bi me-2" width="16" height="16"><use xlink:href="#table"></use></svg>
-                        Maquinaria
                     </a>
                 </li>
                 <li>
@@ -139,7 +143,7 @@
                 </li>
                 <li>
                     <a href="http://localhost/tfg/constructalia/supplier" class="nav-link text-white" title="Proveedores">
-                        <svg class="bi me-2" width="16" height="16"><use xlink:href="#table"></use></svg>
+                        <i class="fas fa-balance-scale-left"></i>
                         Proveedores
                     </a>
                 </li>
@@ -150,10 +154,8 @@
     <div class="col-md-10" >
         <section>
             <div class="row">
-                <div class="col-md-11">
-                    <div class="table-responsive">
-                        <table class="table table-hover table-bordered" id="table-user"></table>
-                    </div>
+                <div class="table-responsive">
+                    <table class="table table-hover table-bordered" id="table-user"></table>
                 </div>
             </div>
         </section>

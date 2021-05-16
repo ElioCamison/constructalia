@@ -29,17 +29,17 @@ let tablePermissionRol;
             {title:"Acciones", data:null,
                 render: function(data, type, row){
                     return '<button type="button" onclick="editPermission('+row.id+')" ' +
-                                    'class="btn btn-outline-secondary" title="Editar permisos">' +
+                                    'class="btn btn-outline-primary" title="Editar permisos">' +
                                     '<i class="far fa-id-card"></i>' +
                            '</button>' +
                            '&nbsp'+
                            '<button type="button" onclick="editRol('+row.id+')" ' +
-                                    'class="btn btn-outline-dark" title="Editar rol">' +
+                                    'class="btn btn-primary" title="Editar rol">' +
                                     '<i class="far fa-edit"></i>' +
                            '</button>' +
                            '&nbsp'+
                            '<button type="button" onclick="deleteRol('+row.id+')" ' +
-                                    'class="btn btn-dark" title="Eliminar rol">' +
+                                    'class="btn btn-danger" title="Eliminar rol">' +
                                     '<i class="fas fa-trash-alt"></i>' +
                            '</button>'
                 }
@@ -49,6 +49,9 @@ let tablePermissionRol;
             url: "https://cdn.datatables.net/plug-ins/1.10.24/i18n/Spanish.json"
         },
         responsive: true,
+        searching: false,
+        info:false,
+        paging: false
     });
 })()
 
@@ -121,6 +124,7 @@ $('#table-rol').dataTable();
 
 function openModal() {
     $('#modalLabelFormRol').text('Nuevo rol');
+    $('#modalFormRol').removeAttr('hidden');
     $('#modalFormRol').modal('show');
 }
 

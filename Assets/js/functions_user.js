@@ -1,5 +1,6 @@
 let tableUser;
 function openModal() {
+    $('#modalFormUser').removeAttr('hidden');
     $('#modalFormUser').modal('show');
 }
 
@@ -53,6 +54,9 @@ $(function (){
             url: "https://cdn.datatables.net/plug-ins/1.10.24/i18n/Spanish.json"
         },
         responsive: true,
+        searching: false,
+        info:false,
+        paging: false
     });
 
 

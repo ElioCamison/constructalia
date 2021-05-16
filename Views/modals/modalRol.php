@@ -1,4 +1,4 @@
-<div class="modal fade" id="modalFormRol" tabindex="-1" role="dialog" aria-labelledby="modalLabelFormRol" aria-hidden="true">
+<div class="modal fade" id="modalFormRol" tabindex="-1" role="dialog" aria-labelledby="modalLabelFormRol" aria-hidden="true" hidden>
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">

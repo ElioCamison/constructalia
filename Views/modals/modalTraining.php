@@ -9,17 +9,13 @@
                 <form id="formTraining" name="formTraining">
                     <input id="trainingId" name="trainingId" hidden>
                     <div class="row">
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label for="training_name">Nombre</label>
-                                <input type="text" class="form-control" id="training_name" name="name" placeholder="Nombre" autocomplete="off">
-                            </div>
+                        <div class="mb-3">
+                            <label for="training_name">Nombre</label>
+                            <input type="text" class="form-control" id="training_name" name="name" placeholder="Nombre" autocomplete="off">
                         </div>
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label for="training_hour">Hora</label>
-                                <input type="number" class="form-control" id="training_hour" name="hour" placeholder="Hora" autocomplete="off">
-                            </div>
+                        <div class="mb-3">
+                            <label for="training_hour">Hora</label>
+                            <input type="number" class="form-control" id="training_hour" min="0" name="hour" placeholder="Hora" autocomplete="off">
                         </div>
                     </div>
                     <div class="modal-footer">
@@ -27,7 +23,7 @@
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
                     </div>
                 </form>
-            </div>a
+            </div>
         </div>
     </div>
 </div>

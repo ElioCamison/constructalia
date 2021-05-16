@@ -69,17 +69,17 @@ $(function (){
             {title:"Acciones",data:null,
                 render: function(data, type, row){
                     return '<button type="button" onclick="viewStaff('+row.id+')" ' +
-                        'class="btn btn-outline-dark" title="Consultar">' +
+                        'class="btn btn-outline-primary" title="Consultar">' +
                         '<i class="fas fa-eye"></i>' +
                         '</button>' +
                         '&nbsp'+
                         '<button type="button" onclick="editStaff('+row.id+')" ' +
-                        'class="btn btn-outline-dark" title="Editar personal">' +
+                        'class="btn btn-primary" title="Editar personal">' +
                         '<i class="far fa-edit"></i>' +
                         '</button>' +
                         '&nbsp'+
                         '<button type="button" onclick="deleteStaff('+row.id+')" ' +
-                        'class="btn btn-dark" title="Eliminar personal">' +
+                        'class="btn btn-danger" title="Eliminar personal">' +
                         '<i class="fas fa-trash-alt"></i>' +
                         '</button>'
                 }
@@ -89,6 +89,9 @@ $(function (){
             url: "https://cdn.datatables.net/plug-ins/1.10.24/i18n/Spanish.json"
         },
         responsive: true,
+        searching: false,
+        info:false,
+        paging: false
     });
 
 

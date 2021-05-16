@@ -19,7 +19,7 @@
                             <div class="form-row">
                                 <div class="form-group">
                                     <label for="category_priceHour">Precio hora</label>
-                                    <input type="number" class="form-control" id="category_priceHour" name="priceHour" placeholder="Precio hora" autocomplete="off">
+                                    <input type="number" class="form-control" id="category_priceHour" name="price_hour" placeholder="Precio hora" autocomplete="off">
                                 </div>
                             </div>
                     </div>

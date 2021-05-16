@@ -77,25 +77,25 @@
                 </li>
                 <li>
                     <a href="http://localhost/tfg/constructalia/user" class="nav-link text-white" title="Usuarios">
-                        <svg class="bi me-2" width="16" height="16"><use xlink:href="#table"></use></svg>
+                        <i class="fa fa-users" aria-hidden="true"></i>
                         Usuarios
                     </a>
                 </li>
                 <li>
                     <a href="http://localhost/tfg/constructalia/staff" class="nav-link text-white" title="Personal">
-                        <svg class="bi me-2" width="16" height="16"><use xlink:href="#table"></use></svg>
+                        <i class="far fa-address-card"></i>
                         Personal
                     </a>
                 </li>
                 <li>
-                    <a href="http://localhost/tfg/constructalia/buildingSite" class="nav-link text-white" title="Personal">
-                        <svg class="bi me-2" width="16" height="16"><use xlink:href="#table"></use></svg>
+                    <a href="http://localhost/tfg/constructalia/buildingSite" class="nav-link text-white" title="Obras">
+                        <i class="fas fa-building"></i>
                         Obras
                     </a>
                 </li>
                 <li>
-                    <a href="http://localhost/tfg/constructalia/machinery" class="nav-link text-white" title="Personal">
-                        <svg class="bi me-2" width="16" height="16"><use xlink:href="#table"></use></svg>
+                    <a href="http://localhost/tfg/constructalia/machinery" class="nav-link text-white" title="Maquinaria">
+                        <i class="fas fa-industry"></i>
                         Maquinaria
                     </a>
                 </li>
@@ -112,9 +112,27 @@
                     </a>
                 </li>
                 <li>
-                    <a href="http://localhost/tfg/constructalia/material" class="nav-link text-white" title="Material">
+                    <a href="http://localhost/tfg/constructalia/category" class="nav-link text-white" title="Categoria">
+                        <i class="fa fa-list-alt" aria-hidden="true"></i>
+                        Categoria
+                    </a>
+                </li>
+                <li>
+                    <a href="http://localhost/tfg/constructalia/training" class="nav-link text-white" title="Formación">
+                        <i class="fas fa-book"></i>
+                        Formación
+                    </a>
+                </li>
+                <li>
+                    <a href="http://localhost/tfg/constructalia/machineryFamily" class="nav-link text-white" title="Familia maquinaria">
                         <svg class="bi me-2" width="16" height="16"><use xlink:href="#table"></use></svg>
-                        Material
+                        Familia maquinaria
+                    </a>
+                </li>
+                <li>
+                    <a href="http://localhost/tfg/constructalia/supplier" class="nav-link text-white" title="Proveedores">
+                        <i class="fas fa-balance-scale-left"></i>
+                        Proveedores
                     </a>
                 </li>
             </ul>
