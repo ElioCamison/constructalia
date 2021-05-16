@@ -1,3 +1,4 @@
+<?php getModal('modalSupplier',$data); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -53,6 +54,7 @@
 </header>
 <h1>
     <?php echo $data['page_title']?>
+    <button type="button" class="btn btn btn-outline-dark" title="Crear un rol" onclick="openModal();">Añadir un proveedor</button>
 </h1>
 <div class="row" >
     <div class="col-md-2">

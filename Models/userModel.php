@@ -19,7 +19,17 @@ class userModel extends Mysql
     }
 
     public function getUsers() {
-        $query = "SELECT * FROM USER";
+        $query = "SELECT 
+                    user.id,
+                    user.email,
+                    user.username, 
+                    concat(user.name,' ',user.surname) AS full_name, 
+                    user.phone, 
+                    user.is_Active, 
+                    rol.name AS rol_name 
+                  FROM USER 
+                  INNER JOIN ROL 
+                  	ON user.rol = rol.id;";
         $result = $this->selectAll($query);
         return $result;
     }

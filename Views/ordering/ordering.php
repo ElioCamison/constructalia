@@ -1,3 +1,4 @@
+<?php getModal('modalOrdering',$data); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -53,6 +54,7 @@
 </header>
 <h1>
     <?php echo $data['page_title']?>
+    <button type="button" class="btn btn btn-outline-dark" title="Crear un pedido" onclick="openModal();">Crear un pedido</button>
 </h1>
 <div class="row" >
     <div class="col-md-2">
@@ -127,6 +129,17 @@
             <hr>
         </div>
     </div>
+    <div class="col-md-10" >
+        <section>
+            <div class="row">
+                <div class="col-md-11">
+                    <div class="table-responsive">
+                        <table class="table table-hover table-bordered" id="table-ordering"></table>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
 </div>
 <!-- BEGIN FOOTER -->
 <footer>
@@ -137,4 +150,4 @@
 <!-- END FOOTER -->
 </body>
 </html>
-<script  src="http://localhost/tfg/constructalia/Assets/js/functions_outsourced.js"></script>
+<script  src="http://localhost/tfg/constructalia/Assets/js/functions_ordering.js"></script>
