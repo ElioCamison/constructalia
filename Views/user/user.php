@@ -125,6 +125,24 @@
                         Formación
                     </a>
                 </li>
+                <li>
+                    <a href="http://localhost/tfg/constructalia/machinery" class="nav-link text-white" title="Maquinaria">
+                        <svg class="bi me-2" width="16" height="16"><use xlink:href="#table"></use></svg>
+                        Maquinaria
+                    </a>
+                </li>
+                <li>
+                    <a href="http://localhost/tfg/constructalia/machineryFamily" class="nav-link text-white" title="Familia maquinaria">
+                        <svg class="bi me-2" width="16" height="16"><use xlink:href="#table"></use></svg>
+                        Familia maquinaria
+                    </a>
+                </li>
+                <li>
+                    <a href="http://localhost/tfg/constructalia/supplier" class="nav-link text-white" title="Proveedores">
+                        <svg class="bi me-2" width="16" height="16"><use xlink:href="#table"></use></svg>
+                        Proveedores
+                    </a>
+                </li>
             </ul>
             <hr>
         </div>

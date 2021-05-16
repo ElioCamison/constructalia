@@ -15,29 +15,21 @@ $(function (){
         columns:[
             {title:"ID",data:"id", visible:false},
             {title:"Nombre de usuario",data:"username"},
-            {title:"Nombre",data:"name",
-                // TODO Esto dará problemas con el buscador del dt
-                render:function (data, type, row) {
-                    return row.name + ' ' + row.surname;
-                }
-            },
+            {title:"Nombre completo",data:"full_name"},
             {title:"Email",data:"email"},
             {title:"Teléfono",data:"phone"},
-            {title:"Rol",data:"rol",
-                render:function (data, type, row) {
-                    let name = "";
-                    // $.get( "http://localhost/tfg/constructalia/user/getRolNameByRolId/"+ row.rol, function( response ) {
-                    //     response=JSON.parse(response);
-                    //     if(response.success) {
-                    //         debugger
-                    //         name = response.rol_name;
-                    //     }
-                    // });
-                    // return name;
-                    return row.rol;
-                    // return getRolNameByRolId(row.rol)
+            {title:"Estado",data:"is_Active",
+                render:function (data, type, row){
+                    let span = '';
+                    if(row.is_Active == 0){
+                        span = '<span class="badge bg-danger" title="Estado inactivo">Inactivo</span>'
+                    } else {
+                        span = '<span class="badge bg-light text-dark" title="Estado activo">Activo</span>'
+                    }
+                    return span;
                 }
             },
+            {title:"Rol",data:"rol_name"},
             {title:"Acciones", data:null,
                 render: function(data, type, row){
                     return '<button type="button" onclick="viewUser('+row.id+')" ' +
