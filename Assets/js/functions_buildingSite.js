@@ -21,12 +21,12 @@ $(function (){
             {title:"Acciones",data:null,
                 render: function(data, type, row){
                     return '<button type="button" onclick="viewBuildingSite('+row.id+')" ' +
-                        'class="btn btn-outline-primary" title="Consultar obra">' +
+                        'class="btn btn-outline-dark" title="Consultar obra">' +
                         '<i class="fas fa-eye"></i>' +
                         '</button>' +
                         '&nbsp'+
                         '<button type="button" onclick="editBuildingSite('+row.id+')" ' +
-                        'class="btn btn-primary" title="Editar obra">' +
+                        'class="btn btn-warning" title="Editar obra">' +
                         '<i class="far fa-edit"></i>' +
                         '</button>' +
                         '&nbsp'+

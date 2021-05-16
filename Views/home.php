@@ -28,7 +28,7 @@
 </h1>
 <div class="row" >
     <div class="col-md-2">
-        <div class="d-flex flex-column flex-shrink-0 p-3 text-white" style="width: 280px;background-color: #0a53be">
+        <div class="d-flex flex-column flex-shrink-0 p-3 text-white" style="width: 280px;height:900px;background-color: #1C2833">
             <a href="http://localhost/tfg/constructalia/home" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
                 <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"></use></svg>
                 <span class="fs-4 text-center">Menú</span>

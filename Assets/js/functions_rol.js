@@ -29,12 +29,12 @@ let tablePermissionRol;
             {title:"Acciones", data:null,
                 render: function(data, type, row){
                     return '<button type="button" onclick="editPermission('+row.id+')" ' +
-                                    'class="btn btn-outline-primary" title="Editar permisos">' +
+                                    'class="btn btn-outline-dark" title="Editar permisos">' +
                                     '<i class="far fa-id-card"></i>' +
                            '</button>' +
                            '&nbsp'+
                            '<button type="button" onclick="editRol('+row.id+')" ' +
-                                    'class="btn btn-primary" title="Editar rol">' +
+                                    'class="btn btn-warning" title="Editar rol">' +
                                     '<i class="far fa-edit"></i>' +
                            '</button>' +
                            '&nbsp'+

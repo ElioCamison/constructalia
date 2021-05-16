@@ -25,7 +25,7 @@ $(function (){
                         '</button>' +
                         '&nbsp'+
                         '<button type="button" onclick="editOrder('+row.id+')" ' +
-                        'class="btn btn-outline-dark" title="Editar pedido">' +
+                        'class="btn btn-outline-warning" title="Editar pedido">' +
                         '<i class="far fa-edit"></i>' +
                         '</button>' +
                         '&nbsp'+

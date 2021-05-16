@@ -21,7 +21,7 @@ $(function (){
             {title:"Acciones",data:null,
                 render: function(data, type, row){
                     return '<button type="button" onclick="editSupplier('+row.id+')" ' +
-                        'class="btn btn-primary" title="Editar formación">' +
+                        'class="btn btn-warning" title="Editar formación">' +
                         '<i class="far fa-edit"></i>' +
                         '</button>' +
                         '&nbsp'+

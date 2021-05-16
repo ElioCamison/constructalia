@@ -69,12 +69,12 @@ $(function (){
             {title:"Acciones",data:null,
                 render: function(data, type, row){
                     return '<button type="button" onclick="viewStaff('+row.id+')" ' +
-                        'class="btn btn-outline-primary" title="Consultar">' +
+                        'class="btn btn-outline-dark" title="Consultar">' +
                         '<i class="fas fa-eye"></i>' +
                         '</button>' +
                         '&nbsp'+
                         '<button type="button" onclick="editStaff('+row.id+')" ' +
-                        'class="btn btn-primary" title="Editar personal">' +
+                        'class="btn btn-warning" title="Editar personal">' +
                         '<i class="far fa-edit"></i>' +
                         '</button>' +
                         '&nbsp'+

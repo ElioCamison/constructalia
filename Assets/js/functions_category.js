@@ -19,7 +19,7 @@ $(function (){
             {title:"Acciones",data:null,
                 render: function(data, type, row){
                     return '<button type="button" onclick="editCategory('+row.id+')" ' +
-                                'class="btn btn-primary" title="Editar categoria">' +
+                                'class="btn btn-warning" title="Editar categoria">' +
                                 '<i class="far fa-edit"></i>' +
                            '</button>' +
                            '&nbsp'+
