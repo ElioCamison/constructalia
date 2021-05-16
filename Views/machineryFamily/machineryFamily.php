@@ -9,7 +9,9 @@
     <meta content="Users" name="description" />
 
     <!-- jQuery  -->
-    <script src="http://localhost/tfg/constructalia/Assets/js/jquery_3.6.0.js"></script>
+    <!--    <script src="http://localhost/tfg/constructalia/Assets/js/jquery_3.6.0.js"></script>-->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+            integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script src="http://localhost/tfg/constructalia/Assets/js/jquery_validate.js"></script>
 
 
@@ -17,8 +19,13 @@
     <script src="http://localhost/tfg/constructalia/Assets/plugins/awesome/awesome.js"></script>
 
     <!-- Bootstrap -->
-    <link rel="stylesheet" href="http://localhost/tfg/constructalia/Assets/css/bootstrap.min.css" type="text/css" media="screen" />
-    <script src="http://localhost/tfg/constructalia/Assets/js/bootstrap.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+            integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js"
+            integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT" crossorigin="anonymous"></script>
+    <!--    <script src="http://localhost/tfg/constructalia/Assets/js/bootstrap.min.js"></script>-->
 
     <!--  TODO meter en assets  -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel="stylesheet" />
@@ -30,8 +37,11 @@
 
 
     <!-- DataTables -->
-    <link rel="stylesheet" type="text/css" href="http://localhost/tfg/constructalia/Assets/plugins/DataTables1.10.24/css/jquery.dataTables.css" media="screen"/>
-    <script type="text/javascript" src="http://localhost/tfg/constructalia/Assets/plugins/DataTables1.10.24/js/jquery.dataTables.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.24/css/dataTables.bootstrap4.min.css" media="screen"/>
+    <!--    <link rel="stylesheet" type="text/css" href="http://localhost/tfg/constructalia/Assets/plugins/DataTables1.10.24/css/jquery.dataTables.css" media="screen"/>-->
+    <script type="text/javascript" src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/1.10.24/js/dataTables.bootstrap4.min.js"></script>
+    <!--    <script type="text/javascript" src="http://localhost/tfg/constructalia/Assets/plugins/DataTables1.10.24/js/jquery.dataTables.js"></script>-->
 
     <!-- Custom CSS -->
 
@@ -54,7 +64,7 @@
 </header>
 <h1>
     <?php echo $data['page_title']?>
-    <button type="button" class="btn btn btn-outline-dark" title="Añadir obra" onclick="openModal();">Añadir una maquina</button>
+    <button type="button" class="btn btn btn-outline-dark" title="Añadir obra" onclick="openModal();"><i class="fas fa-plus"></i> Añadir una familia</button>
 </h1>
 <div class="row" >
     <div class="col-md-2">
@@ -144,10 +154,8 @@
     <div class="col-md-10" >
         <section>
             <div class="row">
-                <div class="col-md-11">
-                    <div class="table-responsive">
-                        <table class="table table-hover table-bordered" id="table-machinery"></table>
-                    </div>
+                <div class="table-responsive">
+                    <table class="table table-hover table-bordered" id="table-machinery"></table>
                 </div>
             </div>
         </section>

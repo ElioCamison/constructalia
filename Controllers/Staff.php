@@ -14,6 +14,38 @@ class Staff extends Controllers {
         $this->views->getView($this,"staff", $data);
     }
 
+    public function setStaff() {
+        if(isset( $_POST) && !empty($_POST)) {
+            $is_active = "";
+            foreach ($_POST as $key => $value) {
+                $$key = addslashes($value);
+            }
+
+            $is_active =  $is_active == "on" ? 1 : 0;
+
+            if($staffId) {
+                $requestUser = $this->model->updateUser($staffId,$name,$surname,$phone,$dni,$description,
+                    $medicaExamination,$state,$hasEpi,$hasAppointment,$isPreventiveResource,$hasDrivingLicense,
+                    $buildingSite,$category);
+            } else {
+                $requestUser = $this->model->insertUser($name,$surname,$phone,$dni,$description,
+                    $medicaExamination,$state,$hasEpi,$hasAppointment,$isPreventiveResource,$hasDrivingLicense,
+                    $buildingSite,$category);
+            }
+
+            if ($requestUser > 0) {
+                $arrResponse = array('success'=>true,'message'=>'Se ha creado un rol correctametne');
+            } else if ($requestUser == "updated") {
+                $arrResponse = array('success'=>true,'message'=>'Se ha actualizado el rol correctamente');
+            } else {
+                $arrResponse = array('success'=>false,'message'=>'Ha ocurrido un error');
+            }
+
+            echo json_encode($arrResponse,JSON_UNESCAPED_UNICODE);
+            die();
+        }
+    }
+
     public function getStaff() {
         $arrData = $this->model->getStaff();
 

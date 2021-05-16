@@ -1,11 +1,11 @@
 let tableStaff;
 function openModal() {
-    $('#modalFormStaff').modal('show');
+    $('#modalFormOutsource').modal('show');
 }
 
 $(function (){
 
-    tableUser = $('#table-staff').DataTable({
+    tableStaff = $('#table-staff').DataTable({
         processing:true,
         serverSide: true,
         ajax:{
@@ -96,21 +96,21 @@ $(function (){
 
 
     // // TODO validar este formulario
-    // $('#formUser').submit(function (e){
-    //     e.preventDefault();
-    //     let dataString = $('#formUser').serialize();
-    //     $.post( "http://localhost/tfg/constructalia/user/setUser/",dataString, function( response ) {
-    //         response=JSON.parse(response);
-    //         if(response.success) {
-    //             $('#modalFormUser').modal('hide');
-    //             tableUser.ajax.reload();
-    //             toastr.success(response.message);
-    //         } else {
-    //             toastr.error(response.message);
-    //         }
-    //
-    //     });
-    // });
+    $('#formStaff').submit(function (e){
+        e.preventDefault();
+        let dataString = $('#formStaff').serialize();
+        $.post( "http://localhost/tfg/constructalia/staff/setStaff/",dataString, function( response ) {
+            response=JSON.parse(response);
+            if(response.success) {
+                $('#modalFormUser').modal('hide');
+                tableUser.ajax.reload();
+                toastr.success(response.message);
+            } else {
+                toastr.error(response.message);
+            }
+
+        });
+    });
 
     getSelectBuildingSite();
     getSelectCategories();

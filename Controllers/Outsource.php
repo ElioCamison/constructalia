@@ -12,6 +12,13 @@ class Outsource extends Controllers {
         $this->views->getView($this, "outsource", $data);
     }
 
+    public function getOutsource() {
+        $arrData = $this->model->getOutsource();
+
+        echo json_encode($arrData, JSON_UNESCAPED_UNICODE);
+        die();
+    }
+
 }
 
 ?>

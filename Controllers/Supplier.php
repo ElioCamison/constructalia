@@ -12,6 +12,13 @@ class Supplier extends Controllers {
         $this->views->getView($this, "supplier", $data);
     }
 
+    public function getSupplier() {
+        $arrData = $this->model->getSupplier();
+
+        echo json_encode($arrData, JSON_UNESCAPED_UNICODE);
+        die();
+    }
+
 }
 
 ?>
