@@ -111,6 +111,18 @@
                         Subcontratados
                     </a>
                 </li>
+                <li>
+                    <a href="http://localhost/tfg/constructalia/category" class="nav-link text-white" title="Categoria">
+                        <svg class="bi me-2" width="16" height="16"><use xlink:href="#table"></use></svg>
+                        Categoria
+                    </a>
+                </li>
+                <li>
+                    <a href="http://localhost/tfg/constructalia/training" class="nav-link text-white" title="Formación">
+                        <svg class="bi me-2" width="16" height="16"><use xlink:href="#table"></use></svg>
+                        Formación
+                    </a>
+                </li>
             </ul>
             <hr>
         </div>

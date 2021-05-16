@@ -5,7 +5,7 @@ function openModal() {
 
 $(function (){
 
-    tableCategory = $('#table-category').DataTable({
+    tableCategory = $('#table-machinery').DataTable({
         processing:true,
         serverSide: true,
         ajax:{

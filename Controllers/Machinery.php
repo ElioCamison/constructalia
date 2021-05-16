@@ -12,6 +12,26 @@ class Machinery extends Controllers {
         $this->views->getView($this, "machinery", $data);
     }
 
-}
+    public function getMachinery(){
+        $arrData = $this->model->getMachinery();
+
+        echo json_encode($arrData, JSON_UNESCAPED_UNICODE);
+        die();
+    }
+
+    public function getSelectFamily() {
+        $htmlOptions = "";
+        $arrData = $this->model->getSelectFamily();
+
+        if (count($arrData)>0){
+            for ($i=0;$i<count($arrData);$i++){
+                $htmlOptions .= '<option value="'.$arrData[$i]['id'].'">'.$arrData[$i]['name'].'</option>';
+            }
+        }
+        echo $htmlOptions;
+        die();
+    }
+
+}// fin clase Machinery
 
 ?>
