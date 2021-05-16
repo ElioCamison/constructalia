@@ -18,11 +18,52 @@ $(function (){
             {title:"Apellidos",data:"surname"},
             {title:"Teléfono",data:"phone"},
             {title:"DNI",data:"dni"},
-            {title:"EPI",data:"has_epi"},
-            {title:"Cita médica",data:"has_appointment"},
-            {title:"Recurso preventivo",data:"is_preventive_resource"},
-            {title:"Carnet de conducir",data:"has_driving_license"},
-            {title:"Estado",data:"username"},
+            {title:"EPI",data:"has_epi",
+                render:function (data, type, row){
+                    let span = '';
+                    if(row.has_epi == 0){
+                        span = '<span class="badge bg-danger">No</span>'
+                    } else {
+                        span = '<span class="badge bg-light text-dark">Sí</span>'
+                    }
+                    return span;
+                }
+            },
+            {title:"Cita médica",data:"has_appointment",
+                render:function (data, type, row){
+                    let span = '';
+                    if(row.has_appointment == 0){
+                        span = '<span class="badge bg-danger">No</span>'
+                    } else {
+                        span = '<span class="badge bg-light text-dark">Sí</span>'
+                    }
+                    return span;
+                }
+            },
+            {title:"Recurso preventivo",data:"is_preventive_resource",
+                render:function (data, type, row){
+                    let span = '';
+                    if(row.is_preventive_resource == 0){
+                        span = '<span class="badge bg-danger">No</span>'
+                    } else {
+                        span = '<span class="badge bg-light text-dark">Sí</span>'
+                    }
+                    return span;
+                }
+            },
+            {title:"Carnet de conducir",data:"has_driving_license",
+                render:function (data, type, row){
+                    let span = '';
+                    if(row.has_driving_license == 0){
+                        span = '<span class="badge bg-danger">No</span>'
+                    } else {
+                        span = '<span class="badge bg-light text-dark">Sí</span>'
+                    }
+                    return span;
+                }
+            },
+            {title:"Estado",data:"state"},
+            {title:"Revisión medica",data:"medical_examination"},
             {title:"Obra",data:"building_site_name"},
             {title:"Categoria",data:"category_name"},
             {title:"Acciones",data:null,

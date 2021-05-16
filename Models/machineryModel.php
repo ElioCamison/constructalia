@@ -21,4 +21,18 @@ class machineryModel extends Mysql {
         parent::__construct();
     }
 
+    public function getMachinery() {
+        $query = "SELECT * FROM MACHINERY";
+        $result = $this->selectAll($query);
+        return $result;
+    }
+
+
+    public function getSelectFamily(){
+        $query = "SELECT id,name FROM MACHINERY_FAMILY";
+        $result = $this->selectAll($query);
+        return $result;
+    }
+
+
 }// fin clase machineryModel
