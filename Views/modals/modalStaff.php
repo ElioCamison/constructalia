@@ -67,9 +67,9 @@
                                     <label for="staff_hasAppointment" title="Vencimiento revisión médica">Cita revisión médica</label>
                                     <input type="checkbox" id="staff_hasAppointment" name="hasAppointment">
                                 </div>
-                                <div class="form-group">
-                                    <label for="staff_isPreventiveResource">Recurso preventivo</label>
-                                    <input type="checkbox" id="staff_isPreventiveResource" name="isPreventiveResource">
+                                <div class="custom-control custom-switch">
+                                    <label for="staff_isPreventiveResource" class="custom-control-label">Recurso preventivo</label>
+                                    <input type="checkbox" id="staff_isPreventiveResource" class="custom-control-input" name="isPreventiveResource">
                                 </div>
 
                             </div>

@@ -5,114 +5,42 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title><?php echo $data['page_title']?></title>
     <!-- jQuery  -->
-    <script src="./Assets/js/jquery_3.6.0.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+            integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<!--    <script src="./Assets/js/jquery_3.6.0.js"></script>-->
 
     <!-- Bootstrap CSS -->
-    <link href="./Assets/css/bootstrap.min.css" rel="stylesheet">
-    <script src="./Assets/js/bootstrap.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+            integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js"
+            integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT" crossorigin="anonymous"></script>
+<!--    <link href="./Assets/css/bootstrap.min.css" rel="stylesheet">-->
+<!--    <script src="./Assets/js/bootstrap.min.js"></script>-->
 
 
 </head>
 <body>
-<header style="background-color: #0a53be;height: 50px;color: white" class="text-right">
-    <div class="dropdown">
-        <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
-            <img src="https://github.com/mdo.png" alt="" width="32" height="32" class="rounded-circle me-2">
-            <strong>mdo</strong>
-        </a>
-        <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">
-            <li><a class="dropdown-item" href="#">New project...</a></li>
-            <li><a class="dropdown-item" href="#">Settings</a></li>
-            <li><a class="dropdown-item" href="#">Profile</a></li>
-            <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#">Sign out</a></li>
-        </ul>
-    </div>
-</header>
+<?php include 'header.php';?>
 <h1>
     <?php echo $data['tag_page']?>
 </h1>
-
 <div class="row" >
     <div class="col-md-2">
         <div class="d-flex flex-column flex-shrink-0 p-3 text-white" style="width: 280px;background-color: #0a53be">
             <a href="http://localhost/tfg/constructalia/home" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
                 <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"></use></svg>
-                <span class="fs-4">Menú</span>
+                <span class="fs-4 text-center">Menú</span>
             </a>
             <hr>
-            <ul class="nav nav-pills flex-column mb-auto">
-                <li class="nav-item">
-                    <a href="http://localhost/tfg/constructalia/home" class="nav-link active" aria-current="page">
-                        <svg class="bi me-2" width="16" height="16"><use xlink:href="#home"></use></svg>
-                        Home
-                    </a>
-                </li>
-                <li>
-                    <a href="http://localhost/tfg/constructalia/rol" class="nav-link text-white" title="Roles de usuario">
-                        <svg class="bi me-2" width="16" height="16"><use xlink:href="#speedometer2"></use></svg>
-                        Roles
-                    </a>
-                </li>
-                <li>
-                    <a href="http://localhost/tfg/constructalia/user" class="nav-link text-white" title="Usuarios">
-                        <svg class="bi me-2" width="16" height="16"><use xlink:href="#table"></use></svg>
-                        Usuarios
-                    </a>
-                </li>
-                <li>
-                    <a href="http://localhost/tfg/constructalia/staff" class="nav-link text-white" title="Personal">
-                        <svg class="bi me-2" width="16" height="16"><use xlink:href="#table"></use></svg>
-                        Personal
-                    </a>
-                </li>
-                <li>
-                    <a href="http://localhost/tfg/constructalia/buildingSite" class="nav-link text-white" title="Obras">
-                        <svg class="bi me-2" width="16" height="16"><use xlink:href="#table"></use></svg>
-                        Obras
-                    </a>
-                </li>
-                <li>
-                    <a href="http://localhost/tfg/constructalia/machinery" class="nav-link text-white" title="Personal">
-                        <svg class="bi me-2" width="16" height="16"><use xlink:href="#table"></use></svg>
-                        Maquinaria
-                    </a>
-                </li>
-                <li>
-                    <a href="http://localhost/tfg/constructalia/outsource" class="nav-link text-white" title="Subcontratas">
-                        <svg class="bi me-2" width="16" height="16"><use xlink:href="#table"></use></svg>
-                        Subcontratas
-                    </a>
-                </li>
-                <li>
-                    <a href="http://localhost/tfg/constructalia/outsourced" class="nav-link text-white" title="Subcontratados">
-                        <svg class="bi me-2" width="16" height="16"><use xlink:href="#table"></use></svg>
-                        Subcontratados
-                    </a>
-                </li>
-                <li>
-                    <a href="http://localhost/tfg/constructalia/category" class="nav-link text-white" title="Categoria">
-                        <svg class="bi me-2" width="16" height="16"><use xlink:href="#table"></use></svg>
-                        Categoria
-                    </a>
-                </li>
-                <li>
-                    <a href="http://localhost/tfg/constructalia/training" class="nav-link text-white" title="Formación">
-                        <svg class="bi me-2" width="16" height="16"><use xlink:href="#table"></use></svg>
-                        Formación
-                    </a>
-                </li>
-            </ul>
+            <?php include 'sidebar.php'; ?>
             <hr>
         </div>
     </div>
 </div>
 <!-- BEGIN FOOTER -->
-<footer>
-    <div>
-        <p><a class="custom-footer" href="mailto:eliocamison@gmail.com">eliocamison@gmail.com</a></p>
-    </div>
-</footer>
+<?php include 'footer.php';?>
 <!-- END FOOTER -->
 </body>
 </html>

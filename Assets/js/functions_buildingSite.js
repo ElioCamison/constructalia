@@ -21,17 +21,17 @@ $(function (){
             {title:"Acciones",data:null,
                 render: function(data, type, row){
                     return '<button type="button" onclick="viewBuildingSite('+row.id+')" ' +
-                        'class="btn btn-outline-dark" title="Consultar obra">' +
+                        'class="btn btn-outline-primary" title="Consultar obra">' +
                         '<i class="fas fa-eye"></i>' +
                         '</button>' +
                         '&nbsp'+
                         '<button type="button" onclick="editBuildingSite('+row.id+')" ' +
-                        'class="btn btn-outline-dark" title="Editar obra">' +
+                        'class="btn btn-primary" title="Editar obra">' +
                         '<i class="far fa-edit"></i>' +
                         '</button>' +
                         '&nbsp'+
                         '<button type="button" onclick="deleteBuildingSite('+row.id+')" ' +
-                        'class="btn btn-dark" title="Eliminar obra">' +
+                        'class="btn btn-danger" title="Eliminar obra">' +
                         '<i class="fas fa-trash-alt"></i>' +
                         '</button>'
                 }
@@ -41,6 +41,9 @@ $(function (){
             url: "https://cdn.datatables.net/plug-ins/1.10.24/i18n/Spanish.json"
         },
         responsive: true,
+        searching: false,
+        info:false,
+        paging: false
     });
 
 
