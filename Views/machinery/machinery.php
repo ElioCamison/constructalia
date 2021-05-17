@@ -103,13 +103,13 @@
                 </li>
                 <li>
                     <a href="http://localhost/tfg/constructalia/outsource" class="nav-link text-white" title="Subcontratas">
-                        <svg class="bi me-2" width="16" height="16"><use xlink:href="#table"></use></svg>
+                        <i class="fas fa-briefcase"></i>
                         Subcontratas
                     </a>
                 </li>
                 <li>
                     <a href="http://localhost/tfg/constructalia/outsourced" class="nav-link text-white" title="Subcontratados">
-                        <svg class="bi me-2" width="16" height="16"><use xlink:href="#table"></use></svg>
+                        <i class="fas fa-boxes"></i>
                         Subcontratados
                     </a>
                 </li>

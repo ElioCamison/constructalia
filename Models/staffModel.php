@@ -24,7 +24,8 @@ class staffModel extends Mysql
 
     public function getStaff() {
         $query = "SELECT 
-                  staff.id, 
+                  staff.id,
+                  concat(staff.name,' ',staff.surname) AS full_name,  
                   staff.name, 
                   staff.surname, 
                   staff.phone, 
