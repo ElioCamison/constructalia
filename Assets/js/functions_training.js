@@ -73,7 +73,7 @@ function editTraining(training_id) {
     });
 }
 
-function deleteTraining(){
+function deleteTraining(training_id){
     bootbox.confirm({
         message: "¿Seguro que quiere eliminar la formación?",
         buttons: {
@@ -89,10 +89,10 @@ function deleteTraining(){
         callback: function (result) {
 
             if(result) {
-                $.get( "http://localhost/tfg/constructalia/rol/deleteRol/"+ rol_id, function( response ) {
+                $.get( "http://localhost/tfg/constructalia/training/deleteTraining/"+ training_id, function( response ) {
                     response=JSON.parse(response);
                     if(response.success) {
-                        tableRoles.ajax.reload();
+                        tableTraining.ajax.reload();
                         toastr.error(response.message);
                     }
                 });

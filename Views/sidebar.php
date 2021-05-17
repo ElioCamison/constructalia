@@ -61,7 +61,7 @@
     </li>
     <li>
         <a href="http://localhost/tfg/constructalia/machineryFamily" class="nav-link text-white" title="Familia maquinaria">
-            <svg class="bi me-2" width="16" height="16"><use xlink:href="#table"></use></svg>
+            <i class="fas fa-cogs"></i>
             Familia maquinaria
         </a>
     </li>
@@ -69,6 +69,12 @@
         <a href="http://localhost/tfg/constructalia/supplier" class="nav-link text-white" title="Proveedores">
             <i class="fas fa-balance-scale-left"></i>
             Proveedores
+        </a>
+    </li>
+    <li>
+        <a href="http://localhost/tfg/constructalia/ordering" class="nav-link text-white" title="Pedidos">
+            <i class="fas fa-calendar-alt"></i>
+            Pedidos
         </a>
     </li>
 </ul>

@@ -70,8 +70,22 @@ $(function (){
 });
 
 
-function editMachineryFamily(){
+function editMachineryFamily(machineryFamily_id) {
+    $.get( "http://localhost/tfg/constructalia/machineryFamily/getMachineryFamilyById/"+ machineryFamily_id, function( response ) {
+        response = JSON.parse(response);
+        if(response.success){
+            let machineryFamilyInfo = response.machineryFamilyInfo;
+            $('#modalFormMachineryFamily').modal('show');
+            $('#modalLabelFormMachineryFamily').text('Actualizar familia')
+            $('#machineryFamilyId').val(machineryFamilyInfo.id);
 
+            // Resto de campos
+            $('#machineryFamily_name').val(machineryFamilyInfo.name);
+            $('#machineryFamily_is_active').val(machineryFamilyInfo.is_active);
+        }else{
+            toastr.error(response.message);
+        }
+    });
 }
 
 function deleteMachineryFamily(){

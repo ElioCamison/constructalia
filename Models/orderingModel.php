@@ -8,7 +8,6 @@ class orderingModel extends Mysql {
     private $state;
     private $made_by;
     private $building_site;
-    private $modified_by_admin;
     private $is_urgent;
 
     public function __construct() {
@@ -16,7 +15,25 @@ class orderingModel extends Mysql {
     }
 
     public function getOrders(){
-        $query = "SELECT * FROM ORDERING";
+        $query = "SELECT 
+                      ordering.id,
+                      ordering.note,
+                      date(ordering.carried_out) AS carried_out,
+                      ordering.state,
+                      ordering.is_urgent,
+                      concat(user.name,' ',user.surname) AS made_by,
+                      building_site.name AS building_site_name,
+                      material.name AS material_name,
+                      machinery.name AS machinery_name
+                  FROM ORDERING
+                  INNER JOIN USER
+                      ON ordering.made_by= user.id
+                  LEFT JOIN MATERIAL
+                      ON ordering.material = material.id
+                  INNER JOIN MACHINERY
+                      ON ordering.machinery = machinery.id
+                  INNER JOIN BUILDING_SITE
+                      ON ordering.building_site = building_site.id";
         $result = $this->selectAll($query);
         return $result;
     }

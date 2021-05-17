@@ -123,7 +123,7 @@
                 </li>
                 <li>
                     <a href="http://localhost/tfg/constructalia/machineryFamily" class="nav-link text-white" title="Familia maquinaria">
-                        <svg class="bi me-2" width="16" height="16"><use xlink:href="#table"></use></svg>
+                        <i class="fas fa-cogs"></i>
                         Familia maquinaria
                     </a>
                 </li>
@@ -133,29 +133,34 @@
                         Proveedores
                     </a>
                 </li>
+                <li>
+                    <a href="http://localhost/tfg/constructalia/ordering" class="nav-link text-white" title="Pedidos">
+                        <i class="fas fa-calendar-alt"></i>
+                        Pedidos
+                    </a>
+                </li>
             </ul>
             <hr>
         </div>
     </div>
     <div class="col-md-10">
-        <h1 class="text-center">
+        <h1 class="align-items-center" style="background-color: whitesmoke;margin: 25px;box-shadow: 3px 3px lightgrey;height: 100px">
             <?php echo $data['page_title']?>
-            <div class="text-end">
-                <button type="button" class="btn btn btn-outline-dark" title="Añadir subcontratado" onclick="openModal();"><i class="fas fa-plus"></i> Añadir subcontratado</button>
-            </div>
         </h1>
+        <hr class="col-md-8 text-center" style="margin: 20px">
+        <div class="row col-md-2" style="margin: 20px">
+            <button type="button" class="btn btn btn-outline-dark" title="Añadir subcontratado" onclick="openModal();"><i class="fas fa-plus"></i> Añadir subcontratado</button>
+        </div>
         <section>
-            <div class="row">
-                <div class="table-responsive">
-                    <table class="table table-hover table-bordered" id="table-outsourced"></table>
-                </div>
+            <div class="table-responsive" style="margin: 20px;background-color: whitesmoke;box-shadow: 3px 3px lightgray;">
+                <table class="table table-hover table-bordered" id="table-outsourced"></table>
             </div>
         </section>
     </div>
 </div>
 <!-- BEGIN FOOTER -->
-<footer class="text-center" style="background-color: #1C2833;height: 50px">
-    <a class="custom-footer" href="https://github.com/ElioCamison/constructalia"><i class="fab fa-github" style="color: white"></i></a>
+<footer class="text-center" >
+    <a class="custom-footer" href="https://github.com/ElioCamison/constructalia"><i class="fab fa-github" style="color: #1C2833"></i></a>
 </footer>
 <!-- END FOOTER -->
 </body>

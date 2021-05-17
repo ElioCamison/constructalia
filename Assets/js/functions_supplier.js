@@ -42,30 +42,69 @@ $(function (){
     });
 
 
-    // // TODO validar este formulario
-    // $('#formUser').submit(function (e){
-    //     e.preventDefault();
-    //     let dataString = $('#formUser').serialize();
-    //     $.post( "http://localhost/tfg/constructalia/user/setUser/",dataString, function( response ) {
-    //         response=JSON.parse(response);
-    //         if(response.success) {
-    //             $('#modalFormUser').modal('hide');
-    //             tableUser.ajax.reload();
-    //             toastr.success(response.message);
-    //         } else {
-    //             toastr.error(response.message);
-    //         }
-    //
-    //     });
-    // });
+    // TODO validar este formulario
+    $('#formSupplier').submit(function (e) {
+        e.preventDefault();
+        let dataString = $('#formSupplier').serialize();
+        $.post( "http://localhost/tfg/constructalia/supplier/setSupplier/",dataString, function( response ) {
+            response = JSON.parse(response);
+            if(response.success) {
+                $('#modalFormSupplier').modal('hide');
+                tableSupplier.ajax.reload();
+                toastr.success(response.message);
+            } else {
+                toastr.error(response.message);
+            }
+        });
+    });
 
 });
 
 
-function editSupplier(){
+function editSupplier(supplier_id){
+    $.get( "http://localhost/tfg/constructalia/supplier/getSupplierById/"+ supplier_id, function( response ) {
+        response = JSON.parse(response);
+        if(response.success){
+            let supplierInfo = response.supplierInfo;
+            $('#modalFormSupplier').modal('show');
+            $('#modalLabelFormSupplier').text('Actualizar proveedor')
+            $('#supplierId').val(supplierInfo.id);
 
+            // Resto de campos
+            $('#supplier_code').val(supplierInfo.code);
+            $('#supplier_name').val(supplierInfo.name);
+            $('#supplier_email').val(supplierInfo.email);
+            $('#supplier_phone').val(supplierInfo.phone);
+            $('#supplier_address').val(supplierInfo.address);
+        }else{
+            toastr.error(response.message);
+        }
+    });
 }
 
-function deleteSupplier(){
-
+function deleteSupplier(supplier_id){
+    bootbox.confirm({
+        message: "¿Seguro que quiere eliminar este proveedor?",
+        buttons: {
+            confirm: {
+                label: 'Confirmar',
+                className: 'btn-default'
+            },
+            cancel: {
+                label: 'Cancelar',
+                className: 'btn-dark'
+            }
+        },
+        callback: function (result) {
+            if(result) {
+                $.get( "http://localhost/tfg/constructalia/supplier/deleteSupplier/"+ supplier_id, function( response ) {
+                    response=JSON.parse(response);
+                    if(response.success) {
+                        tableSupplier.ajax.reload();
+                        toastr.error(response.message);
+                    }
+                });
+            }
+        }
+    });
 }

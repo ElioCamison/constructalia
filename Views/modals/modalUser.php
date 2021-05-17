@@ -1,4 +1,4 @@
-<div class="modal fade" id="modalFormUser" tabindex="-1" role="dialog" aria-labelledby="modalLabelFormUser" aria-hidden="true" hidden>
+<div class="modal fade" id="modalFormUser" tabindex="-1" role="dialog" aria-labelledby="modalLabelFormUser" aria-hidden="true">
     <div class="modal-dialog modal-xl">
         <div class="modal-content">
             <div class="modal-header">
@@ -45,7 +45,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="user_state">Estado</label>
-                                    <select id="user_state" name="state" class="form-control">
+                                    <select id="user_state" name="is_active" class="form-control">
                                         <option value="" selected>------</option>
                                         <option value="1">Activo</option>
                                         <option value="0">Inactivo</option>

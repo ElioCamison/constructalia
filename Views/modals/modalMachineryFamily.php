@@ -17,7 +17,7 @@
                     <div class="mb-3">
                         <div class="form-group">
                             <label for="machineryFamily_is_active">Estado</label>
-                            <input type="checkbox" class="custom-control-input" id="is_active" name="is_active">
+                            <input type="checkbox" class="custom-control-input" id="machineryFamily_is_active" name="is_active">
                         </div>
                     </div>
                     <div class="modal-footer">

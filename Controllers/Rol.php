@@ -12,6 +12,7 @@
             $data['tag_page'] = "Roles de usuario";
             $data['page_title'] = "Roles usuario";
             $data['page_name'] = "rol_usuario";
+            $data['icon'] = '';
             $this->views->getView($this, "rol", $data);
         }
 

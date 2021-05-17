@@ -124,7 +124,6 @@ $('#table-rol').dataTable();
 
 function openModal() {
     $('#modalLabelFormRol').text('Nuevo rol');
-    $('#modalFormRol').removeAttr('hidden');
     $('#modalFormRol').modal('show');
 }
 
