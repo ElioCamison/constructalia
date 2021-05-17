@@ -21,22 +21,21 @@ class MachineryFamily extends Controllers {
 
     public function setMachineryFamily() {
         if(isset( $_POST) && !empty($_POST)) {
-            $is_active = "";
             foreach ($_POST as $key => $value) {
                 $$key = addslashes($value);
             }
 
-            $is_active =  $is_active == "on" ? 1 : 0;
-
             if($machineryFamilyId) {
-                $requestUser = $this->model->updateMachineryFamily($machineryFamilyId,$name,$is_active);
+
+                $requestMachineryFamily = $this->model->updateMachineryFamily($machineryFamilyId,$name,$is_active);
             } else {
-                $requestUser = $this->model->insertMachineryFamily($name,$is_active);
+                var_dump("insert");
+                $requestMachineryFamily = $this->model->insertMachineryFamily($name,$is_active);
             }
 
-            if ($requestUser > 0) {
+            if ($requestMachineryFamily > 0) {
                 $arrResponse = array('success'=>true,'message'=>'Se ha creado una familia de maquinaria correctametne');
-            } else if ($requestUser == "updated") {
+            } else if ($requestMachineryFamily == "updated") {
                 $arrResponse = array('success'=>true,'message'=>'Se ha actualizado la familia correctamente');
             } else {
                 $arrResponse = array('success'=>false,'message'=>'Ha ocurrido un error');
@@ -47,6 +46,21 @@ class MachineryFamily extends Controllers {
         }
     }
 
+
+    public function getMachineryFamilyById(int $machineryFamily_id){
+        $$machineryFamily_id = intval($machineryFamily_id);
+        if ($machineryFamily_id > 0){
+            $requestMachineryFamily = $this->model->getMachineryFamilyById($machineryFamily_id);
+
+            if($requestMachineryFamily){
+                $arrResponse = array("success" => true,"machineryFamilyInfo"=>$requestMachineryFamily);
+            } else {
+                $arrResponse = array("success" => false,"message"=>"Ha ocurrido un error");
+            }
+        }
+        echo json_encode($arrResponse,JSON_UNESCAPED_UNICODE);
+        die();
+    }
 }
 
 ?>

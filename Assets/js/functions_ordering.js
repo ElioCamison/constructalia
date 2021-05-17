@@ -13,10 +13,31 @@ $(function (){
         },
         columns:[
             {title:"ID",data:"id", visible:false},
-            {title:"Estado",data:"state"},
+            {title:"Creado por",data:"made_by"},
+            {title:"Estado",data:"state",
+                render:function (data, type, row){
+                    let span = '';
+                    if(row.state == 0){
+                        span = '<span class="badge bg-warning text-dark">Pendiente</span>'
+                    } else {
+                        span = '<span class="badge bg-light text-dark">Entregado</span>'
+                    }
+                    return span;
+                }
+            },
+            {title:"Obra",data:"building_site_name"},
             {title:"Fecha entrega",data:"carried_out"},
-            {title:"Obra",data:"building_site"},
-            {title:"Urgente",data:"is_urgent"},
+            {title:"Urgente",data:"is_urgent",
+                render:function (data, type, row){
+                    let span = '';
+                    if(row.is_urgent == 0){
+                        span = '<span class="badge bg-success text-dark">Sí</span>'
+                    } else {
+                        span = '<span class="badge bg-light text-dark">No</span>'
+                    }
+                    return span;
+                }
+            },
             {title:"Acciones",data:null,
                 render: function(data, type, row){
                     return '<button type="button" onclick="viewOrder('+row.id+')" ' +
@@ -25,12 +46,12 @@ $(function (){
                         '</button>' +
                         '&nbsp'+
                         '<button type="button" onclick="editOrder('+row.id+')" ' +
-                        'class="btn btn-outline-warning" title="Editar pedido">' +
+                        'class="btn btn-warning" title="Editar pedido">' +
                         '<i class="far fa-edit"></i>' +
                         '</button>' +
                         '&nbsp'+
                         '<button type="button" onclick="deleteOrder('+row.id+')" ' +
-                        'class="btn btn-dark" title="Eliminar pedido">' +
+                        'class="btn btn-danger" title="Eliminar pedido">' +
                         '<i class="fas fa-trash-alt"></i>' +
                         '</button>'
                 }
@@ -40,6 +61,9 @@ $(function (){
             url: "https://cdn.datatables.net/plug-ins/1.10.24/i18n/Spanish.json"
         },
         responsive: true,
+        searching: false,
+        info:false,
+        paging: false
     });
 
 

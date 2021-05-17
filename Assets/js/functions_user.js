@@ -1,6 +1,5 @@
 let tableUser;
 function openModal() {
-    $('#modalFormUser').removeAttr('hidden');
     $('#modalFormUser').modal('show');
 }
 
@@ -19,13 +18,13 @@ $(function (){
             {title:"Nombre completo",data:"full_name"},
             {title:"Email",data:"email"},
             {title:"Teléfono",data:"phone"},
-            {title:"Estado",data:"is_Active",
+            {title:"Estado",data:"is_active",
                 render:function (data, type, row){
                     let span = '';
-                    if(row.is_Active == 0){
+                    if(row.is_active == 0){
                         span = '<span class="badge bg-danger" title="Estado inactivo">Inactivo</span>'
                     } else {
-                        span = '<span class="badge bg-light text-dark" title="Estado activo">Activo</span>'
+                        span = '<span class="badge bg-info text-dark" title="Estado activo">Activo</span>'
                     }
                     return span;
                 }
@@ -56,7 +55,8 @@ $(function (){
         responsive: true,
         searching: false,
         info:false,
-        paging: false
+        paging: false,
+        scrollX: false
     });
 
 
@@ -94,15 +94,6 @@ function viewUser(user_id){
             $('#userInfo_email').val(userInfo.email);
             $('#userInfo_phone').val(userInfo.phone);
             $('#userInfo_state').val(userInfo.is_active);
-        }
-    });
-}
-
-function getRolNameByRolId(rolId) {
-    $.get( "http://localhost/tfg/constructalia/user/getRolNameByRolId/"+ rolId, function( response ) {
-        response=JSON.parse(response);
-        if(response.success) {
-            return response.rol_name
         }
     });
 }

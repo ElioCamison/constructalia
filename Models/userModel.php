@@ -25,7 +25,7 @@ class userModel extends Mysql
                     user.username, 
                     concat(user.name,' ',user.surname) AS full_name, 
                     user.phone, 
-                    user.is_Active, 
+                    user.is_active, 
                     rol.name AS rol_name 
                   FROM USER 
                   INNER JOIN ROL 
@@ -64,13 +64,6 @@ class userModel extends Mysql
         $requestUpdate = $this->update($queryUpdate, $arrData);
 
         return $requestUpdate == "1" ? "updated" : 0;
-    }
-
-
-    public function getRolNameByRolId($rolId) {
-        $query = "SELECT name FROM ROL WHERE id=".$rolId;
-        $result = $this->select($query);
-        return $result;
     }
 
     public function deleteUser(int $id) {

@@ -53,6 +53,13 @@ class trainingModel extends Mysql {
         return $result;
     }
 
+    public function deleteTraining(int $id) {
+        $query = "DELETE FROM TRAINING WHERE id =" . $id;
+        $request = $this->delete($query);
+
+        return $request;
+    }
+
 
 }// fin clase trainingModel
 

@@ -149,24 +149,28 @@ if(!isset($_SESSION['user_id'])){
         </div>
     </div>
     <div class="col-md-10">
-        <h1 class="text-center">
-            <?php echo $data['page_title']?>
-            <div class="text-end">
-                <button type="button" class="btn btn btn-outline-dark pull-right" title="Crear un rol" onclick="openModal();"><i class="fa fa-plus" aria-hidden="true"></i> Añadir un usuario</button>
-            </div>
+        <h1 class="align-items-center" style="background-color: whitesmoke;margin: 25px;box-shadow: 3px 3px lightgrey;height: 100px">
+            <?php echo $data['icon']; echo $data['page_title']?>
         </h1>
+        <hr class="col-md-8 text-center">
+        <div class="row col-md-2">
+            <button type="button"
+                    class="btn btn btn-outline-dark"
+                    title="Crear un rol" onclick="openModal();">
+                <i class="fa fa-plus" aria-hidden="true"></i>
+                Añadir un usuario
+            </button>
+        </div>
         <section>
-            <div class="row">
-                <div class="table-responsive">
-                    <table class="table table-hover table-bordered" id="table-user"></table>
-                </div>
+            <div class="table-responsive" style="margin: 20px;height:650px;background-color: whitesmoke;box-shadow: 3px 3px lightgray;">
+                <table class="table table-hover table-bordered" id="table-user"></table>
             </div>
         </section>
     </div>
 </div>
 <!-- BEGIN FOOTER -->
-<footer class="text-center" style="background-color: #1C2833;">
-    <a class="custom-footer" href="https://github.com/ElioCamison/constructalia"><i class="fab fa-github" style="color: white"></i></a>
+<footer class="text-center">
+    <a class="custom-footer" href="https://github.com/ElioCamison/constructalia"><i class="fab fa-github" style="color: #1C2833;"></i></a>
 </footer>
 <!-- END FOOTER -->
 </body>

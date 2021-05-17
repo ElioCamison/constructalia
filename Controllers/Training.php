@@ -12,6 +12,7 @@ class Training extends Controllers {
         $data['tag_page'] = "Formación";
         $data['page_title'] = "Formación";
         $data['page_name'] = "Formación";
+        $data['icon'] = '<i class="fas fa-book"></i>';
         $this->views->getView($this, "training", $data);
     }
 
@@ -58,6 +59,19 @@ class Training extends Controllers {
                 $arrResponse = array("success" => false,"message"=>"Ha ocurrido un error");
             }
         }
+        echo json_encode($arrResponse,JSON_UNESCAPED_UNICODE);
+        die();
+    }
+
+    public function deleteTraining(int $userId) {
+        $data = $this->model->deleteTraining($userId);
+
+        if ($data){
+            $arrResponse = array("success" => true,"message"=>"Formación eliminada correctamente");
+        } else {
+            $arrResponse = array("success" => false,"message"=>"Ha ocurrido un error");
+        }
+
         echo json_encode($arrResponse,JSON_UNESCAPED_UNICODE);
         die();
     }

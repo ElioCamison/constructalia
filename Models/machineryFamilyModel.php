@@ -22,7 +22,7 @@ class machineryFamilyModel extends Mysql{
         $this->is_active = $is_active;
 
         if(empty($result)) {
-            $queryInsert = "INSERT INTO FAMILY_MACHINERY(name,is_active) VALUES(?,?)";
+            $queryInsert = "INSERT INTO MACHINERY_FAMILY(name,is_active) VALUES(?,?)";
             $arrData = array($this->name,$this->is_active);
             $requestInsert = $this->insert($queryInsert, $arrData);
             $response .= $requestInsert;
@@ -34,11 +34,20 @@ class machineryFamilyModel extends Mysql{
 
 
     public function updateMachineryFamily($id,$name,$is_active) {
-        $queryUpdate = "UPDATE FAMILY_MACHINERY SET name = ?, is_active = ? WHERE id = ".$id;
+        var_dump($id,$name,$is_active);
+        $queryUpdate = "UPDATE MACHINERY_FAMILY SET name = ?, is_active = ? WHERE id = ".$id;
         $arrData = array($name,$is_active);
         $requestUpdate = $this->update($queryUpdate, $arrData);
-
+        var_dump($requestUpdate);
         return $requestUpdate == "1" ? "updated" : 0;
+    }
+
+
+    public function getMachineryFamilyById(int $id) {
+        $this->id = $id;
+        $query = "SELECT * FROM MACHINERY_FAMILY WHERE id=".$id;
+        $result = $this->select($query);
+        return $result;
     }
 
 }// fin clase machineryFamilyModel

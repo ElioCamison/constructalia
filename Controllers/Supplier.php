@@ -19,6 +19,63 @@ class Supplier extends Controllers {
         die();
     }
 
+
+    public function setSupplier() {
+        if(isset( $_POST) && !empty($_POST)) {
+            foreach ($_POST as $key => $value) {
+                $$key = addslashes($value);
+            }
+
+
+            if($supplierId) {
+                $requestUser = $this->model->updateSupplier($supplierId,$code,$name,$email,$address,$phone);
+            } else {
+                $requestUser = $this->model->insertSupplier($code,$name,$email,$address,$phone);
+            }
+
+            if ($requestUser > 0) {
+                $arrResponse = array('success'=>true,'message'=>'Se ha creado un proveedor correctametne');
+            } else if ($requestUser == "updated") {
+                $arrResponse = array('success'=>true,'message'=>'Se ha actualizado el proveedor correctamente');
+            } else {
+                $arrResponse = array('success'=>false,'message'=>'Ha ocurrido un error');
+            }
+
+            echo json_encode($arrResponse,JSON_UNESCAPED_UNICODE);
+            die();
+        }
+    }
+
+
+    public function getSupplierById(int $supplierId) {
+        $supplierId = intval($supplierId);
+        if ($supplierId > 0){
+            $requestSupplier = $this->model->getSupplierById($supplierId);
+
+            if($requestSupplier){
+                $arrResponse = array("success" => true,"supplierInfo"=>$requestSupplier);
+            } else {
+                $arrResponse = array("success" => false,"message"=>"Ha ocurrido un error");
+            }
+        }
+        echo json_encode($arrResponse,JSON_UNESCAPED_UNICODE);
+        die();
+    }
+
+
+    public function deleteSupplier(int $supplierId) {
+        $data = $this->model->deleteSupplier($supplierId);
+
+        if ($data){
+            $arrResponse = array("success" => true,"message"=>"Proveedor eliminado correctamente");
+        } else {
+            $arrResponse = array("success" => false,"message"=>"Ha ocurrido un error");
+        }
+
+        echo json_encode($arrResponse,JSON_UNESCAPED_UNICODE);
+        die();
+    }
+
 }
 
 ?>
