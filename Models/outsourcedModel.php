@@ -13,6 +13,20 @@ class outsourcedModel extends Mysql {
         parent::__construct();
     }
 
+    public function getOutsourced() {
+        $query = "SELECT 
+                    outsourced.id,
+                    outsourced.ita,
+                    outsourced.high_ita,
+                    outsourced.self_employment_discharge,
+                    outsource.name AS outsource_name,
+                    outsourced.is_informed
+                FROM constructalia.outsourced
+                INNER JOIN OUTSOURCE on outsourced.outsource = outsource.id";
+        $result = $this->selectAll($query);
+        return $result;
+    }
+
 
 }// fin clase outsourcedModel
 

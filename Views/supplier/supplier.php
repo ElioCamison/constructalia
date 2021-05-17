@@ -54,7 +54,7 @@
 <header style="background-color: #1C2833;height: 50px;color: white" class="text-right">
     <div class="dropdown">
         <a href="#" class="d-flex align-items-center text-white text-decoration-none" id="dropdownUser1" aria-expanded="false">
-            <img src="https://github.com/mdo.png" alt="" width="32" height="32" class="rounded-circle me-2">
+            <img src="https://github.com/mdo.png" alt="" width="40" height="40" class="rounded-circle me-2">
             <strong>mdo</strong>
         </a>
     </div>
@@ -161,7 +161,7 @@
     </div>
 </div>
 <!-- BEGIN FOOTER -->
-<footer class="text-center" style="background-color: #1C2833;height: 50px">
+<footer class="text-center" style="background-color: #1C2833;">
     <a class="custom-footer" href="https://github.com/ElioCamison/constructalia"><i class="fab fa-github" style="color: white"></i></a>
 </footer>
 <!-- END FOOTER -->

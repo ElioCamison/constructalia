@@ -52,9 +52,11 @@
         </a>
     </div>
 </header>
-<h1>
+<h1 class="text-center">
     <?php echo $data['tag_page']?>
-    <button type="button" class="btn btn btn-outline-dark" title="Añadir personal propio" onclick="openModal();">Añadir un personal</button>
+    <div class="text-end">
+        <button type="button" class="btn btn btn-outline-dark" title="Añadir personal propio" onclick="openModal();"><i class="fas fa-plus"></i> Añadir un personal</button>
+    </div>
 </h1>
 <div class="row" >
     <div class="col-md-2">
@@ -152,7 +154,7 @@
     </div>
 </div>
 <!-- BEGIN FOOTER -->
-<footer class="text-center" style="background-color: #1C2833;height: 50px">
+<footer class="text-center" style="background-color: #1C2833;">
     <a class="custom-footer" href="https://github.com/ElioCamison/constructalia"><i class="fab fa-github" style="color: white"></i></a>
 </footer>
 <!-- END FOOTER -->

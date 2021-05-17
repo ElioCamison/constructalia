@@ -55,9 +55,11 @@
         </a>
     </div>
 </header>
-<h1>
+<h1 class="text-center">
     <?php echo $data['page_title']?>
-    <button type="button" class="btn btn btn-outline-dark" title="Añadir obra" onclick="openModal();">Añadir una maquina</button>
+    <div class="text-end">
+        <button type="button" class="btn btn btn-outline-dark" title="Añadir obra" onclick="openModal();"><i class="fas fa-plus"></i>Añadir una maquina</button>
+    </div>
 </h1>
 <div class="row" >
     <div class="col-md-2">

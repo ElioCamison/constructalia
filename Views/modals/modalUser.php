@@ -56,7 +56,7 @@
                     </div>
                     <div class="row">
                         <div class="modal-footer">
-                            <button type="submit" id="userSave" class="btn btn-primary">Guardar</button>
+                            <button type="submit" id="userSave" class="btn btn-warning">Guardar</button>
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
                         </div>
                     </div>

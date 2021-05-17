@@ -52,9 +52,11 @@
         </a>
     </div>
 </header>
-    <h1>
+    <h1 class="text-center">
         <?php echo $data['tag_page']?>
-        <button type="button" class="btn btn btn-outline-dark" title="Crear un rol" onclick="openModal();">Añadir un rol</button>
+        <div class="text-end">
+            <button type="button" class="btn btn btn-outline-dark" title="Crear un rol" onclick="openModal();"><i class="fas fa-plus"></i> Añadir un rol</button>
+        </div>
     </h1>
     <div class="row" >
         <div class="col-md-2">

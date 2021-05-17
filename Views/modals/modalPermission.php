@@ -72,8 +72,8 @@
                                 </div>
 
                                 <div class="modal-footer">
-                                    <button type="button" onclick="removeAllPermissions()" class="btn btn-primary pull-left">Limpiar</button>
-                                    <button type="submit" onclick="savePermissionRol()" class="btn btn-primary">Guardar</button>
+                                    <button type="button" onclick="removeAllPermissions()" class="btn btn-outline-danger pull-left">Limpiar</button>
+                                    <button type="submit" onclick="savePermissionRol()" class="btn btn-warning">Guardar</button>
                                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
                                 </div>
                             </form>

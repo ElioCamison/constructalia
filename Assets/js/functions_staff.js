@@ -62,7 +62,17 @@ $(function (){
                     return span;
                 }
             },
-            {title:"Estado",data:"state"},
+            {title:"Estado",data:"state",
+                render:function (data, type, row){
+                    let span = '';
+                    if(row.state == 0){
+                        span = '<span class="badge bg-danger" title="Estado inactivo">Inactivo</span>'
+                    } else {
+                        span = '<span class="badge bg-light text-dark" title="Estado activo">Activo</span>'
+                    }
+                    return span;
+                }
+            },
             {title:"Revisión medica",data:"medical_examination"},
             {title:"Obra",data:"building_site_name"},
             {title:"Categoria",data:"category_name"},

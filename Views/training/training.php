@@ -161,7 +161,7 @@
     </div>
 </div>
 <!-- BEGIN FOOTER -->
-<footer class="text-center" style="background-color: #1C2833;height: 50px">
+<footer class="text-center" style="background-color: #1C2833;">
     <a class="custom-footer" href="https://github.com/ElioCamison/constructalia"><i class="fab fa-github" style="color: white"></i></a>
 </footer>
 <!-- END FOOTER -->

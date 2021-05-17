@@ -1,3 +1,4 @@
+<?php getModal('modalOutsourced',$data); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -51,8 +52,12 @@
         </a>
     </div>
 </header>
-<h1>
+<h1 class="text-center">
     <?php echo $data['page_title']?>
+    <div class="text-end">
+        <!--<button type="button" class="btn btn btn-outline-dark" title="Añadir obra" onclick="openModal();"><i class="fas fa-plus"></i> Añadir una familia</button>-->
+    </div>
+
 </h1>
 <div class="row" >
     <div class="col-md-2">
@@ -138,6 +143,15 @@
             </ul>
             <hr>
         </div>
+    </div>
+    <div class="col-md-10" >
+        <section>
+            <div class="row">
+                <div class="table-responsive">
+                    <table class="table table-hover table-bordered" id="table-outsourced"></table>
+                </div>
+            </div>
+        </section>
     </div>
 </div>
 <!-- BEGIN FOOTER -->
