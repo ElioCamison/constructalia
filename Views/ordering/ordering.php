@@ -45,13 +45,9 @@
         </a>
     </div>
 </header>
-<h1>
-    <?php echo $data['page_title']?>
-    <button type="button" class="btn btn btn-outline-dark" title="Crear un pedido" onclick="openModal();">Crear un pedido</button>
-</h1>
 <div class="row" >
     <div class="col-md-2">
-        <div class="d-flex flex-column flex-shrink-0 p-3 text-white" style="width: 280px;height:900px;background-color: #1C2833">
+        <div class="d-flex flex-column flex-shrink-0 p-3 text-white" style="width: 280px;height:975px;background-color: #1C2833">
             <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
                 <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"></use></svg>
                 <span class="fs-4">Menú</span>
@@ -134,7 +130,13 @@
             <hr>
         </div>
     </div>
-    <div class="col-md-10" >
+    <div class="col-md-10">
+        <h1 class="text-center">
+            <?php echo $data['page_title']?>
+            <div class="text-end">
+                <button type="button" class="btn btn btn-outline-dark" title="Crear un pedido" onclick="openModal();">Crear un pedido</button>
+            </div>
+        </h1>
         <section>
             <div class="row">
                 <div class="col-md-11">

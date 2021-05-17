@@ -1,3 +1,11 @@
+<?php
+session_start();
+
+if(!isset($_SESSION['user_id'])){
+    header('Location: login');
+    exit;
+}
+?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -8,6 +16,9 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"
             integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 <!--    <script src="./Assets/js/jquery_3.6.0.js"></script>-->
+
+    <!-- FontAwesome   -->
+    <script src="http://localhost/tfg/constructalia/Assets/plugins/awesome/awesome.js"></script>
 
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"

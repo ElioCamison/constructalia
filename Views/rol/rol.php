@@ -1,3 +1,12 @@
+<?php
+session_start();
+
+if(!isset($_SESSION['user_id'])){
+    header('Location: login');
+    exit;
+}
+?>
+
 <?php getModal('modalRol',$data); ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -44,20 +53,28 @@
 
 </head>
 <body>
-<header style="background-color: #1C2833;height: 50px;color: white" class="text-right">
+<header style="background-color: #1C2833;height: 75px;color: white" class="text-right">
     <div class="dropdown">
         <a href="#" class="d-flex align-items-center text-white text-decoration-none" id="dropdownUser1" aria-expanded="false">
-            <img src="https://github.com/mdo.png" alt="" width="32" height="32" class="rounded-circle me-2">
+            <img src="https://github.com/mdo.png" alt="" width="50" height="50" class="rounded-circle me-2">
             <strong>mdo</strong>
         </a>
     </div>
 </header>
-    <h1 class="text-center">
-        <?php echo $data['tag_page']?>
-        <div class="text-end">
-            <button type="button" class="btn btn btn-outline-dark" title="Crear un rol" onclick="openModal();"><i class="fas fa-plus"></i> Añadir un rol</button>
-        </div>
-    </h1>
+<!--    <h1 class="text-center">-->
+<!--        --><?php //echo $data['tag_page']?>
+<!--        <div class="text-end">-->
+<!--            <button type="button" class="btn btn btn-outline-dark" title="Crear un rol" onclick="openModal();"><i class="fas fa-plus"></i> Añadir un rol</button>-->
+<!--        </div>-->
+<!--    </h1>-->
+<!--    <div class="row filters">-->
+<!--        <div class="align-items-center">-->
+<!--            <div class="col-md-1">-->
+<!--                <label for="filterRol-name" class="col-form-label">Nombre</label>-->
+<!--                <input class="form-control" id="filterRol-name">-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
     <div class="row" >
         <div class="col-md-2">
             <div class="d-flex flex-column flex-shrink-0 p-3 text-white" style="width: 280px;height:900px;background-color: #1C2833">
@@ -105,13 +122,13 @@
                     </li>
                     <li>
                         <a href="http://localhost/tfg/constructalia/outsource" class="nav-link text-white" title="Subcontratas">
-                            <svg class="bi me-2" width="16" height="16"><use xlink:href="#table"></use></svg>
+                            <i class="fas fa-briefcase"></i>
                             Subcontratas
                         </a>
                     </li>
                     <li>
                         <a href="http://localhost/tfg/constructalia/outsourced" class="nav-link text-white" title="Subcontratados">
-                            <svg class="bi me-2" width="16" height="16"><use xlink:href="#table"></use></svg>
+                            <i class="fas fa-boxes"></i>
                             Subcontratados
                         </a>
                     </li>
@@ -144,6 +161,20 @@
             </div>
         </div>
         <div class="col-md-10" >
+            <h1 class="text-center">
+                <?php echo $data['tag_page']?>
+                <div class="text-end">
+                    <button type="button" class="btn btn btn-outline-dark" title="Crear un rol" onclick="openModal();"><i class="fas fa-plus"></i> Añadir un rol</button>
+                </div>
+            </h1>
+            <div class="row filters">
+                <div class="align-items-center">
+                    <div class="col-md-1">
+                        <label for="filterRol-name" class="col-form-label">Nombre</label>
+                        <input class="form-control" id="filterRol-name">
+                    </div>
+                </div>
+            </div>
             <section>
                 <div id="contentAjax"></div>
                 <div class="row">
@@ -155,11 +186,20 @@
         </div>
     </div>
     <!-- BEGIN FOOTER -->
-    <footer class="text-center" style="background-color: #1C2833;height: 50px">
-        <a class="custom-footer" href="https://github.com/ElioCamison/constructalia"><i class="fab fa-github" style="color: white"></i></a>
+    <footer>
+        <a class="custom-footer" href="https://github.com/ElioCamison/constructalia"><i class="fab fa-github" style="color: #1C2833;"></i></a>
     </footer>
     <!-- END FOOTER -->
 
 </body>
 </html>
 <script  src="http://localhost/tfg/constructalia/Assets/js/functions_rol.js"></script>
+<script>
+    $('#filterRol-name').on('change', function () {
+        debugger
+        console.log(this.value)
+        $('#table-rol').DataTable().column(0)
+            .search(this.value)
+            .draw();
+    });
+</script>
