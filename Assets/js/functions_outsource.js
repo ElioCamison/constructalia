@@ -43,7 +43,7 @@ $(function (){
             {title:"Acciones",data:null,
                 render: function(data, type, row){
                     return '<button type="button" onclick="editOutsource('+row.id+')" ' +
-                                'class="btn btn-primary" title="Editar personal">' +
+                                'class="btn btn-warning" title="Editar personal">' +
                                 '<i class="far fa-edit"></i>' +
                            '</button>' +
                            '&nbsp'+

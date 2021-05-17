@@ -21,7 +21,7 @@ $(function (){
             {title:"Acciones",data:null,
                 render: function(data, type, row){
                     return '<button type="button" onclick="editMachinery('+row.id+')" ' +
-                        'class="btn btn-primary" title="Editar maquinaria">' +
+                        'class="btn btn-warning" title="Editar maquinaria">' +
                         '<i class="far fa-edit"></i>' +
                         '</button>' +
                         '&nbsp'+

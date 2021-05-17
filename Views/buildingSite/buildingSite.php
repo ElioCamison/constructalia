@@ -44,7 +44,7 @@
 
 </head>
 <body>
-<header style="background-color: #0a53be;height: 50px;color: white" class="text-right">
+<header style="background-color: #1C2833;height: 50px;color: white" class="text-right">
     <div class="dropdown">
         <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
             <img src="https://github.com/mdo.png" alt="" width="32" height="32" class="rounded-circle me-2">
@@ -59,13 +59,16 @@
         </ul>
     </div>
 </header>
-<h1>
+<h1 class="text-center">
     <?php echo $data['page_title']?>
-    <button type="button" class="btn btn btn-outline-dark" title="Añadir obra" onclick="openModal();">Añadir una obra</button>
+    <div class="text-end">
+        <button type="button" class="btn btn btn-outline-dark" title="Añadir obra" onclick="openModal();"><i class="fa fa-plus" aria-hidden="true"></i>
+             Añadir una obra</button>
+    </div>
 </h1>
 <div class="row" >
     <div class="col-md-2">
-        <div class="d-flex flex-column flex-shrink-0 p-3 text-white" style="width: 280px;background-color: #0a53be">
+        <div class="d-flex flex-column flex-shrink-0 p-3 text-white" style="width: 280px;height:900px;background-color: #1C2833">
             <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
                 <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"></use></svg>
                 <span class="fs-4">Menú</span>
@@ -159,10 +162,8 @@
     </div>
 </div>
 <!-- BEGIN FOOTER -->
-<footer>
-    <div>
-        <p><a class="custom-footer" href="mailto:eliocamison@gmail.com">eliocamison@gmail.com</a></p>
-    </div>
+<footer class="text-center" style="background-color: #1C2833;height: 50px">
+    <a class="custom-footer" href="https://github.com/ElioCamison/constructalia"><i class="fab fa-github" style="color: white"></i></a>
 </footer>
 <!-- END FOOTER -->
 </body>

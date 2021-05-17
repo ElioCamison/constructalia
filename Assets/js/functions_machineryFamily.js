@@ -29,7 +29,7 @@ $(function (){
             {title:"Acciones",data:null,
                 render: function(data, type, row){
                     return '<button type="button" onclick="editMachineryFamily('+row.id+')" ' +
-                        'class="btn btn-primary" title="Editar familia">' +
+                        'class="btn btn-warning" title="Editar familia">' +
                         '<i class="far fa-edit"></i>' +
                         '</button>' +
                         '&nbsp'+

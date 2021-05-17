@@ -34,12 +34,12 @@ $(function (){
             {title:"Acciones", data:null,
                 render: function(data, type, row){
                     return '<button type="button" onclick="viewUser('+row.id+')" ' +
-                                'class="btn btn-outline-primary" title="Consultar">' +
+                                'class="btn btn-outline-dark" title="Consultar">' +
                                 '<i class="fas fa-eye"></i>' +
                             '</button>' +
                             '&nbsp'+
                             '<button type="button" onclick="editUser('+row.id+')" ' +
-                                    'class="btn btn-primary" title="Editar usuario">' +
+                                    'class="btn btn-warning" title="Editar usuario">' +
                                     '<i class="far fa-edit"></i>' +
                             '</button>' +
                             '&nbsp'+
