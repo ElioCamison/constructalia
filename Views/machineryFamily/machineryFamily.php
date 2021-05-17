@@ -55,15 +55,9 @@
         </a>
     </div>
 </header>
-<h1 class="text-center">
-    <?php echo $data['page_title']?>
-    <div class="text-end">
-        <button type="button" class="btn btn btn-outline-dark" title="Añadir obra" onclick="openModal();"><i class="fas fa-plus"></i> Añadir una familia</button>
-    </div>
-</h1>
 <div class="row" >
     <div class="col-md-2">
-        <div class="d-flex flex-column flex-shrink-0 p-3 text-white" style="width: 280px;height:900px;background-color: #1C2833">
+        <div class="d-flex flex-column flex-shrink-0 p-3 text-white" style="width: 280px;height:975px;background-color: #1C2833">
             <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
                 <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"></use></svg>
                 <span class="fs-4">Menú</span>
@@ -108,13 +102,13 @@
                 </li>
                 <li>
                     <a href="http://localhost/tfg/constructalia/outsource" class="nav-link text-white" title="Subcontratas">
-                        <svg class="bi me-2" width="16" height="16"><use xlink:href="#table"></use></svg>
+                        <i class="fas fa-briefcase"></i>
                         Subcontratas
                     </a>
                 </li>
                 <li>
                     <a href="http://localhost/tfg/constructalia/outsourced" class="nav-link text-white" title="Subcontratados">
-                        <svg class="bi me-2" width="16" height="16"><use xlink:href="#table"></use></svg>
+                        <i class="fas fa-boxes"></i>
                         Subcontratados
                     </a>
                 </li>
@@ -146,7 +140,13 @@
             <hr>
         </div>
     </div>
-    <div class="col-md-10" >
+    <div class="col-md-10">
+        <h1 class="text-center">
+            <?php echo $data['page_title']?>
+            <div class="text-end">
+                <button type="button" class="btn btn btn-outline-dark" title="Añadir obra" onclick="openModal();"><i class="fas fa-plus"></i> Añadir una familia</button>
+            </div>
+        </h1>
         <section>
             <div class="row">
                 <div class="table-responsive">

@@ -25,6 +25,8 @@ class Login extends Controllers {
 
             if($requestLogin){
                 $arrResponse = array("success" => true,"url"=>"http://localhost/tfg/constructalia/home");
+                session_start();
+                $_SESSION['user_id'] = $requestLogin['id'];
             } else {
                 $arrResponse = array("success" => false,"message"=>"Error, nombre de usuario o contraseña incorrectos");
             }

@@ -12,7 +12,7 @@ let tablePermissionRol;
             dataSrc:''
         },
         columns:[
-            {title:"ID",data:"id"},
+            {title:"ID",data:"id",visible:false,},
             {title:"Nombre",data:"name"},
             {title:"Descripción",data:"description"},
             {title:"Estado",data:"is_active",
