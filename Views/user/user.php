@@ -154,7 +154,6 @@ if(!isset($_SESSION['user_id'])){
             <div class="text-end">
                 <button type="button" class="btn btn btn-outline-dark pull-right" title="Crear un rol" onclick="openModal();"><i class="fa fa-plus" aria-hidden="true"></i> Añadir un usuario</button>
             </div>
-
         </h1>
         <section>
             <div class="row">

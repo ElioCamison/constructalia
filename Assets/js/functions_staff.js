@@ -1,10 +1,9 @@
 let tableStaff;
 function openModal() {
-    $('#modalFormOutsource').modal('show');
+    $('#modalFormStaff').modal('show');
 }
 
 $(function (){
-
     tableStaff = $('#table-staff').DataTable({
         processing:true,
         serverSide: true,
@@ -14,68 +13,23 @@ $(function (){
         },
         columns:[
             {title:"ID",data:"id", visible:false},
-            {title:"Nombre",data:"name"},
-            {title:"Apellidos",data:"surname"},
-            {title:"Teléfono",data:"phone"},
             {title:"DNI",data:"dni"},
-            {title:"EPI",data:"has_epi",
-                render:function (data, type, row){
-                    let span = '';
-                    if(row.has_epi == 0){
-                        span = '<span class="badge bg-danger">No</span>'
-                    } else {
-                        span = '<span class="badge bg-light text-dark">Sí</span>'
-                    }
-                    return span;
-                }
-            },
-            {title:"Cita médica",data:"has_appointment",
-                render:function (data, type, row){
-                    let span = '';
-                    if(row.has_appointment == 0){
-                        span = '<span class="badge bg-danger">No</span>'
-                    } else {
-                        span = '<span class="badge bg-light text-dark">Sí</span>'
-                    }
-                    return span;
-                }
-            },
-            {title:"Recurso preventivo",data:"is_preventive_resource",
-                render:function (data, type, row){
-                    let span = '';
-                    if(row.is_preventive_resource == 0){
-                        span = '<span class="badge bg-danger">No</span>'
-                    } else {
-                        span = '<span class="badge bg-light text-dark">Sí</span>'
-                    }
-                    return span;
-                }
-            },
-            {title:"Carnet de conducir",data:"has_driving_license",
-                render:function (data, type, row){
-                    let span = '';
-                    if(row.has_driving_license == 0){
-                        span = '<span class="badge bg-danger">No</span>'
-                    } else {
-                        span = '<span class="badge bg-light text-dark">Sí</span>'
-                    }
-                    return span;
-                }
-            },
+            {title:"Nombre",data:"full_name"},
+            {title:"Teléfono",data:"phone"},
+            {title:"Revisión medica",data:"medical_examination"},
+            {title:"Obra",data:"building_site_name"},
+            {title:"Categoria",data:"category_name"},
             {title:"Estado",data:"state",
                 render:function (data, type, row){
                     let span = '';
                     if(row.state == 0){
                         span = '<span class="badge bg-danger" title="Estado inactivo">Inactivo</span>'
                     } else {
-                        span = '<span class="badge bg-light text-dark" title="Estado activo">Activo</span>'
+                        span = '<span class="badge bg-info text-dark" title="Estado activo">Activo</span>'
                     }
                     return span;
                 }
             },
-            {title:"Revisión medica",data:"medical_examination"},
-            {title:"Obra",data:"building_site_name"},
-            {title:"Categoria",data:"category_name"},
             {title:"Acciones",data:null,
                 render: function(data, type, row){
                     return '<button type="button" onclick="viewStaff('+row.id+')" ' +

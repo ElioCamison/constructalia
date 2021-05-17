@@ -34,9 +34,6 @@ if(!isset($_SESSION['user_id'])){
 </head>
 <body>
 <?php include 'header.php';?>
-<h1>
-    <?php echo $data['tag_page']?>
-</h1>
 <div class="row" >
     <div class="col-md-2">
         <div class="d-flex flex-column flex-shrink-0 p-3 text-white" style="width: 280px;height:900px;background-color: #1C2833">
@@ -48,6 +45,11 @@ if(!isset($_SESSION['user_id'])){
             <?php include 'sidebar.php'; ?>
             <hr>
         </div>
+    </div>
+    <div class="col-md-10">
+        <h1 class="text-center">
+            <?php echo $data['tag_page']?>
+        </h1>
     </div>
 </div>
 <!-- BEGIN FOOTER -->

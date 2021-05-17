@@ -1,6 +1,6 @@
 let tableOutsourced;
 function openModal() {
-    //$('#modalFormOutsource').modal('show');
+    $('#modalFormOutsourced').modal('show');
 }
 
 $(function (){
@@ -13,10 +13,11 @@ $(function (){
         },
         columns:[
             {title:"ID",data:"id", visible:false},
+            {title:"DNI",data:"dni"},
+            {title:"Nombre",data:"full_name"},
+            {title:"Empresa",data:"outsource_name"},
             {title:"ITA",data:"ita"},
             {title:"High ita",data:"high_ita"},
-            {title:"Alta autónomo",data:"self_employment_discharge"},
-            {title:"Empresa",data:"outsource_name"},
             {title:"Informado",data:"is_informed",
                 render:function (data, type, row){
                     let span = '';
@@ -26,6 +27,24 @@ $(function (){
                         span = '<span class="badge bg-light text-dark">Sí</span>'
                     }
                     return span;
+                }
+            },
+            {title:"Acciones",data:null,
+                render: function(data, type, row){
+                    return '<button type="button" onclick="viewOutsourced('+row.id+')" ' +
+                                'class="btn btn-outline-dark" title="Consultar">' +
+                                '<i class="fas fa-eye"></i>' +
+                           '</button>' +
+                           '&nbsp'+
+                           '<button type="button" onclick="editOutsourced('+row.id+')" ' +
+                                'class="btn btn-warning" title="Editar subcontratrado">' +
+                                '<i class="far fa-edit"></i>' +
+                           '</button>' +
+                           '&nbsp'+
+                           '<button type="button" onclick="deleteOutsourced('+row.id+')" ' +
+                                'class="btn btn-danger" title="Eliminar subcontratrado">' +
+                                '<i class="fas fa-trash-alt"></i>' +
+                           '</button>'
                 }
             },
         ],
@@ -79,10 +98,10 @@ $(function (){
 //     });
 // }
 //
-// function viewStaff(){
-//
-// }
-//
+function viewOutsourced(){
+
+}
+
 function editOutsourced(){
 
 }

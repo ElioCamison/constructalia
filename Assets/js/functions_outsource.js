@@ -33,9 +33,9 @@ $(function (){
                 render:function (data, type, row){
                     let span = '';
                     if(row.state == 0){
-                        span = '<span class="badge bg-danger">No</span>'
+                        span = '<span class="badge bg-danger">Inactivo</span>'
                     } else {
-                        span = '<span class="badge bg-light text-dark">Sí</span>'
+                        span = '<span class="badge bg-info text-dark">Activo</span>'
                     }
                     return span;
                 }

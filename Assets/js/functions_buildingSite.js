@@ -16,8 +16,18 @@ $(function (){
             {title:"ID",data:"id", visible:false},
             {title:"Código",data:"code"},
             {title:"Nombre",data:"name"},
-            {title:"Estado",data:"is_active"},
             {title:"Responsable",data:"responsible"},
+            {title:"Estado",data:"is_active",
+                render:function (data, type, row){
+                    let span = '';
+                    if(row.is_active == 0){
+                        span = '<span class="badge bg-danger" title="Finalizada">Finalizada</span>'
+                    } else {
+                        span = '<span class="badge bg-info text-dark" title="Activa">Activa</span>'
+                    }
+                    return span;
+                }
+            },
             {title:"Acciones",data:null,
                 render: function(data, type, row){
                     return '<button type="button" onclick="viewBuildingSite('+row.id+')" ' +
