@@ -56,7 +56,8 @@ $(function (){
         searching: false,
         info:false,
         paging: false,
-        scrollX: false
+        scrollX: false,
+        ordering:false
     });
 
 

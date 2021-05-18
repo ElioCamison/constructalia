@@ -11,6 +11,7 @@ class Staff extends Controllers {
         $data['tag_page'] = "Personal propio";
         $data['page_title'] = "Personal propio";
         $data['page_name'] = "personal propio";
+        $data['icon'] = '<i class="far fa-address-card"></i>';
         $this->views->getView($this,"staff", $data);
     }
 

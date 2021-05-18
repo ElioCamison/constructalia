@@ -151,13 +151,13 @@
         </div>
     </div>
     <div class="col-md-10">
-        <h1 class="align-items-center" style="background-color: whitesmoke;margin: 25px;box-shadow: 3px 3px lightgrey;height: 100px">
-            <?php echo $data['page_title']?>
+        <h1 class="align-items-center" style="background-color: whitesmoke;margin: 25px;box-shadow: 3px 3px lightgrey;height: 100px;display: flex">
+            <?php echo$data['icon']; echo $data['page_title']?>
         </h1>
-        <hr class="col-md-8 text-center" style="margin: 20px">
+        <hr class="text-center" style="margin: 20px">
         <div class="row col-md-2" style="margin: 20px">
-            <button type="button" class="btn btn btn-outline-dark" title="Añadir obra" onclick="openModal();"><i class="fa fa-plus" aria-hidden="true"></i>
-                Añadir una obra</button>
+            <button type="button" class="btn btn-warning" title="Añadir obra" onclick="openModal();"><i class="fa fa-plus" aria-hidden="true"></i>
+                Añadir obra</button>
         </div>
         <section>
              <div class="table-responsive" style="margin: 20px;height:650px;background-color: whitesmoke;box-shadow: 3px 3px lightgray;">
@@ -167,8 +167,8 @@
     </div>
 </div>
 <!-- BEGIN FOOTER -->
-<footer class="text-center" style="background-color: #1C2833;height: 50px">
-    <a class="custom-footer" href="https://github.com/ElioCamison/constructalia"><i class="fab fa-github" style="color: white"></i></a>
+<footer class="text-center">
+    <a class="custom-footer" href="https://github.com/ElioCamison/constructalia"><i class="fab fa-github" style="color: #1C2833"></i></a>
 </footer>
 <!-- END FOOTER -->
 </body>

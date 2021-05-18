@@ -38,7 +38,9 @@ $(function (){
         responsive: true,
         searching: false,
         info:false,
-        paging: false
+        paging: false,
+        scrollX: false,
+        ordering:false
     });
 
 

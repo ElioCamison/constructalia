@@ -9,6 +9,7 @@ class Outsourced extends Controllers {
         $data['tag_page'] = "Personal subcontratado";
         $data['page_title'] = "Personal subcontratado";
         $data['page_name'] = "personal_subcontratado";
+        $data['icon'] = '<i class="fas fa-boxes"></i>';
         $this->views->getView($this, "outsourced", $data);
     }
 

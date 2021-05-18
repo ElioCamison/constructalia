@@ -9,6 +9,7 @@ class Supplier extends Controllers {
         $data['tag_page'] = "Proveedores";
         $data['page_title'] = "Proveedores";
         $data['page_name'] = "Proveedores";
+        $data['icon'] = '<i class="fas fa-balance-scale-left"></i>';
         $this->views->getView($this, "supplier", $data);
     }
 

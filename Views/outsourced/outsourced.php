@@ -144,12 +144,12 @@
         </div>
     </div>
     <div class="col-md-10">
-        <h1 class="align-items-center" style="background-color: whitesmoke;margin: 25px;box-shadow: 3px 3px lightgrey;height: 100px">
-            <?php echo $data['page_title']?>
+        <h1 class="align-items-center" style="background-color: whitesmoke;margin: 25px;box-shadow: 3px 3px lightgrey;height: 100px;display: flex">
+            <?php echo $data['icon'];echo $data['page_title']?>
         </h1>
         <hr class="col-md-8 text-center" style="margin: 20px">
         <div class="row col-md-2" style="margin: 20px">
-            <button type="button" class="btn btn btn-outline-dark" title="Añadir subcontratado" onclick="openModal();"><i class="fas fa-plus"></i> Añadir subcontratado</button>
+            <button type="button" class="btn btn-warning" title="Añadir subcontratado" onclick="openModal();"><i class="fas fa-plus"></i> Añadir subcontratado</button>
         </div>
         <section>
             <div class="table-responsive" style="margin: 20px;background-color: whitesmoke;box-shadow: 3px 3px lightgray;">

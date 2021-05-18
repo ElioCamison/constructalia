@@ -12,6 +12,7 @@ class Category extends Controllers {
         $data['tag_page'] = "Categoria";
         $data['page_title'] = "Categoria";
         $data['page_name'] = "Categoria";
+        $data['icon'] = '<i class="fa fa-list-alt" aria-hidden="true"></i>';
         $this->views->getView($this, "category", $data);
     }
 

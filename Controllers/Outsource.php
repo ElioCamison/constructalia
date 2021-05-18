@@ -9,6 +9,7 @@ class Outsource extends Controllers {
         $data['tag_page'] = "Subcontrata";
         $data['page_title'] = "Subcontratas";
         $data['page_name'] = "subcontratas";
+        $data['icon'] = '<i class="fas fa-briefcase"></i>';
         $this->views->getView($this, "outsource", $data);
     }
 
