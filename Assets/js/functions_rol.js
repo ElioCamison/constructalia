@@ -51,7 +51,8 @@ let tablePermissionRol;
         responsive: true,
         searching: false,
         info:false,
-        paging: false
+        paging: false,
+        ordering:false
     });
 })()
 

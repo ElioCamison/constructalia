@@ -149,7 +149,7 @@
         </h1>
         <hr class="col-md-8 text-center" style="margin: 20px">
         <div class="row col-md-2" style="margin: 20px">
-            <button type="button" class="btn btn btn-outline-dark" title="Añadir personal propio" onclick="openModal();"><i class="fas fa-plus"></i> Añadir un personal</button>
+            <button type="button" class="btn btn-warning" title="Añadir personal propio" onclick="openModal();"><i class="fas fa-plus"></i> Añadir un personal</button>
         </div>
         <section>
             <div class="table-responsive" style="margin: 20px;background-color: whitesmoke;box-shadow: 3px 3px lightgray;">

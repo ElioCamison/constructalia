@@ -152,17 +152,17 @@ if(!isset($_SESSION['user_id'])){
         <h1 class="align-items-center" style="background-color: whitesmoke;margin: 25px;box-shadow: 3px 3px lightgrey;height: 100px">
             <?php echo $data['icon']; echo $data['page_title']?>
         </h1>
-        <hr class="col-md-8 text-center">
-        <div class="row col-md-2">
+        <hr class="col-md-8 text-center" style="margin: 20px">
+        <div class="row col-md-2" style="margin: 20px">
             <button type="button"
-                    class="btn btn btn-outline-dark"
+                    class="btn btn btn-warning"
                     title="Crear un rol" onclick="openModal();">
                 <i class="fa fa-plus" aria-hidden="true"></i>
                 Añadir un usuario
             </button>
         </div>
         <section>
-            <div class="table-responsive" style="margin: 20px;height:650px;background-color: whitesmoke;box-shadow: 3px 3px lightgray;">
+            <div class="table-responsive" style="margin: 20px;background-color: whitesmoke;box-shadow: 3px 3px lightgray;">
                 <table class="table table-hover table-bordered" id="table-user"></table>
             </div>
         </section>

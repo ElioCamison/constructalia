@@ -156,7 +156,7 @@
         </h1>
         <hr class="col-md-8 text-center" style="margin: 20px">
         <div class="row col-md-2" style="margin: 20px">
-            <button type="button" class="btn btn btn-outline-dark" title="Añadir obra" onclick="openModal();"><i class="fa fa-plus" aria-hidden="true"></i>
+            <button type="button" class="btn btn-warning" title="Añadir obra" onclick="openModal();"><i class="fa fa-plus" aria-hidden="true"></i>
                 Añadir una obra</button>
         </div>
         <section>

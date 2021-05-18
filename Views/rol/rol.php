@@ -172,7 +172,7 @@ if(!isset($_SESSION['user_id'])){
             </h1>
             <hr class="col-md-8 text-center" style="margin: 20px">
             <div class="row col-md-2" style="margin: 20px">
-                <button type="button" class="btn btn btn-outline-dark" title="Crear un rol" onclick="openModal();"><i class="fas fa-plus"></i> Añadir un rol</button>
+                <button type="button" class="btn btn-warning" title="Crear un rol" onclick="openModal();"><i class="fas fa-plus"></i> Añadir un rol</button>
             </div>
             <div class="row filters" style="margin: 20px;background-color: whitesmoke;box-shadow: 3px 3px lightgray;">
                 <div class="align-items-center">
