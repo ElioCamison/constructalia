@@ -42,6 +42,20 @@ class categoryModel extends Mysql {
         return $requestUpdate == "1" ? "updated" : 0;
     }
 
+    public function getCategoryById($id){
+        $this->id = $id;
+        $query = "SELECT * FROM CATEGORY WHERE id =".$id;
+        $result = $this->select($query);
+        return $result;
+    }
+
+    public function deleteCategory(int $id) {
+        $query = "DELETE FROM CATEGORY WHERE id =" . $id;
+        $request = $this->delete($query);
+
+        return $request;
+    }
+
 
 }// fin clase categoryModel
 

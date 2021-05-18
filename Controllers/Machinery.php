@@ -20,6 +20,21 @@ class Machinery extends Controllers {
         die();
     }
 
+    public function getMachineryById(int $machinery_id){
+        $machinery_id = intval($machinery_id);
+        if ($machinery_id>0){
+            $requestMachinery = $this->model->getMachineryById($machinery_id);
+
+            if($requestMachinery){
+                $arrResponse = array("success" => true,"machineryInfo"=>$requestMachinery);
+            } else {
+                $arrResponse = array("success" => false,"message"=>"Ha ocurrido un error");
+            }
+        }
+        echo json_encode($arrResponse,JSON_UNESCAPED_UNICODE);
+        die();
+    }
+
     public function getSelectFamily() {
         $htmlOptions = "";
         $arrData = $this->model->getSelectFamily();
@@ -30,6 +45,19 @@ class Machinery extends Controllers {
             }
         }
         echo $htmlOptions;
+        die();
+    }
+
+    public function deleteMachinery(int $machinery_id){
+        $data = $this->model->deleteMachinery($machinery_id);
+
+        if ($data){
+            $arrResponse = array("success" => true,"message"=>"Maquinaria eliminada correctamente");
+        } else {
+            $arrResponse = array("success" => false,"message"=>"Ha ocurrido un error");
+        }
+
+        echo json_encode($arrResponse,JSON_UNESCAPED_UNICODE);
         die();
     }
 

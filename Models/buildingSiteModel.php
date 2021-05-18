@@ -13,6 +13,41 @@ class buildingSiteModel extends Mysql {
         parent::__construct();
     }
 
+    public function getBuildingSiteById($id){
+        $this->id = $id;
+        $query = "SELECT * FROM BUILDING_SITE WHERE id =".$id;
+        $result = $this->select($query);
+        return $result;
+    }
+
+    public function insertBuildingSite($code,$name,$responsible,$description,$is_active) {
+        $response = "";
+
+        $this->name = $name;
+        $this->code = $code;
+        $this->responsible = $responsible;
+        $this->description = $description;
+        $this->is_active = $is_active;
+
+        if(empty($result)) {
+            $queryInsert = "INSERT INTO BUILDING_SITE(code,name,responsible,description,is_active) VALUES(?,?)";
+            $arrData = array($this->name,$this->code,$this->responsible,$this->description,$this->is_active);
+            $requestInsert = $this->insert($queryInsert, $arrData);
+            $response .= $requestInsert;
+        } else {
+            $response .= "exit";
+        }
+        return $response;
+    }
+
+    public function updateBuildingSite($id, $code,$name,$responsible,$description,$is_active) {
+        $queryUpdate = "UPDATE BUILDING_SITE SET code = ?,SET name = ?,SET responsible = ?,SET description = ?, is_active = ? WHERE id = ".$id;
+        $arrData = array($code,$name,$responsible,$description,$is_active);
+        $requestUpdate = $this->update($queryUpdate, $arrData);
+
+        return $requestUpdate == "1" ? "updated" : 0;
+    }
+
     public function getBuildingSites() {
         $query = "SELECT 
                   building_site.id, 
@@ -34,6 +69,13 @@ class buildingSiteModel extends Mysql {
                   FROM USER";
         $result = $this->selectAll($query);
         return $result;
+    }
+
+    public function deleteBuildingSite($id){
+        $query = "DELETE FROM BUILDING_SITE WHERE id =" . $id;
+        $request = $this->delete($query);
+
+        return $request;
     }
 
 

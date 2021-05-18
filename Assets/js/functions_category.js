@@ -1,6 +1,7 @@
 let tableCategory;
 function openModal() {
     $('#modalFormCategory').modal('show');
+    $('#formCategory').trigger("reset");
 }
 
 $(function (){
@@ -61,10 +62,47 @@ $(function (){
 });
 
 
-function editCategory(){
+function editCategory(category_id){
+    $.get( "http://localhost/tfg/constructalia/category/getCategoryById/"+ category_id, function( response ) {
+        response = JSON.parse(response);
+        if(response.success){
+            let categoryInfo = response.categoryInfo;
+            $('#modalFormCategory').modal('show');
+            $('#categoryId').val(categoryInfo.id);
 
+
+            // Resto de campos
+            $('#category_name').val(categoryInfo.name);
+            $('#category_priceHour').val(categoryInfo.price_hour);
+        }else{
+            toastr.error(response.message);
+        }
+    });
 }
 
-function deleteCategory(){
-
+function deleteCategory(category_id){
+    bootbox.confirm({
+        message: "¿Seguro que quiere eliminar esta categoria?",
+        buttons: {
+            confirm: {
+                label: 'Confirmar',
+                className: 'btn-default'
+            },
+            cancel: {
+                label: 'Cancelar',
+                className: 'btn-dark'
+            }
+        },
+        callback: function (result) {
+            if(result) {
+                $.get( "http://localhost/tfg/constructalia/category/deleteCategory/"+ category_id, function( response ) {
+                    response=JSON.parse(response);
+                    if(response.success) {
+                        tableCategory.ajax.reload();
+                        toastr.error(response.message);
+                    }
+                });
+            }
+        }
+    });
 }

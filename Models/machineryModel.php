@@ -34,5 +34,19 @@ class machineryModel extends Mysql {
         return $result;
     }
 
+    public function getMachineryById(int $id){
+        $this->id = $id;
+        $query = "SELECT * FROM MACHINERY WHERE id =".$id;
+        $result = $this->select($query);
+        return $result;
+    }
+
+    public function deleteMachinery(int $id){
+        $query = "DELETE FROM MACHINERY WHERE id =" . $id;
+        $request = $this->delete($query);
+
+        return $request;
+    }
+
 
 }// fin clase machineryModel
