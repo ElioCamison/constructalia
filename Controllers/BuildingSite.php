@@ -15,6 +15,32 @@ class BuildingSite extends Controllers {
         $this->views->getView($this, "buildingSite", $data);
     }
 
+    public function setBuildingSite(){
+        if(isset( $_POST) && !empty($_POST)) {
+            foreach ($_POST as $key => $value) {
+                $$key = addslashes($value);
+            }
+
+
+            if($buildingSiteId) {
+                $requestUser = $this->model->updateBuildingSite($buildingSiteId,$code,$name,$responsible,$description,$is_active);
+            } else {
+                $requestUser = $this->model->insertBuildingSite($code,$name,$responsible,$description,$is_active);
+            }
+
+            if ($requestUser > 0) {
+                $arrResponse = array('success'=>true,'message'=>'Se ha creado un usuario correctametne');
+            } else if ($requestUser == "updated") {
+                $arrResponse = array('success'=>true,'message'=>'Se ha actualizado el usuario correctamente');
+            } else {
+                $arrResponse = array('success'=>false,'message'=>'Ha ocurrido un error');
+            }
+
+            echo json_encode($arrResponse,JSON_UNESCAPED_UNICODE);
+            die();
+        }
+    }
+
     public function getBuildingSites() {
         $arrData = $this->model->getBuildingSites();
 
@@ -34,6 +60,34 @@ class BuildingSite extends Controllers {
         echo $htmlOptions;
         die();
 
+    }
+
+    public function getBuildingSiteById(int $buildingSite_id){
+        $buildingSite_id = intval($buildingSite_id);
+        if ($buildingSite_id>0){
+            $requestbuildingSite = $this->model->getBuildingSiteById($buildingSite_id);
+
+            if($requestbuildingSite){
+                $arrResponse = array("success" => true,"buildingSiteInfo"=>$requestbuildingSite);
+            } else {
+                $arrResponse = array("success" => false,"message"=>"Ha ocurrido un error");
+            }
+        }
+        echo json_encode($arrResponse,JSON_UNESCAPED_UNICODE);
+        die();
+    }
+
+    public function deleteBuildingSite(int $buildingSite_id){
+        $data = $this->model->deleteCategory($buildingSite_id);
+
+        if ($data){
+            $arrResponse = array("success" => true,"message"=>"Obra eliminada correctamente");
+        } else {
+            $arrResponse = array("success" => false,"message"=>"Ha ocurrido un error");
+        }
+
+        echo json_encode($arrResponse,JSON_UNESCAPED_UNICODE);
+        die();
     }
 
 }

@@ -48,6 +48,34 @@ class Category extends Controllers {
         }
     }
 
+    public function getCategoryById(int $category_id){
+        $category_id = intval($category_id);
+        if ($category_id>0){
+            $requestCategory = $this->model->getCategoryById($category_id);
+
+            if($requestCategory){
+                $arrResponse = array("success" => true,"categoryInfo"=>$requestCategory);
+            } else {
+                $arrResponse = array("success" => false,"message"=>"Ha ocurrido un error");
+            }
+        }
+        echo json_encode($arrResponse,JSON_UNESCAPED_UNICODE);
+        die();
+    }
+
+    public function deleteCategory(int $userId) {
+        $data = $this->model->deleteCategory($userId);
+
+        if ($data){
+            $arrResponse = array("success" => true,"message"=>"Categoria eliminada correctamente");
+        } else {
+            $arrResponse = array("success" => false,"message"=>"Ha ocurrido un error");
+        }
+
+        echo json_encode($arrResponse,JSON_UNESCAPED_UNICODE);
+        die();
+    }
+
 }
 
 

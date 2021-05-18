@@ -8,27 +8,20 @@
             <div class="modal-body">
                 <form id="formCategory" name="formCategory">
                     <input id="categoryId" name="categoryId" hidden>
-                    <div class="row">
-                            <div class="form-row">
-                                <div class="form-group">
-                                    <label for="category_name">Nombre</label>
-                                    <input type="text" class="form-control" id="category_name" name="name" placeholder="Nombre" autocomplete="off">
-                                </div>
-                            </div>
-
-                            <div class="form-row">
-                                <div class="form-group">
-                                    <label for="category_priceHour">Precio hora</label>
-                                    <input type="number" class="form-control" id="category_priceHour" name="price_hour" placeholder="Precio hora" autocomplete="off">
-                                </div>
-                            </div>
-                    </div>
+                        <div class="mb-3">
+                           <label for="category_name">Nombre</label>
+                           <input type="text" class="form-control" id="category_name" name="name" placeholder="Nombre" autocomplete="off">
+                        </div>
+                        <div class="mb-3">
+                            <label for="category_priceHour">Precio hora</label>
+                            <input type="number" class="form-control" id="category_priceHour" name="price_hour" placeholder="Precio hora" autocomplete="off">
+                        </div>
                     <div class="modal-footer">
                         <button type="submit" class="btn btn-warning">Guardar</button>
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
                     </div>
                 </form>
-            </div>a
+            </div>
         </div>
     </div>
 </div>

@@ -70,11 +70,54 @@ function getSelectFamily(){
     });
 }
 
+function editMachinery(machinery_id){
+    $.get( "http://localhost/tfg/constructalia/machinery/getMachineryById/"+ machinery_id, function( response ) {
+        response = JSON.parse(response);
+        if(response.success){
+            let machineryInfo = response.machineryInfo;
+            $('#modalFormMachinery').modal('show');
+            $('#machineryId').val(machineryInfo.id);
 
-function editMachinery(){
 
+            // Resto de campos
+            $('#machinery_code').val(machineryInfo.code);
+            $('#machinery_name').val(machineryInfo.name);
+            $('#machinery_price_day').val(machineryInfo.price_day);
+            $('#machinery_ubication').val(machineryInfo.ubication);
+            $('#machinery_machinery_type').val(machineryInfo.machinery_type);
+            $('#machinery_total_amount').val(machineryInfo.total_amount);
+            $('#machinery_last_revision').val(machineryInfo.last_revision);
+            $('#machinery_family').val(machineryInfo.family);
+            $('#machinery_available').val(machineryInfo.available);
+        }else{
+            toastr.error(response.message);
+        }
+    });
 }
 
-function deleteMachinery(){
-
+function deleteMachinery(machinery_id){
+    bootbox.confirm({
+        message: "¿Seguro que quiere eliminar esta maquinaria?",
+        buttons: {
+            confirm: {
+                label: 'Confirmar',
+                className: 'btn-default'
+            },
+            cancel: {
+                label: 'Cancelar',
+                className: 'btn-dark'
+            }
+        },
+        callback: function (result) {
+            if(result) {
+                $.get( "http://localhost/tfg/constructalia/machinery/deleteMachinery/"+ machinery_id, function( response ) {
+                    response=JSON.parse(response);
+                    if(response.success) {
+                        tableMachinery.ajax.reload();
+                        toastr.error(response.message);
+                    }
+                });
+            }
+        }
+    });
 }

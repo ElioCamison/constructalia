@@ -1,6 +1,7 @@
 let tableBuildingSite;
 function openModal() {
     $('#modalFormBuildingSite').modal('show');
+    $('#formBuildingSite').trigger("reset");
 }
 
 $(function (){
@@ -59,22 +60,22 @@ $(function (){
     });
 
 
-    // // TODO validar este formulario
-    // $('#formUser').submit(function (e){
-    //     e.preventDefault();
-    //     let dataString = $('#formUser').serialize();
-    //     $.post( "http://localhost/tfg/constructalia/user/setUser/",dataString, function( response ) {
-    //         response=JSON.parse(response);
-    //         if(response.success) {
-    //             $('#modalFormUser').modal('hide');
-    //             tableUser.ajax.reload();
-    //             toastr.success(response.message);
-    //         } else {
-    //             toastr.error(response.message);
-    //         }
-    //
-    //     });
-    // });
+    // TODO validar este formulario
+    $('#formBuildingSite').submit(function (e){
+        e.preventDefault();
+        let dataString = $('#formBuildingSite').serialize();
+        $.post( "http://localhost/tfg/constructalia/building_site/setBuildingSite/",dataString, function( response ) {
+            response=JSON.parse(response);
+            if(response.success) {
+                $('#modalFormBuildingSite').modal('hide');
+                tableBuildingSite.ajax.reload();
+                toastr.success(response.message);
+            } else {
+                toastr.error(response.message);
+            }
+
+        });
+    });
 
     getSelectResponsible();
 });
@@ -89,10 +90,50 @@ function viewBuildingSite(){
 
 }
 
-function editBuildingSite(){
+function editBuildingSite(buildingSite_id){
+    $.get( "http://localhost/tfg/constructalia/buildingSite/getBuildingSiteById/"+ buildingSite_id, function( response ) {
+        response = JSON.parse(response);
+        if(response.success){
+            let buildingSiteInfo = response.buildingSiteInfo;
+            $('#modalFormBuildingSite').modal('show');
+            $('#buildingSiteId').val(buildingSiteInfo.id);
 
+
+            // Resto de campos
+            $('#buildingSite_code').val(buildingSiteInfo.code);
+            $('#buildingSite_name').val(buildingSiteInfo.name);
+            $('#buildingSite_is_active').val(buildingSiteInfo.is_active);
+            $('#buildingSite_description').val(buildingSiteInfo.description);
+            $('#buildingSite_responsible').val(buildingSiteInfo.responsible);
+        }else{
+            toastr.error(response.message);
+        }
+    });
 }
 
-function deleteBuildingSite(){
-
+function deleteBuildingSite(buildingSite_id) {
+    bootbox.confirm({
+        message: "¿Seguro que quiere eliminar esta obra?",
+        buttons: {
+            confirm: {
+                label: 'Confirmar',
+                className: 'btn-default'
+            },
+            cancel: {
+                label: 'Cancelar',
+                className: 'btn-dark'
+            }
+        },
+        callback: function (result) {
+            if(result) {
+                $.get( "http://localhost/tfg/constructalia/buildingSite/deleteBuildingSite/"+ buildingSite_id, function( response ) {
+                    response=JSON.parse(response);
+                    if(response.success) {
+                        tableBuildingSite.ajax.reload();
+                        toastr.error(response.message);
+                    }
+                });
+            }
+        }
+    });
 }
