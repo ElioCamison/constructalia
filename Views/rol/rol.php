@@ -18,9 +18,11 @@ if(!isset($_SESSION['user_id'])){
     <meta content="Rol" name="description" />
 
     <!-- jQuery  -->
+    <!--    <script src="http://localhost/tfg/constructalia/Assets/js/jquery_3.6.0.js"></script>-->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"
             integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script src="http://localhost/tfg/constructalia/Assets/js/jquery_validate.js"></script>
+
 
     <!-- FontAwesome   -->
     <script src="http://localhost/tfg/constructalia/Assets/plugins/awesome/awesome.js"></script>
@@ -29,25 +31,26 @@ if(!isset($_SESSION['user_id'])){
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
-            integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
-            crossorigin="anonymous"></script>
+            integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js"
-            integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT"
-            crossorigin="anonymous"></script>
+            integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT" crossorigin="anonymous"></script>
+    <!--    <script src="http://localhost/tfg/constructalia/Assets/js/bootstrap.min.js"></script>-->
 
     <!--  TODO meter en assets  -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel="stylesheet" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 
     <!--  Bootbox  -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/4.4.0/bootbox.min.js"></script>
+    <script src="http://localhost/tfg/constructalia/Assets/plugins/bootbox/bootbox.min.js"></script>
+    <script src="http://localhost/tfg/constructalia/Assets/plugins/bootbox/bootbox.locales.js"></script>
+
 
     <!-- DataTables -->
-    <link rel="stylesheet" type="text/css"
-          href="https://cdn.datatables.net/1.10.24/css/dataTables.bootstrap4.min.css" media="screen"/>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.24/css/dataTables.bootstrap4.min.css" media="screen"/>
+    <!--    <link rel="stylesheet" type="text/css" href="http://localhost/tfg/constructalia/Assets/plugins/DataTables1.10.24/css/jquery.dataTables.css" media="screen"/>-->
     <script type="text/javascript" src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
     <script type="text/javascript" src="https://cdn.datatables.net/1.10.24/js/dataTables.bootstrap4.min.js"></script>
-
+    <!--    <script type="text/javascript" src="http://localhost/tfg/constructalia/Assets/plugins/DataTables1.10.24/js/jquery.dataTables.js"></script>-->
 
     <!-- Custom CSS -->
 
@@ -167,12 +170,12 @@ if(!isset($_SESSION['user_id'])){
             </div>
         </div>
         <div class="col-md-10" >
-            <h1 class="align-items-center" style="background-color: whitesmoke;margin: 25px;box-shadow: 3px 3px lightgrey;height: 100px">
+            <h1 class="align-items-center" style="background-color: whitesmoke;margin: 25px;box-shadow: 3px 3px lightgrey;height: 100px;display: flex">
                 <?php echo $data['tag_page']?>
             </h1>
-            <hr class="col-md-8 text-center" style="margin: 20px">
+            <hr class="text-center" style="margin: 20px">
             <div class="row col-md-2" style="margin: 20px">
-                <button type="button" class="btn btn-warning" title="Crear un rol" onclick="openModal();"><i class="fas fa-plus"></i> Añadir un rol</button>
+                <button type="button" class="btn btn-warning" title="Crear un rol" onclick="openModal();"><i class="fas fa-plus"></i> Añadir rol</button>
             </div>
             <div class="row filters" style="margin: 20px;background-color: whitesmoke;box-shadow: 3px 3px lightgray;">
                 <div class="align-items-center">

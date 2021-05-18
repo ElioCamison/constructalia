@@ -11,6 +11,7 @@ class BuildingSite extends Controllers {
         $data['tag_page'] = "Obras";
         $data['page_title'] = "Obras";
         $data['page_name'] = "obras";
+        $data['icon'] = '<i class="fas fa-building"></i>';
         $this->views->getView($this, "buildingSite", $data);
     }
 

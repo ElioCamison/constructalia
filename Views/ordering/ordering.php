@@ -145,7 +145,7 @@
     </div>
     <div class="col-md-10">
         <h1 class="align-items-center" style="background-color: whitesmoke;margin: 25px;box-shadow: 3px 3px lightgrey;height: 100px;display: flex">
-            <?php echo $data['page_title']?>
+            <?php echo $data['icon'];echo $data['page_title']?>
         </h1>
         <hr class="text-center" style="margin: 20px">
         <div class="row col-md-1" style="margin: 20px">

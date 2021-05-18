@@ -21,7 +21,7 @@ let tablePermissionRol;
                     if(row.is_active == 0){
                         button = '<span class="badge bg-danger" title="Estado inactivo">Inactivo</span>'
                     } else {
-                        button = '<span class="badge bg-light text-dark" title="Estado activo">Activo</span>'
+                        button = '<span class="badge bg-info text-dark" title="Estado activo">Activo</span>'
                     }
                     return button;
                 }
@@ -52,7 +52,8 @@ let tablePermissionRol;
         searching: false,
         info:false,
         paging: false,
-        ordering:false
+        ordering:false,
+        scrollX: false,
     });
 })()
 

@@ -9,6 +9,7 @@ class Ordering extends Controllers {
         $data['tag_page'] = "Pedidos";
         $data['page_title'] = "Pedidos";
         $data['page_name'] = "pedidos";
+        $data['icon'] = '<i class="fas fa-calendar-alt"></i>';
         $this->views->getView($this, "ordering", $data);
     }
 

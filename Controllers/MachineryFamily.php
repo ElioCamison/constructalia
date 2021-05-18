@@ -9,6 +9,7 @@ class MachineryFamily extends Controllers {
         $data['tag_page'] = "Familia maquinaria";
         $data['page_title'] = "Familia maquinaria";
         $data['page_name'] = "Familia maquinaria";
+        $data['icon'] = '<i class="fas fa-cogs"></i>';
         $this->views->getView($this, "machineryFamily", $data);
     }
 

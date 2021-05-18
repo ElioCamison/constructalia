@@ -9,6 +9,7 @@ class Machinery extends Controllers {
         $data['tag_page'] = "Maquinaria";
         $data['page_title'] = "Maquinaria";
         $data['page_name'] = "maquinaria";
+        $data['icon'] = '<i class="fas fa-industry"></i>';
         $this->views->getView($this, "machinery", $data);
     }
 
