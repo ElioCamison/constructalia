@@ -21,6 +21,20 @@
         require_once $viewModal;
     }
 
+    function media() {
+        return BASE_URL."Assets";
+    }
+
+    function headerAdmin($data="") {
+        $view_header = "Views/template/header_admin.php";
+        require_once ($view_header);
+    }
+
+    function footerAdmin($data="") {
+        $view_footer = "Views/template/footer_admin.php";
+        require_once ($view_footer);
+    }
+
     function token()
     {
         $section1 = bin2hex(random_bytes(10));
