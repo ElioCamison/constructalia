@@ -10,10 +10,8 @@ if(!isset($_SESSION['user_id'])){
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <title><?php echo $data['page_title']?></title>
-    <meta content="Elio Camisón Costa" name="author" />
     <meta content="Users" name="description" />
 
     <!-- jQuery  -->

@@ -66,54 +66,83 @@ $(function (){
     });
 
 
-    // // // TODO validar este formulario
-    // $('#formStaff').submit(function (e){
-    //     e.preventDefault();
-    //     let dataString = $('#formStaff').serialize();
-    //     $.post( "http://localhost/tfg/constructalia/staff/setStaff/",dataString, function( response ) {
-    //         response=JSON.parse(response);
-    //         if(response.success) {
-    //             $('#modalFormUser').modal('hide');
-    //             tableUser.ajax.reload();
-    //             toastr.success(response.message);
-    //         } else {
-    //             toastr.error(response.message);
-    //         }
-    //
-    //     });
-    // });
+    // TODO validar este formulario
+    $('#formOutsource').submit(function (e){
+        e.preventDefault();
+        let dataString = $('#formOutsource').serialize();
+        $.post( "http://localhost/tfg/constructalia/outsource/setOutsource/",dataString, function( response ) {
+            response=JSON.parse(response);
+            if(response.success) {
+                $('#modalFormUser').modal('hide');
+                tableUser.ajax.reload();
+                toastr.success(response.message);
+            } else {
+                toastr.error(response.message);
+            }
 
-    // getSelectBuildingSite();
-    // getSelectCategories();
-    // getSelectTraining();
+        });
+    });
+
+    getSelectBuildingSite();
 });
-//
-// function getSelectBuildingSite(){
-//     $.get( "http://localhost/tfg/constructalia/staff/getSelectBuildingSite/", function( response ) {
-//         $('#staff_buildingSite').html(response);
-//     });
-// }
-//
-// function getSelectCategories(){
-//     $.get( "http://localhost/tfg/constructalia/staff/getSelectCategories/", function( response ) {
-//         $('#staff_category').html(response);
-//     });
-// }
-//
-// function getSelectTraining(){
-//     $.get( "http://localhost/tfg/constructalia/staff/getSelectTraining/", function( response ) {
-//         $('#staff_training').html(response);
-//     });
-// }
-//
-// function viewStaff(){
-//
-// }
-//
-function editOutsource(){
 
+
+function getSelectBuildingSite(){
+    $.get( "http://localhost/tfg/constructalia/outsource/getSelectBuildingSite/", function( response ) {
+        $('#outsource_building_site').html(response);
+    });
 }
 
-function deleteOutsource(){
 
+function editOutsource(outsource_id){
+    $.get( "http://localhost/tfg/constructalia/outsource/getOutsourceById/"+ outsource_id, function( response ) {
+        response = JSON.parse(response);
+        if(response.success) {
+            let outsourceInfo = response.outsourceInfo;
+            $('#modalFormOutsource').modal('show');
+            $('#outsourceId').val(outsourceInfo.id);
+
+            console.log(outsourceInfo.is_informed)
+
+
+                // Resto de campos
+            $('#outsource_name').val(outsourceInfo.name);
+            $('#outsource_phone').val(outsourceInfo.phone);
+            $('#outsource_state').val(outsourceInfo.state);
+            $('#outsource_contact').val(outsourceInfo.contact);
+            $('#outsource_cif').val(outsourceInfo.cif);
+            $('#outsource_building_site').val(outsourceInfo.building_site_id);
+            $('#outsource_is_informed').val();
+            $('#outsource_description').val(outsourceInfo.description);
+        } else {
+            toastr.error(response.message);
+        }
+    });
+}
+
+function deleteOutsource() {
+    bootbox.confirm({
+        message: "¿Seguro que quiere eliminar esta subcontrata?",
+        buttons: {
+            confirm: {
+                label: 'Confirmar',
+                className: 'btn-default'
+            },
+            cancel: {
+                label: 'Cancelar',
+                className: 'btn-dark'
+            }
+        },
+        callback: function (result) {
+            if(result) {
+                $.get( "http://localhost/tfg/constructalia/outsource/deleteOutsource/"+ outsource_id, function( response ) {
+                    response = JSON.parse(response);
+                    if(response.success) {
+                        tableOutsource.ajax.reload();
+                        toastr.error(response.message);
+                    }
+                });
+            }
+        }
+    });
 }

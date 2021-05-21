@@ -15,12 +15,8 @@
                                 <input type="text" class="form-control" id="outsource_name" name="name" autocomplete="off" required>
                             </div>
                             <div class="mb-3">
-                                <label for="outsource_phone" class="col-form-label">Phone</label>
+                                <label for="outsource_phone" class="col-form-label">Teléfono</label>
                                 <input class="form-control" id="outsource_phone" name="phone" maxlength="100">
-                            </div>
-                            <div class="mb-3">
-                                <label class="custom-control-label" for="outsource_is_active">Email</label>
-                                <input type="email" class="form-control" id="outsource_is_active" name="email" aria-describedby="emailHelp" placeholder="Enter email">
                             </div>
                             <div class="mb-3">
                                 <label for="outsource_state">Estado</label>
@@ -41,8 +37,8 @@
                                 <input class="form-control" id="outsource_contact" name="contact" maxlength="100">
                             </div>
                             <div class="mb-3">
-                                <label class="custom-control-label" for="outsource_is_active">Email</label>
-                                <input type="email" class="form-control" id="outsource_is_active" name="email" aria-describedby="emailHelp" placeholder="Enter email">
+                                <label class="custom-control-label" for="outsource_building_site">Obra</label>
+                                <select id="outsource_building_site" name="rol" class="form-control"></select>
                             </div>
                             <div class="mb-3">
                                 <label class="custom-control-label" for="outsource_is_informed">Informado</label>
