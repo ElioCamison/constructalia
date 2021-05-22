@@ -3,7 +3,9 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="modalLabelFormPermission">Permisos roles de usuarios</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
             </div>
             <div class="modal-body">
                 <div class="row">
@@ -73,8 +75,8 @@
 
                                 <div class="modal-footer">
                                     <button type="button" onclick="removeAllPermissions()" class="btn btn-outline-danger pull-left">Limpiar</button>
-                                    <button type="submit" onclick="savePermissionRol()" class="btn btn-warning">Guardar</button>
-                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                                    <button type="submit" onclick="savePermissionRol()" class="btn btn-warning"><i class="fa fa-fw fa-lg fa-check-circle"></i>Guardar</button>
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal"><i class="fa fa-fw fa-lg fa-times-circle"></i>Cerrar</button>
                                 </div>
                             </form>
                         </div>
