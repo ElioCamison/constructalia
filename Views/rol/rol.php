@@ -29,6 +29,7 @@
             <div class="tile">
                 <div class="tile-body">
                     <div class="table-responsive">
+                        <div id="contentAjax"></div>
                         <table class="table table-hover table-bordered" id="table-rol"></table>
                     </div>
                 </div>
@@ -37,3 +38,9 @@
     </div>
 </main>
 <?php footerAdmin($data); ?>
+<script>
+    function openModal(){
+        $('#modalFormRol').modal('show');
+        $('#formRol').trigger("reset");
+    }
+</script>

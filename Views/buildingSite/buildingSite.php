@@ -1,5 +1,5 @@
 
-<?php
+<?=
     headerAdmin($data);
     getModal('modalBuildingSite',$data);
 ?>

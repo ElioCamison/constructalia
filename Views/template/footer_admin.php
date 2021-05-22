@@ -11,6 +11,12 @@
 <!-- The javascript plugin to display page loading on top-->
 <script src="<?= media(); ?>/js/plugins/pace.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.3/dist/jquery.validate.js"></script>
+
+
+<!--  Bootbox  -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/4.4.0/bootbox.min.js"></script>
+
+
 <!-- Page specific javascripts-->
 
 <script type="text/javascript" src="<?= media(); ?>/js/plugins/jquery.dataTables.min.js"></script>

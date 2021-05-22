@@ -51,16 +51,52 @@
                                                             <?= ucfirst($modules[$i]['name']) ?>
                                                         </td>
                                                         <td>
-                                                            <input type="checkbox" name="modules[<?= $i; ?>][can_read]" <?= $can_read; ?> >
+                                                            <div class="toggle-flip">
+                                                                <label>
+                                                                    <input type="checkbox"><span
+                                                                            class="flip-indecator"
+                                                                            data-toggle-on="ON"
+                                                                            data-toggle-off="OFF"
+                                                                            id="is_activeRol"
+                                                                            name="modules[<?= $i; ?>][can_read]" <?= $can_read; ?> >
+                                                                </label>
+                                                            </div>
                                                         </td>
                                                         <td>
-                                                            <input type="checkbox" name="modules[<?= $i; ?>][can_create]" <?= $can_create; ?> >
+                                                            <div class="toggle-flip">
+                                                                <label>
+                                                                    <input type="checkbox"><span
+                                                                            class="flip-indecator"
+                                                                            data-toggle-on="ON"
+                                                                            data-toggle-off="OFF"
+                                                                            id="is_activeRol"
+                                                                            name="modules[<?= $i; ?>][can_read]" <?= $can_create; ?> >
+                                                                </label>
+                                                            </div>
                                                         </td>
                                                         <td>
-                                                            <input type="checkbox" name="modules[<?= $i; ?>][can_update]" <?= $can_update; ?> >
+                                                            <div class="toggle-flip">
+                                                                <label>
+                                                                    <input type="checkbox"><span
+                                                                            class="flip-indecator"
+                                                                            data-toggle-on="ON"
+                                                                            data-toggle-off="OFF"
+                                                                            id="is_activeRol"
+                                                                            name="modules[<?= $i; ?>][can_read]" <?= $can_update; ?> >
+                                                                </label>
+                                                            </div>
                                                         </td>
                                                         <td>
-                                                            <input type="checkbox" name="modules[<?= $i; ?>][can_delete]" <?= $can_delete; ?> >
+                                                            <div class="toggle-flip">
+                                                                <label>
+                                                                    <input type="checkbox"><span
+                                                                            class="flip-indecator"
+                                                                            data-toggle-on="ON"
+                                                                            data-toggle-off="OFF"
+                                                                            id="is_activeRol"
+                                                                            name="modules[<?= $i; ?>][can_read]" <?= $can_delete; ?> >
+                                                                </label>
+                                                            </div>
                                                         </td>
                                                     </tr>
                                                 <?php
