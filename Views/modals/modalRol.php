@@ -10,17 +10,24 @@
             <div class="modal-body">
                 <form id="formRol" name="formRol">
                     <input id="rol_id" name="rolId" hidden>
-                    <div class="mb-3">
-                        <label for="nombreRol" class="col-form-label">Nombre</label>
-                        <input type="text" class="form-control" id="nombreRol" name="name" autocomplete="off" required>
+                    <div class="form-row">
+                        <div class="form-group col-md-12">
+                            <label for="nombreRol" class="col-form-label">Nombre</label>
+                            <input type="text" class="form-control" id="nombreRol" name="name" autocomplete="off" required>
+                        </div>
                     </div>
-                    <div class="mb-3">
-                        <label for="descriptionRol" class="col-form-label">Descripción</label>
-                        <textarea class="form-control" id="descriptionRol" name="description" maxlength="100"></textarea>
+                    <div class="form-row">
+                        <div class="toggle-flip">
+                            <label>Activo
+                                <input type="checkbox"><span class="flip-indecator" data-toggle-on="ON" data-toggle-off="OFF" id="is_activeRol" name="is_active"></span>
+                            </label>
+                        </div>
                     </div>
-                    <div class="mb-3">
-                        <label class="custom-control-label" for="is_activeRol">Activo</label>
-                        <input type="checkbox" class="custom-control-input" id="is_activeRol" name="is_active">
+                    <div class="form-row">
+                        <div class="form-group col-md-12">
+                            <label for="descriptionRol" class="col-form-label">Descripción</label>
+                            <textarea class="form-control" id="descriptionRol" name="description" maxlength="100"></textarea>
+                        </div>
                     </div>
                     <div class="modal-footer">
                         <button type="submit" class="btn btn-warning"><i class="fa fa-fw fa-lg fa-check-circle"></i>Guardar</button>

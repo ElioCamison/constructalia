@@ -30,3 +30,9 @@
     </div>
 </main>
 <?php footerAdmin($data); ?>
+<script>
+    function openModal(){
+        $('#modalFormStaff').modal('show');
+        $('#formStaff').trigger("reset");
+    }
+</script>

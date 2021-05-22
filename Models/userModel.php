@@ -67,6 +67,8 @@ class userModel extends Mysql
     }
 
     public function deleteUser(int $id) {
+        $queryUpdate = "UPDATE BUILDING_SITE SET responsible = ? WHERE responsible = " . $id;
+        $request = $this->update($queryUpdate, array(null));
         $query = "DELETE FROM USER WHERE id =" . $id;
         $request = $this->delete($query);
 
