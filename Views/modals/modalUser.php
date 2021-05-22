@@ -1,66 +1,60 @@
 <div class="modal fade" id="modalFormUser" tabindex="-1" role="dialog" aria-labelledby="modalLabelFormUser" aria-hidden="true">
-    <div class="modal-dialog modal-xl">
+    <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="modalLabelFormUser">Nuevo usuario</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
             </div>
             <div class="modal-body">
-                <form id="formUser" name="formUser">
-                    <input id="user_id" name="userId" hidden>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="form-row">
-                                <div class="form-group nick" >
-                                    <label for="user_nick">Nombre de usuario</label>
-                                    <input type="text" class="form-control" id="user_nick" name="nick" placeholder="Nombre" autocomplete="off">
-                                </div>
-                                <div class="form-group">
-                                    <label for="user_name">Nombre</label>
-                                    <input type="text" class="form-control" id="user_name" name="name" placeholder="Nombre" autocomplete="off">
-                                </div>
-                                <div class="form-group">
-                                    <label for="user_email">Email</label>
-                                    <input type="email" class="form-control" id="user_email" name="email" placeholder="ejemplo@ejemplo.com" autocomplete="off">
-                                </div>
-                                <div class="form-group">
-                                    <label for="user_rol">Rol de usuario</label>
-                                    <select id="user_rol" name="rol" class="form-control"></select>
-                                </div>
+                <div class="tile">
+                    <div class="tile-body">
+                        <form id="formUser" name="formUser">
+                            <input id="user_id" name="userId" hidden>
+                            <div class="form-group">
+                                <label class="control-label" for="user_nick">Nombre de usuario</label>
+                                <input type="text" class="form-control" id="user_nick" name="username" placeholder="Nombre de usuario" >
                             </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-row">
-                                <div class="form-group pswd">
-                                    <label for="user_pswd">Contraseña</label>
-                                    <input type="password" class="form-control" id="user_pswd" name="pswd" placeholder="Contraseña" autocomplete="off">
-                                </div>
-                                <div class="form-group">
-                                    <label for="user_surname">Apellidos</label>
-                                    <input type="text" class="form-control" id="user_surname" name="surname" placeholder="Apellidos" autocomplete="off">
-                                </div>
-                                <div class="form-group">
-                                    <label for="user_phone">Teléfono</label>
-                                    <input type="tel" class="form-control" id="user_phone" name="phone" autocomplete="off">
-                                </div>
-                                <div class="form-group">
-                                    <label for="user_state">Estado</label>
-                                    <select id="user_state" name="is_active" class="form-control">
-                                        <option value="" selected>------</option>
-                                        <option value="1">Activo</option>
-                                        <option value="0">Inactivo</option>
-                                    </select>
-                                </div>
+                            <div class="form-group">
+                                <label class="control-label" for="user_pswd">Contraseña</label>
+                                <input class="form-control" id="user_pswd" type="password" name="pswd" placeholder="Contraseña">
                             </div>
-                        </div>
+                            <div class="form-group">
+                                <label class="control-label" for="user_name">Nombre</label>
+                                <input class="form-control" id="user_name" type="text" name="name" placeholder="Nombre">
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label" for="user_surname">Apellidos</label>
+                                <input class="form-control" id="user_surname" type="text" name="username" placeholder="Apellidos">
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label" for="user_phone">Teléfono</label>
+                                <input class="form-control" id="user_phone" type="tel" name="phone">
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label" for="user_email">Email</label>
+                                <input class="form-control" id="user_email" type="email" name="email" placeholder="ejemplo@ejemplo.com">
+                            </div>
+                            <div class="form-group">
+                                <label for="user_rol">Rol de usuario</label>
+                                <select id="user_rol" name="rol" class="form-control"></select>
+                            </div>
+                            <div class="form-group">
+                                <label for="user_state">Estado</label>
+                                <select class="form-control" id="user_state" name="is_active">
+                                    <option value="" selected>------</option>
+                                    <option value="1">Activo</option>
+                                    <option value="0">Inactivo</option>
+                                </select>
+                            </div>
+                            <div class="tile-footer">
+                                <button class="btn btn-primary" type="submit" id="userSave"><i class="fa fa-fw fa-lg fa-check-circle"></i>Guardar</button>
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal"><i class="fa fa-fw fa-lg fa-times-circle"></i>Cerrar</button>
+                            </div>
+                        </form>
                     </div>
-                    <div class="row">
-                        <div class="modal-footer">
-                            <button type="submit" id="userSave" class="btn btn-warning">Guardar</button>
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                        </div>
-                    </div>
-                </form>
+                </div>
             </div>
         </div>
     </div>
@@ -72,7 +66,9 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="modalLabelViewUser">Información del usuario</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
             </div>
             <div class="modal-body">
                 <input id="userInfoId" name="userInfoId" hidden>

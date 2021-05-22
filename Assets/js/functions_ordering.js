@@ -1,12 +1,12 @@
-let tableOrdering;
+// let tableOrdering;
 function openModal() {
     $('#modalFormOrdering').modal('show');
 }
 
 $(function (){
     tableOrdering = $('#table-ordering').DataTable({
-        processing:true,
-        serverSide: true,
+        aProcessing:true,
+        aServerSide: true,
         ajax:{
             url: "http://localhost/tfg/constructalia/ordering/getOrders",
             dataSrc:''
@@ -41,19 +41,19 @@ $(function (){
             {title:"Acciones",data:null,
                 render: function(data, type, row){
                     return '<button type="button" onclick="viewOrder('+row.id+')" ' +
-                        'class="btn btn-outline-dark" title="Consultar">' +
-                        '<i class="fas fa-eye"></i>' +
-                        '</button>' +
-                        '&nbsp'+
-                        '<button type="button" onclick="editOrder('+row.id+')" ' +
-                        'class="btn btn-warning" title="Editar pedido">' +
-                        '<i class="far fa-edit"></i>' +
-                        '</button>' +
-                        '&nbsp'+
-                        '<button type="button" onclick="deleteOrder('+row.id+')" ' +
-                        'class="btn btn-danger" title="Eliminar pedido">' +
-                        '<i class="fas fa-trash-alt"></i>' +
-                        '</button>'
+                                'class="btn btn-outline-dark" title="Consultar">' +
+                                '<i class="fa fa-eye" aria-hidden="true"></i>' +
+                           '</button>' +
+                           '&nbsp'+
+                           '<button type="button" onclick="editOrder('+row.id+')" ' +
+                                'class="btn btn-warning" title="Editar pedido">' +
+                                '<i class="fa fa-pencil" aria-hidden="true"></i>' +
+                           '</button>' +
+                           '&nbsp'+
+                           '<button type="button" onclick="deleteOrder('+row.id+')" ' +
+                                'class="btn btn-danger" title="Eliminar pedido">' +
+                                '<i class="fa fa-trash" aria-hidden="true"></i>' +
+                           '</button>'
                 }
             },
         ],
@@ -61,11 +61,9 @@ $(function (){
             url: "https://cdn.datatables.net/plug-ins/1.10.24/i18n/Spanish.json"
         },
         responsive: true,
-        searching: false,
-        info:false,
-        paging: false,
-        scrollX: false,
-        ordering:false
+        bDestroy:true,
+        iDisplayLength:10,
+        order:[[0,"desc"]]
     });
 
 

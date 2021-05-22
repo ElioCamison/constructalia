@@ -5,8 +5,8 @@ let tablePermissionRol;
 // Autoinvoke, no confudir con jquery
 (function (){
     tableRoles = $('#table-rol').DataTable({
-        processing:true,
-        serverSide: true,
+        aProcessing:true,
+        aServerSide: true,
         ajax:{
             url: "http://localhost/tfg/constructalia/rol/getRoles",
             dataSrc:''
@@ -30,17 +30,17 @@ let tablePermissionRol;
                 render: function(data, type, row){
                     return '<button type="button" onclick="editPermission('+row.id+')" ' +
                                     'class="btn btn-outline-dark" title="Editar permisos">' +
-                                    '<i class="far fa-id-card"></i>' +
+                                    '<i class="fa fa-id-card-o" aria-hidden="true"></i>' +
                            '</button>' +
                            '&nbsp'+
                            '<button type="button" onclick="editRol('+row.id+')" ' +
                                     'class="btn btn-warning" title="Editar rol">' +
-                                    '<i class="far fa-edit"></i>' +
+                                    '<i class="fa fa-pencil" aria-hidden="true"></i>' +
                            '</button>' +
                            '&nbsp'+
                            '<button type="button" onclick="deleteRol('+row.id+')" ' +
                                     'class="btn btn-danger" title="Eliminar rol">' +
-                                    '<i class="fas fa-trash-alt"></i>' +
+                                    '<i class="fa fa-trash" aria-hidden="true"></i>' +
                            '</button>'
                 }
             }
@@ -49,11 +49,9 @@ let tablePermissionRol;
             url: "https://cdn.datatables.net/plug-ins/1.10.24/i18n/Spanish.json"
         },
         responsive: true,
-        searching: false,
-        info:false,
-        paging: false,
-        ordering:false,
-        scrollX: false,
+        bDestroy:true,
+        iDisplayLength:10,
+        order:[[0,"desc"]]
     });
 })()
 

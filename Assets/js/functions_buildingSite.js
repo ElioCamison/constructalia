@@ -7,8 +7,8 @@ function openModal() {
 $(function (){
 
     tableBuildingSite = $('#table-buildingSite').DataTable({
-        processing:true,
-        serverSide: true,
+        aProcessing:true,
+        aServerSide: true,
         ajax:{
             url: "http://localhost/tfg/constructalia/buildingSite/getBuildingSites",
             dataSrc:''
@@ -33,17 +33,17 @@ $(function (){
                 render: function(data, type, row){
                     return '<button type="button" onclick="viewBuildingSite('+row.id+')" ' +
                         'class="btn btn-outline-dark" title="Consultar obra">' +
-                        '<i class="fas fa-eye"></i>' +
+                        '<i class="fa fa-eye" aria-hidden="true"></i>' +
                         '</button>' +
                         '&nbsp'+
                         '<button type="button" onclick="editBuildingSite('+row.id+')" ' +
                         'class="btn btn-warning" title="Editar obra">' +
-                        '<i class="far fa-edit"></i>' +
+                        '<i class="fa fa-pencil" aria-hidden="true"></i>' +
                         '</button>' +
                         '&nbsp'+
                         '<button type="button" onclick="deleteBuildingSite('+row.id+')" ' +
                         'class="btn btn-danger" title="Eliminar obra">' +
-                        '<i class="fas fa-trash-alt"></i>' +
+                        '<i class="fa fa-trash" aria-hidden="true"></i>' +
                         '</button>'
                 }
             },
@@ -52,11 +52,9 @@ $(function (){
             url: "https://cdn.datatables.net/plug-ins/1.10.24/i18n/Spanish.json"
         },
         responsive: true,
-        searching: false,
-        info:false,
-        paging: false,
-        scrollX: false,
-        ordering:false
+        bDestroy:true,
+        iDisplayLength:10,
+        order:[[0,"desc"]]
     });
 
 
