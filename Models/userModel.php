@@ -34,7 +34,6 @@ class userModel extends Mysql
         return $result;
     }
 
-
     public function insertUser($username,$pswd,$name,$surname,$email,$phone,$is_active,$rol) {
         $response = "";
         $this->username = $username;
@@ -56,7 +55,6 @@ class userModel extends Mysql
         }
         return $response;
     }
-
 
     public function updateUser($id,$name,$surname,$email,$phone,$is_active,$rol) {
         $queryUpdate = "UPDATE USER SET name = ?, surname = ?, email = ?, phone = ?, is_active = ?, rol = ? WHERE id = ".$id;

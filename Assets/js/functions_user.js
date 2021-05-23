@@ -1,6 +1,7 @@
 let tableUser;
 function openModal() {
     $('#modalFormUser').modal('show');
+    $('#formUser').trigger("reset");
 }
 
  $(function (){

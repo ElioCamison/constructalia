@@ -1,6 +1,7 @@
 let tableOutsourced;
 function openModal() {
     $('#modalFormOutsourced').modal('show');
+    $('#formOutsourced').trigger("reset");
 }
 
 $(function (){
@@ -57,55 +58,125 @@ $(function (){
         order:[[0,"desc"]]
     });
 
+    $('#formOutsourced').validate({
+        rules: {
+            name : {
+                required: true,
+                minlength: 1
+            },
+            dni : {
+                required: true,
+                minlength: 9
+            },
 
-    // // // TODO validar este formulario
-    // $('#formStaff').submit(function (e){
-    //     e.preventDefault();
-    //     let dataString = $('#formStaff').serialize();
-    //     $.post( "http://localhost/tfg/constructalia/staff/setStaff/",dataString, function( response ) {
-    //         response=JSON.parse(response);
-    //         if(response.success) {
-    //             $('#modalFormUser').modal('hide');
-    //             tableUser.ajax.reload();
-    //             toastr.success(response.message);
-    //         } else {
-    //             toastr.error(response.message);
-    //         }
-    //
-    //     });
-    // });
+        },
+        messages:{
+            dni : {
+                required: "Este campo es obligatorio rellenarlo",
+            },
+            name : {
+                required: "Este campo es obligatorio rellenarlo",
+            },
+        },
+        errorClass: "help-inline text-danger",
+        submitHandler: function (formRol,e) {
+            e.preventDefault();
+            let dataString = $('#formOutsourced').serialize();
+            $.post( "http://localhost/tfg/constructalia/outsourced/setOutsourced/",dataString, function( response ) {
+                response=JSON.parse(response);
+                if(response.success) {
+                    $('#modalFormOutsourced').modal('hide');
+                    tableOutsourced.ajax.reload();
+                    toastr.success(response.message);
+                } else {
+                    toastr.error(response.message);
+                }
 
-    // getSelectBuildingSite();
-    // getSelectCategories();
-    // getSelectTraining();
+            });
+        }
+    });
+
+    getSelectOutsource();
+    getSelectProfession();
+    getSelectTraining();
 });
-//
-// function getSelectBuildingSite(){
-//     $.get( "http://localhost/tfg/constructalia/staff/getSelectBuildingSite/", function( response ) {
-//         $('#staff_buildingSite').html(response);
-//     });
-// }
-//
-// function getSelectCategories(){
-//     $.get( "http://localhost/tfg/constructalia/staff/getSelectCategories/", function( response ) {
-//         $('#staff_category').html(response);
-//     });
-// }
-//
-// function getSelectTraining(){
-//     $.get( "http://localhost/tfg/constructalia/staff/getSelectTraining/", function( response ) {
-//         $('#staff_training').html(response);
-//     });
-// }
-//
-function viewOutsourced(){
+
+function getSelectOutsource(){
+    $.get( "http://localhost/tfg/constructalia/outsourced/getSelectOutsource/", function( response ) {
+        $('#outsourced_outsource').html(response);
+    });
+}
+
+function getSelectProfession(){
+    $.get( "http://localhost/tfg/constructalia/outsourced/getSelectProfession/", function( response ) {
+        $('#outsourced_profession').html(response);
+    });
+}
+
+function getSelectTraining(){
+    $.get( "http://localhost/tfg/constructalia/outsourced/getSelectTraining/", function( response ) {
+        $('#outsourced_training').html(response);
+    });
+}
+
+function viewOutsourced(outsourced_id){
 
 }
 
-function editOutsourced(){
+function editOutsourced(outsourced_id){
+    $.get( "http://localhost/tfg/constructalia/outsourced/getOutsourcedById/"+ outsourced_id, function( response ) {
+        response = JSON.parse(response);
+        if(response.success) {
+            let outsourcedInfo = response.outsourcedInfo;
+            $('#formOutsourced').trigger("reset");
+            $('#modalFormOutsourced').modal('show');
 
+            // removeReadOnly();
+            $('#outsourcedId').val(outsourcedInfo.id);
+
+            // // Añadiendo la información del usuario al modal
+            $('#outsourced_dni').val(outsourcedInfo.dni);
+            $('#outsourced_name').val(outsourcedInfo.name);
+            $('#outsourced_surname').val(outsourcedInfo.surname);
+            $('#outsourced_ita').val(outsourcedInfo.ita);
+            $('#outsourced_high_ita').val(outsourcedInfo.high_ita);
+            $('#outsourced_self_employment_discharge').val(outsourcedInfo.self_employment_discharge);
+            $('#outsourced_outsource').val(outsourcedInfo.outsource);
+            $('#outsourced_profession').val(outsourcedInfo.profession);
+            $('#outsourced_training').val(outsourcedInfo.training);
+
+            if(outsourcedInfo.is_informed==="1") {
+                $('#outsourced_is_informed').trigger('click');
+            }
+        } else {
+            toastr.error(response.message);
+        }
+    });
 }
 
-function deleteOutsourced(){
-
+function deleteOutsourced(outsourced_id){
+    bootbox.confirm({
+        message: "¿Seguro que quiere eliminar este subcontratado?",
+        buttons: {
+            confirm: {
+                label: 'Confirmar',
+                className: 'btn-default'
+            },
+            cancel: {
+                label: 'Cancelar',
+                className: 'btn-dark'
+            }
+        },
+        callback: function (result) {
+            if(result) {
+                $.get( "http://localhost/tfg/constructalia/outsourced/deleteOutsourced/"+ outsourced_id, function( response ) {
+                    response=JSON.parse(response);
+                    if(response.success) {
+                        tableOutsourced.ajax.reload();
+                        toastr.error(response.message);
+                    }
+                });
+            }
+        }
+    });
 }

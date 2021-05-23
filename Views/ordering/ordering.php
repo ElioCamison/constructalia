@@ -30,3 +30,4 @@
     </div>
 </main>
 <?php footerAdmin($data); ?>
+<script src="<?= media(); ?>/js/functions_ordering.js"></script>

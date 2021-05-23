@@ -67,6 +67,40 @@ class outsourceModel extends Mysql {
         return $request;
     }
 
+    public function insertOutsource($name,$phone,$cif,$contact,$state,$is_informed,$description,$building_site){
+        $response = "";
+        $this->name = $name;
+        $this->phone = $phone;
+        $this->cif = $cif;
+        $this->contact = $contact;
+        $this->state = $state;
+        $this->is_informed = $is_informed;
+        $this->description = $description;
+        $this->building_site = $building_site;
+
+        if(empty($result)) {
+            $queryInsert = "INSERT INTO OUTSOURCE(name,phone,cif,contact,state,is_informed,description,building_site) 
+                                            VALUES(?,?,?,?,?,?,?,?)";
+            $arrData = array($this->name,$this->phone,$this->cif,$this->contact,$this->state,$this->is_informed,
+                             $this->description,$this->building_site);
+            $requestInsert = $this->insert($queryInsert, $arrData);
+            $response .= $requestInsert;
+        } else {
+            $response .= "exit";
+        }
+        return $response;
+    }
+
+    public function updateOutsource($id,$name,$phone,$cif,$contact,$state,$is_informed,$description,$building_site) {
+        $queryUpdate = "UPDATE OUTSOURCE SET name = ?, phone = ?, cif = ?, contact = ?, 
+                                             state = ?, is_informed = ?, description = ?, 
+                                             building_site = ? WHERE id = ".$id;
+        $arrData = array($name,$phone,$cif,$contact,$state,$is_informed,$description,$building_site);
+        $requestUpdate = $this->update($queryUpdate, $arrData);
+
+        return $requestUpdate == "1" ? "updated" : 0;
+    }
+
 
 }// fin clase outsourceModel
 

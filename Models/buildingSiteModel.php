@@ -30,8 +30,8 @@ class buildingSiteModel extends Mysql {
         $this->is_active = $is_active;
 
         if(empty($result)) {
-            $queryInsert = "INSERT INTO BUILDING_SITE(code,name,responsible,description,is_active) VALUES(?,?)";
-            $arrData = array($this->name,$this->code,$this->responsible,$this->description,$this->is_active);
+            $queryInsert = "INSERT INTO BUILDING_SITE(code,name,responsible,description,is_active) VALUES(?,?,?,?,?)";
+            $arrData = array($this->code,$this->name,$this->responsible,$this->description,$this->is_active);
             $requestInsert = $this->insert($queryInsert, $arrData);
             $response .= $requestInsert;
         } else {
@@ -57,7 +57,7 @@ class buildingSiteModel extends Mysql {
                   building_site.is_active,                     
                   concat(user.name,' ',user.surname) AS responsible                  
                   FROM BUILDING_SITE 
-                  INNER JOIN USER 
+                  LEFT JOIN USER 
                   	ON building_site.responsible = user.id";
         $result = $this->selectAll($query);
         return $result;

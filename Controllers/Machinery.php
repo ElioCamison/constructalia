@@ -20,6 +20,36 @@ class Machinery extends Controllers {
         die();
     }
 
+    public function setMachinery() {
+        if(isset( $_POST) && !empty($_POST)) {
+            $available = "";
+            foreach ($_POST as $key => $value) {
+                $$key = addslashes($value);
+            }
+
+            $available =  $available == "on" ? 1 : 0;
+
+            if($machineryId) {
+                $requestMachinery = $this->model->updateMachinery($machineryId,$code,$name,$total_amount,$price_day,
+                                                                  $last_revision,$ubication,$family,$available);
+            } else {
+                $requestMachinery = $this->model->insertMachinery($code,$name,$total_amount,$price_day,$last_revision,
+                                                                  $ubication,$family,$available);
+            }
+
+            if ($requestMachinery > 0) {
+                $arrResponse = array('success'=>true,'message'=>'Se ha creado una maquinaria correctametne');
+            } else if ($requestMachinery == "updated") {
+                $arrResponse = array('success'=>true,'message'=>'Se ha actualizado una maquinari correctamente');
+            } else {
+                $arrResponse = array('success'=>false,'message'=>'Ha ocurrido un error');
+            }
+
+            echo json_encode($arrResponse,JSON_UNESCAPED_UNICODE);
+            die();
+        }
+    }
+
     public function getMachineryById(int $machinery_id){
         $machinery_id = intval($machinery_id);
         if ($machinery_id>0){
@@ -38,6 +68,19 @@ class Machinery extends Controllers {
     public function getSelectFamily() {
         $htmlOptions = "";
         $arrData = $this->model->getSelectFamily();
+
+        if (count($arrData)>0){
+            for ($i=0;$i<count($arrData);$i++){
+                $htmlOptions .= '<option value="'.$arrData[$i]['id'].'">'.$arrData[$i]['name'].'</option>';
+            }
+        }
+        echo $htmlOptions;
+        die();
+    }
+
+    public function getSelectUbication() {
+        $htmlOptions = "";
+        $arrData = $this->model->getSelectUbication();
 
         if (count($arrData)>0){
             for ($i=0;$i<count($arrData);$i++){

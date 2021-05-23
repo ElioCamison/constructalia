@@ -1,4 +1,3 @@
-
 <?=
     headerAdmin($data);
     getModal('modalBuildingSite',$data);
@@ -32,5 +31,4 @@
     </div>
 </main>
 <?php footerAdmin($data); ?>
-
-<?php getModal('modalBuildingSite',$data); ?>
+<script src="<?= media(); ?>/js/functions_buildingSite.js"></script>

@@ -1,4 +1,4 @@
-// let tableCategory;
+let tableCategory;
 function openModal() {
     $('#modalFormCategory').modal('show');
     $('#formCategory').trigger("reset");
@@ -41,20 +41,34 @@ $(function (){
     });
 
 
-    // TODO validar este formulario
-    $('#formCategory').submit(function (e){
-        e.preventDefault();
-        let dataString = $('#formCategory').serialize();
-        $.post( "http://localhost/tfg/constructalia/category/setCategory/",dataString, function( response ) {
-            response=JSON.parse(response);
-            if(response.success) {
-                $('#modalFormCategory').modal('hide');
-                tableCategory.ajax.reload();
-                toastr.success(response.message);
-            } else {
-                toastr.error(response.message);
+    $('#formCategory').validate({
+        rules: {
+            name : {
+                required: true,
+                minlength: 1
             }
-        });
+
+        },
+        messages:{
+            name : {
+                required: "Este campo es obligatorio rellenarlo",
+            }
+        },
+        errorClass: "help-inline text-danger",
+        submitHandler: function (formRol,e) {
+            e.preventDefault();
+            let dataString = $('#formCategory').serialize();
+            $.post( "http://localhost/tfg/constructalia/category/setCategory/",dataString, function( response ) {
+                response=JSON.parse(response);
+                if(response.success) {
+                    $('#modalFormCategory').modal('hide');
+                    tableCategory.ajax.reload();
+                    toastr.success(response.message);
+                } else {
+                    toastr.error(response.message);
+                }
+            });
+        }
     });
 
 });

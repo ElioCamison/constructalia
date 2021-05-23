@@ -31,3 +31,4 @@
     </div>
 </main>
 <?php footerAdmin($data); ?>
+<script src="<?= media(); ?>/js/functions_supplier.js"></script>

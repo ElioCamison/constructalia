@@ -1,6 +1,7 @@
 // let tableOrdering;
 function openModal() {
     $('#modalFormOrdering').modal('show');
+    $('#formOrdering').trigger("reset");
 }
 
 $(function (){

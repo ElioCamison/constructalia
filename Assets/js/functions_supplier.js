@@ -1,6 +1,7 @@
 let tableSupplier;
 function openModal() {
     $('#modalFormSupplier').modal('show');
+    $('#formSupplier').trigger("reset");
 }
 
 $(function (){

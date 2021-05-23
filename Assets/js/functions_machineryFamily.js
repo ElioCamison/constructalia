@@ -1,6 +1,7 @@
 let tableMachineryFamily;
 function openModal() {
     $('#modalFormMachineryFamily').modal('show');
+    $('#formMachineryFamily').trigger("reset");
 }
 
 $(function (){

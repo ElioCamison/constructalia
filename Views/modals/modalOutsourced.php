@@ -10,52 +10,57 @@
             <div class="modal-body">
                 <form id="formOutsourced" name="formOutsourced">
                     <input id="outsourcedId" name="outsourcedId" hidden>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="mb-3">
-                                <label for="outsourced_name" class="col-form-label">Nombre</label>
-                                <input type="text" class="form-control" id="outsourced_name" name="name" autocomplete="off" required>
-                            </div>
-                            <div class="mb-3">
-                                <label for="outsourced_phone" class="col-form-label">Phone</label>
-                                <input class="form-control" id="outsourced_phone" name="phone" maxlength="100">
-                            </div>
-                            <div class="mb-3">
-                                <label class="custom-control-label" for="outsource_is_active">Email</label>
-                                <input type="email" class="form-control" id="outsource_is_active" name="email" aria-describedby="emailHelp" placeholder="Enter email">
-                            </div>
-                            <div class="mb-3">
-                                <label for="outsource_state">Estado</label>
-                                <select id="outsource_state" name="state" class="form-control">
-                                    <option value="" selected>------</option>
-                                    <option value="1">Activo</option>
-                                    <option value="0">Inactivo</option>
-                                </select>
-                            </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="outsourced_dni" class="col-form-label">DNI</label>
+                            <input type="text" class="form-control" id="outsourced_dni" name="dni" autocomplete="off" required>
                         </div>
-                        <div class="col-md-6">
-                            <div class="mb-3">
-                                <label for="outsource_cif" class="col-form-label">CIF</label>
-                                <input type="text" class="form-control" id="outsource_cif" name="cif" autocomplete="off" required>
-                            </div>
-                            <div class="mb-3">
-                                <label for="outsource_contact" class="col-form-label">Contacto</label>
-                                <input class="form-control" id="outsource_contact" name="contact" maxlength="100">
-                            </div>
-                            <div class="mb-3">
-                                <label class="custom-control-label" for="outsource_is_active">Email</label>
-                                <input type="email" class="form-control" id="outsource_is_active" name="email" aria-describedby="emailHelp" placeholder="Enter email">
-                            </div>
-                            <div class="mb-3">
-                                <label class="custom-control-label" for="outsource_is_informed">Informado</label>
-                                <input type="checkbox" class="custom-control-input" id="outsource_is_informed" name="is_informed">
-                            </div>
+                        <div class="form-group col-md-6">
+                            <label for="outsourced_name" class="col-form-label">Nombre</label>
+                            <input type="text" class="form-control" id="outsourced_name" name="name" autocomplete="off" required>
                         </div>
                     </div>
-                    <div class="col-md-12">
-                        <div class="mb-3">
-                            <label for="outsource_description" class="col-form-label">Descripción</label>
-                            <textarea class="form-control" id="outsource_description" name="description" maxlength="100"></textarea>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="outsourced_surname" class="col-form-label">Apellidos</label>
+                            <input type="text" class="form-control" id="outsourced_surname" name="surname" maxlength="100">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="outsourced_ita" class="col-form-label">ITA</label>
+                            <input class="form-control" type="date" id="outsourced_ita" name="ita">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="outsourced_high_ita" class="col-form-label">Alta ITA</label>
+                            <input class="form-control" type="date" id="outsourced_high_ita" name="high_ita">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="outsourced_self_employment_discharge" class="col-form-label">Alta seguridad social</label>
+                            <input class="form-control" type="date" id="outsourced_self_employment_discharge"
+                                   name="self_employment_discharge">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="outsourced_outsource">Subcontrata</label>
+                            <select id="outsourced_outsource" name="outsource" class="form-control"></select>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="outsourced_profession">Profesión</label>
+                            <select id="outsourced_profession" name="profession" class="form-control"></select>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="outsourced_training">Formación</label>
+                            <select id="outsourced_training" name="training" class="form-control"></select>
+                        </div>
+                        <div class="toggle-flip">
+                            <label> Informado
+                                <input type="checkbox" id="outsourced_is_informed" name="is_informed">
+                                <span class="flip-indecator" data-toggle-on="ON" data-toggle-off="OFF"></span>
+                            </label>
                         </div>
                     </div>
                     <div class="modal-footer">
