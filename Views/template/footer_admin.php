@@ -16,25 +16,18 @@
 <!--  Bootbox  -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/4.4.0/bootbox.min.js"></script>
 
+<!--  TOASTR  -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+
 
 <!-- Page specific javascripts-->
 
 <script type="text/javascript" src="<?= media(); ?>/js/plugins/jquery.dataTables.min.js"></script>
 <script type="text/javascript" src="<?= media(); ?>/js/plugins/dataTables.bootstrap.min.js"></script>
 
-<script src="<?= media(); ?>/js/functions_user.js"></script>
-<script src="<?= media(); ?>/js/functions_training.js"></script>
-<script src="<?= media(); ?>/js/functions_supplier.js"></script>
-<script src="<?= media(); ?>/js/functions_staff.js"></script>
-<script src="<?= media(); ?>/js/functions_rol.js"></script>
-<script src="<?= media(); ?>/js/functions_outsourced.js"></script>
-<script src="<?= media(); ?>/js/functions_outsource.js"></script>
-<script src="<?= media(); ?>/js/functions_ordering.js"></script>
-<script src="<?= media(); ?>/js/functions_material.js"></script>
-<script src="<?= media(); ?>/js/functions_machineryFamily.js"></script>
-<script src="<?= media(); ?>/js/functions_machinery.js"></script>
-<script src="<?= media(); ?>/js/functions_category.js"></script>
-<script src="<?= media(); ?>/js/functions_buildingSite.js"></script>
+
+<!--<script src="--><?//= media(); ?><!--/js/functions_material.js"></script>-->
+<!--<script src="--><?//= media(); ?><!--/js/functions_category.js"></script>-->
 
 </body>
 </html>

@@ -1,6 +1,7 @@
 let tableMachinery;
 function openModal() {
     $('#modalFormMachinery').modal('show');
+    $('#formMachinery').trigger("reset");
 }
 
 $(function (){
@@ -17,7 +18,17 @@ $(function (){
             {title:"Código",data:"code"},
             {title:"Nombre",data:"name"},
             {title:"Ubication",data:"ubication"},
-            {title:"Disponibilidad",data:"available"},
+            {title:"Disponibilidad",data:"available",
+                render:function (data, type, row){
+                    let span = '';
+                    if(row.available == 0){
+                        span = '<span class="badge bg-danger" title="No hay disponibilidad">No</span>'
+                    } else {
+                        span = '<span class="badge bg-info text-dark" title="Disponible">Sí</span>'
+                    }
+                    return span;
+                }
+            },
             {title:"Acciones",data:null,
                 render: function(data, type, row){
                     return '<button type="button" onclick="editMachinery('+row.id+')" ' +
@@ -41,30 +52,53 @@ $(function (){
         order:[[0,"desc"]]
     });
 
-
-    // // TODO validar este formulario
-    // $('#formUser').submit(function (e){
-    //     e.preventDefault();
-    //     let dataString = $('#formUser').serialize();
-    //     $.post( "http://localhost/tfg/constructalia/user/setUser/",dataString, function( response ) {
-    //         response=JSON.parse(response);
-    //         if(response.success) {
-    //             $('#modalFormUser').modal('hide');
-    //             tableUser.ajax.reload();
-    //             toastr.success(response.message);
-    //         } else {
-    //             toastr.error(response.message);
-    //         }
-    //
-    //     });
-    // });
+    $('#formMachinery').validate({
+        rules: {
+            code : {
+                required: true
+            },
+            name : {
+                required: true
+            }
+        },
+        messages:{
+            code : {
+                required: "Este campo es obligatorio rellenarlo"
+            },
+            name : {
+                required: "Este campo es obligatorio rellenarlo"
+            }
+        },
+        errorClass: "help-inline text-danger",
+        submitHandler: function (formRol,e) {
+            e.preventDefault();
+            let dataString = $('#formMachinery').serialize();
+            $.post( "http://localhost/tfg/constructalia/machinery/setMachinery/",dataString, function( response ) {
+                response=JSON.parse(response);
+                if(response.success) {
+                    $('#formMachinery').modal('hide');
+                    tableMachinery.ajax.reload();
+                    toastr.success(response.message);
+                } else {
+                    toastr.error(response.message);
+                }
+            });
+        }
+    });
     getSelectFamily();
+    getSelectUbication();
 
 });
 
 function getSelectFamily(){
     $.get( "http://localhost/tfg/constructalia/machinery/getSelectFamily/", function( response ) {
         $('#machinery_family').html(response);
+    });
+}
+
+function getSelectUbication(){
+    $.get( "http://localhost/tfg/constructalia/machinery/getSelectUbication/", function( response ) {
+        $('#machinery_ubication').html(response);
     });
 }
 

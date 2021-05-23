@@ -125,6 +125,7 @@ $('#table-rol').dataTable();
 function openModal() {
     $('#modalLabelFormRol').text('Nuevo rol');
     $('#modalFormRol').modal('show');
+    $('#formRol').trigger("reset");
 }
 
 function editRol(rol_id) {

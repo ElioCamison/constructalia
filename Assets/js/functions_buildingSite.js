@@ -31,20 +31,15 @@ $(function (){
             },
             {title:"Acciones",data:null,
                 render: function(data, type, row){
-                    return '<button type="button" onclick="viewBuildingSite('+row.id+')" ' +
-                        'class="btn btn-outline-dark" title="Consultar obra">' +
-                        '<i class="fa fa-eye" aria-hidden="true"></i>' +
-                        '</button>' +
-                        '&nbsp'+
-                        '<button type="button" onclick="editBuildingSite('+row.id+')" ' +
-                        'class="btn btn-warning" title="Editar obra">' +
-                        '<i class="fa fa-pencil" aria-hidden="true"></i>' +
-                        '</button>' +
-                        '&nbsp'+
-                        '<button type="button" onclick="deleteBuildingSite('+row.id+')" ' +
-                        'class="btn btn-danger" title="Eliminar obra">' +
-                        '<i class="fa fa-trash" aria-hidden="true"></i>' +
-                        '</button>'
+                    return '<button type="button" onclick="editBuildingSite('+row.id+')" ' +
+                                'class="btn btn-warning" title="Editar obra">' +
+                                '<i class="fa fa-pencil" aria-hidden="true"></i>' +
+                           '</button>' +
+                           '&nbsp'+
+                           '<button type="button" onclick="deleteBuildingSite('+row.id+')" ' +
+                                'class="btn btn-danger" title="Eliminar obra">' +
+                                '<i class="fa fa-trash" aria-hidden="true"></i>' +
+                           '</button>'
                 }
             },
         ],
@@ -57,22 +52,40 @@ $(function (){
         order:[[0,"desc"]]
     });
 
-
-    // TODO validar este formulario
-    $('#formBuildingSite').submit(function (e){
-        e.preventDefault();
-        let dataString = $('#formBuildingSite').serialize();
-        $.post( "http://localhost/tfg/constructalia/building_site/setBuildingSite/",dataString, function( response ) {
-            response=JSON.parse(response);
-            if(response.success) {
-                $('#modalFormBuildingSite').modal('hide');
-                tableBuildingSite.ajax.reload();
-                toastr.success(response.message);
-            } else {
-                toastr.error(response.message);
+    $('#formBuildingSite').validate({
+        rules: {
+            code : {
+                required: true,
+            },
+            name : {
+                required: true,
             }
+        },
+        messages:{
+            code : {
+                required: "Este campo es obligatorio rellenarlo",
+            },
+            name : {
+                required: "Este campo es obligatorio rellenarlo",
+            }
+        },
+        errorClass: "help-inline text-danger",
+        submitHandler: function (formRol,e) {
+            e.preventDefault();
 
-        });
+            let dataString = $('#formBuildingSite').serialize();
+            $.post( "http://localhost/tfg/constructalia/buildingSite/setBuildingSite/",dataString, function( response ) {
+                response=JSON.parse(response);
+                if(response.success) {
+                    $('#modalFormBuildingSite').modal('hide');
+                    tableBuildingSite.ajax.reload();
+                    toastr.success(response.message);
+                } else {
+                    toastr.error(response.message);
+                }
+
+            });
+        }
     });
 
     getSelectResponsible();
@@ -82,10 +95,6 @@ function getSelectResponsible(){
     $.get( "http://localhost/tfg/constructalia/buildingSite/getSelectResponsible/", function( response ) {
         $('#buildingSite_responsible').html(response);
     });
-}
-
-function viewBuildingSite(){
-
 }
 
 function editBuildingSite(buildingSite_id){

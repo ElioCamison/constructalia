@@ -20,10 +20,10 @@ class Outsource extends Controllers {
         die();
     }
 
-    public function getOutsourceById(int $outsource_id){
+    public function getOutsourcedById(int $outsource_id){
         $outsource_id = intval($outsource_id);
         if ($outsource_id>0){
-            $requestOutsource = $this->model->getOutsourceById($outsource_id);
+            $requestOutsource = $this->model->getOutsourcedById($outsource_id);
 
             if($requestOutsource){
                 $arrResponse = array("success" => true,"outsourceInfo"=>$requestOutsource);
@@ -63,27 +63,26 @@ class Outsource extends Controllers {
 
     public function setOutsource(){
         if(isset( $_POST) && !empty($_POST)) {
-            $is_active = "";
+            $is_informed = "";
             foreach ($_POST as $key => $value) {
                 $$key = addslashes($value);
             }
 
-            $is_active =  $is_active == "on" ? 1 : 0;
 
-            if($staffId) {
-                $requestUser = $this->model->updateUser($staffId,$name,$surname,$phone,$dni,$description,
-                    $medicaExamination,$state,$hasEpi,$hasAppointment,$isPreventiveResource,$hasDrivingLicense,
-                    $buildingSite,$category);
+            $is_informed =  $is_informed == "on" ? 1 : 0;
+
+            if($outsourceId) {
+                $requestOutsource = $this->model->updateOutsource($outsourceId,$name,$phone,$cif,$contact,$state,
+                                                             $is_informed,$description,$building_site);
             } else {
-                $requestUser = $this->model->insertUser($name,$surname,$phone,$dni,$description,
-                    $medicaExamination,$state,$hasEpi,$hasAppointment,$isPreventiveResource,$hasDrivingLicense,
-                    $buildingSite,$category);
+                $requestOutsource = $this->model->insertOutsource($name,$phone,$cif,$contact,$state,$is_informed,
+                                                             $description,$building_site);
             }
 
-            if ($requestUser > 0) {
-                $arrResponse = array('success'=>true,'message'=>'Se ha creado un rol correctametne');
-            } else if ($requestUser == "updated") {
-                $arrResponse = array('success'=>true,'message'=>'Se ha actualizado el rol correctamente');
+            if ($requestOutsource > 0) {
+                $arrResponse = array('success'=>true,'message'=>'Se ha creado una subcontrata correctametne');
+            } else if ($requestOutsource == "updated") {
+                $arrResponse = array('success'=>true,'message'=>'Se ha actualizado una subcontrata correctamente');
             } else {
                 $arrResponse = array('success'=>false,'message'=>'Ha ocurrido un error');
             }
@@ -92,7 +91,6 @@ class Outsource extends Controllers {
             die();
         }
     }
-
 }
 
 ?>

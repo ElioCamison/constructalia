@@ -16,14 +16,14 @@
                             <input type="text" class="form-control" id="staff_name" name="name" placeholder="Nombre" autocomplete="off">
                         </div>
                         <div class="form-group col-md-6">
-                            <label for="user_surname">Apellidos</label>
-                            <input type="text" class="form-control" id="user_surname" name="surname" placeholder="Apellidos" autocomplete="off">
+                            <label for="staff_surname">Apellidos</label>
+                            <input type="text" class="form-control" id="staff_surname" name="surname" placeholder="Apellidos" autocomplete="off">
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             <label for="staff_dni">DNI/NIE/PASAPORTE</label>
-                            <input type="password" class="form-control" id="staff_dni" name="dni" placeholder="DNI/NIE/PASAPORTE" autocomplete="off">
+                            <input type="text" class="form-control" id="staff_dni" name="dni" placeholder="DNI/NIE/PASAPORTE" autocomplete="off">
                         </div>
                         <div class="form-group col-md-6">
                             <label for="staff_phone">Teléfono</label>
@@ -32,8 +32,8 @@
                     </div>
                     <div class="form-row">
                         <div class="form-group col-md-6">
-                            <label for="staff_training">Formación</label>
-                            <select id="staff_training" name="training" class="form-control"></select>
+                            <label for="staff_medicaExamination" class="form-label">Revisión médica</label>
+                            <input class="form-control" type="date" id="staff_medicaExamination" name="medicaExamination">
                         </div>
                         <div class="form-group col-md-6">
                             <label for="staff_category">Categoria</label>
@@ -59,9 +59,11 @@
                             <div class="form-row">
                                 <div class="toggle-flip">
                                     <label>EPI
-                                        <input type="checkbox"><span class="flip-indecator" data-toggle-on="ON"
-                                                                     data-toggle-off="OFF" id="staff_hasEpi"
-                                                                     name="hasEpi"></span>
+                                        <input type="checkbox">
+                                            <span class="flip-indecator" data-toggle-on="ON"
+                                                  data-toggle-off="OFF" id="staff_hasEpi"
+                                                  name="has_epi">
+                                            </span>
                                     </label>
                                 </div>
                             </div>
@@ -72,7 +74,7 @@
                                     <label>Permiso de conducción
                                         <input type="checkbox"><span class="flip-indecator" data-toggle-on="ON"
                                                                      data-toggle-off="OFF" id="staff_hasDrivingLicense"
-                                                                     name="hasDrivingLicense">
+                                                                     name="has_driving_license">
                                     </label>
                                 </div>
                             </div>
@@ -83,7 +85,7 @@
                                     <label>Cita revisión médica
                                         <input type="checkbox"><span class="flip-indecator" data-toggle-on="ON"
                                                                      data-toggle-off="OFF"
-                                                                     id="staff_hasAppointment" name="hasAppointment">
+                                                                     id="staff_hasAppointment" name="has_appointment">
                                     </label>
                                 </div>
                             </div>
@@ -95,20 +97,16 @@
                                         <input type="checkbox"><span class="flip-indecator" data-toggle-on="ON"
                                                                      data-toggle-off="OFF"
                                                                      id="staff_isPreventiveResource"
-                                                                     name="isPreventiveResource">
+                                                                     name="is_preventive_resource">
                                     </label>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="form-row">
-                        <div class="form-group col-md-8">
-                            <label for="descriptionRol" class="col-form-label">Descripción</label>
+                        <div class="form-group col-md-12">
+                            <label for="staff_description" class="col-form-label">Descripción</label>
                             <textarea class="form-control" id="staff_description" name="description" maxlength="100"></textarea>
-                        </div>
-                        <div class="form-group col-md-4">
-                            <label for="staff_medicaExamination">Revisión médica</label>
-                            <input type="date" id="staff_medicaExamination" name="medicaExamination">
                         </div>
                     </div>
                     <div class="modal-footer">

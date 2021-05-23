@@ -2,6 +2,7 @@ let tableTraining;
 let $modalFormTraining = $('#modalFormTraining');
 function openModal() {
     $modalFormTraining.modal('show');
+    $('#formTraining').trigger("reset");
 }
 
 $(function (){
@@ -39,20 +40,35 @@ $(function (){
         order:[[0,"desc"]]
     });
 
-    // TODO validar este formulario
-    $('#formTraining').submit(function (e){
-        e.preventDefault();
-        let dataString = $('#formTraining').serialize();
-        $.post( "http://localhost/tfg/constructalia/training/setTraining/",dataString, function( response ) {
-            response=JSON.parse(response);
-            if(response.success) {
-                $modalFormTraining.modal('hide');
-                tableTraining.ajax.reload();
-                toastr.success(response.message);
-            } else {
-                toastr.error(response.message);
+
+    $('#formTraining').validate({
+        rules: {
+            name : {
+                required: true,
+                minlength: 1
             }
-        });
+
+        },
+        messages:{
+            name : {
+                required: "Este campo es obligatorio rellenarlo",
+            }
+        },
+        errorClass: "help-inline text-danger",
+        submitHandler: function (formRol,e) {
+            e.preventDefault();
+            let dataString = $('#formTraining').serialize();
+            $.post( "http://localhost/tfg/constructalia/training/setTraining/",dataString, function( response ) {
+                response=JSON.parse(response);
+                if(response.success) {
+                    $modalFormTraining.modal('hide');
+                    tableTraining.ajax.reload();
+                    toastr.success(response.message);
+                } else {
+                    toastr.error(response.message);
+                }
+            });
+        }
     });
 
 });

@@ -17,27 +17,29 @@ class Staff extends Controllers {
 
     public function setStaff() {
         if(isset( $_POST) && !empty($_POST)) {
-            $is_active = "";
+            $has_epi = "";
+            $has_appointment = "";
+            $is_preventive_resource = "";
+            $has_driving_license = "";
+
             foreach ($_POST as $key => $value) {
                 $$key = addslashes($value);
             }
 
-            $is_active =  $is_active == "on" ? 1 : 0;
-
             if($staffId) {
-                $requestUser = $this->model->updateUser($staffId,$name,$surname,$phone,$dni,$description,
-                    $medicaExamination,$state,$hasEpi,$hasAppointment,$isPreventiveResource,$hasDrivingLicense,
+                $requestUser = $this->model->updateStaff($staffId,$name,$surname,$phone,$dni,$description,
+                    $medicaExamination,$state,$has_epi,$has_appointment,$is_preventive_resource,$has_driving_license,
                     $buildingSite,$category);
             } else {
-                $requestUser = $this->model->insertUser($name,$surname,$phone,$dni,$description,
-                    $medicaExamination,$state,$hasEpi,$hasAppointment,$isPreventiveResource,$hasDrivingLicense,
+                $requestUser = $this->model->insertStaff($name,$surname,$phone,$dni,$description,
+                    $medicaExamination,$state,$has_epi,$has_appointment,$is_preventive_resource,$has_driving_license,
                     $buildingSite,$category);
             }
 
             if ($requestUser > 0) {
-                $arrResponse = array('success'=>true,'message'=>'Se ha creado un rol correctametne');
+                $arrResponse = array('success'=>true,'message'=>'Se ha creado un personal propio correctametne');
             } else if ($requestUser == "updated") {
-                $arrResponse = array('success'=>true,'message'=>'Se ha actualizado el rol correctamente');
+                $arrResponse = array('success'=>true,'message'=>'Se ha actualizado el personal propio correctamente');
             } else {
                 $arrResponse = array('success'=>false,'message'=>'Ha ocurrido un error');
             }
@@ -90,6 +92,34 @@ class Staff extends Controllers {
             }
         }
         echo $htmlOptions;
+        die();
+    }
+
+    public function getStaffById(int $staff_id) {
+        $staffId = intval($staff_id);
+        if ($staffId > 0){
+            $requestStaff = $this->model->getStaffById($staffId);
+
+            if($requestStaff){
+                $arrResponse = array("success" => true,"staffInfo"=>$requestStaff);
+            } else {
+                $arrResponse = array("success" => false,"message"=>"Ha ocurrido un error");
+            }
+        }
+        echo json_encode($arrResponse,JSON_UNESCAPED_UNICODE);
+        die();
+    }
+
+    public function deleteStaff(int $staff_id) {
+        $data = $this->model->deleteStaff($staff_id);
+
+        if ($data){
+            $arrResponse = array("success" => true,"message"=>"Personal eliminado correctamente");
+        } else {
+            $arrResponse = array("success" => false,"message"=>"Ha ocurrido un error");
+        }
+
+        echo json_encode($arrResponse,JSON_UNESCAPED_UNICODE);
         die();
     }
 

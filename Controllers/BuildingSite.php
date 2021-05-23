@@ -78,7 +78,7 @@ class BuildingSite extends Controllers {
     }
 
     public function deleteBuildingSite(int $buildingSite_id){
-        $data = $this->model->deleteCategory($buildingSite_id);
+        $data = $this->model->deleteBuildingSite($buildingSite_id);
 
         if ($data){
             $arrResponse = array("success" => true,"message"=>"Obra eliminada correctamente");

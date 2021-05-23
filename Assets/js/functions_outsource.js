@@ -1,6 +1,7 @@
 let tableOutsource;
 function openModal() {
     $('#modalFormOutsource').modal('show');
+    $('#formSupplier').trigger("reset");
 }
 
 $(function (){
@@ -63,22 +64,50 @@ $(function (){
         order:[[0,"desc"]]
     });
 
-
-    // TODO validar este formulario
-    $('#formOutsource').submit(function (e){
-        e.preventDefault();
-        let dataString = $('#formOutsource').serialize();
-        $.post( "http://localhost/tfg/constructalia/outsource/setOutsource/",dataString, function( response ) {
-            response=JSON.parse(response);
-            if(response.success) {
-                $('#modalFormUser').modal('hide');
-                tableUser.ajax.reload();
-                toastr.success(response.message);
-            } else {
-                toastr.error(response.message);
+    $('#formOutsource').validate({
+        rules: {
+            name : {
+                required: true,
+                minlength: 1
+            },
+            cif : {
+                required: true,
+                minlength: 9
+            },
+            phone : {
+                required: true,
+                minlength: 1
             }
 
-        });
+        },
+        messages:{
+            name : {
+                required: "Este campo es obligatorio rellenarlo",
+            },
+            cif : {
+                required: "Este campo es obligatorio rellenarlo",
+            },
+            phone : {
+                required: "Este campo es obligatorio rellenarlo",
+            }
+        },
+        errorClass: "help-inline text-danger",
+        submitHandler: function (formRol,e) {
+            e.preventDefault();
+
+            let dataString = $('#formOutsource').serialize();
+            $.post( "http://localhost/tfg/constructalia/outsource/setOutsource/",dataString, function( response ) {
+                response=JSON.parse(response);
+                if(response.success) {
+                    $('#modalFormOutsource').modal('hide');
+                    tableOutsource.ajax.reload();
+                    toastr.success(response.message);
+                } else {
+                    toastr.error(response.message);
+                }
+
+            });
+        }
     });
 
     getSelectBuildingSite();
@@ -91,7 +120,6 @@ function getSelectBuildingSite(){
     });
 }
 
-
 function editOutsource(outsource_id){
     $.get( "http://localhost/tfg/constructalia/outsource/getOutsourceById/"+ outsource_id, function( response ) {
         response = JSON.parse(response);
@@ -100,9 +128,6 @@ function editOutsource(outsource_id){
             $('#modalFormOutsource').modal('show');
             $('#outsourceId').val(outsourceInfo.id);
 
-            console.log(outsourceInfo.is_informed)
-
-
                 // Resto de campos
             $('#outsource_name').val(outsourceInfo.name);
             $('#outsource_phone').val(outsourceInfo.phone);
@@ -110,15 +135,17 @@ function editOutsource(outsource_id){
             $('#outsource_contact').val(outsourceInfo.contact);
             $('#outsource_cif').val(outsourceInfo.cif);
             $('#outsource_building_site').val(outsourceInfo.building_site_id);
-            $('#outsource_is_informed').val();
             $('#outsource_description').val(outsourceInfo.description);
+            if(outsourceInfo.is_informed === "1"){
+                $('#outsource_is_informed').trigger('click');
+            }
         } else {
             toastr.error(response.message);
         }
     });
 }
 
-function deleteOutsource() {
+function deleteOutsource(outsource_id) {
     bootbox.confirm({
         message: "¿Seguro que quiere eliminar esta subcontrata?",
         buttons: {

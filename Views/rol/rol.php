@@ -38,9 +38,4 @@
     </div>
 </main>
 <?php footerAdmin($data); ?>
-<script>
-    function openModal(){
-        $('#modalFormRol').modal('show');
-        $('#formRol').trigger("reset");
-    }
-</script>
+<script src="<?= media(); ?>/js/functions_rol.js"></script>

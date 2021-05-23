@@ -33,9 +33,10 @@
         </div>
     </main>
 <?php footerAdmin($data); ?>
-<script>
-    function openModal(){
-        $('#modalFormUser').modal('show');
-        $('#formUser').trigger("reset");
-    }
-</script>
+<script src="<?= media(); ?>/js/functions_user.js"></script>
+<!--<script>-->
+<!--    function openModal(){-->
+<!--        $('#modalFormUser').modal('show');-->
+<!--        $('#formUser').trigger("reset");-->
+<!--    }-->
+<!--</script>-->

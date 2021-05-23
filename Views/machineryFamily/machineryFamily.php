@@ -33,3 +33,4 @@
     </div>
 </main>
 <?php footerAdmin($data); ?>
+<script src="<?= media(); ?>/js/functions_machineryFamily.js"></script>
