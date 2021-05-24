@@ -72,6 +72,124 @@ class Ordering extends Controllers {
         die();
     }
 
+    public function getStateOrderingById(int $id){
+        $id = intval($id);
+        if ($id>0){
+            $requestStateOrdering = $this->model->getStateOrderingById($id);
+
+            if(intval($requestStateOrdering['state']) == 0){
+               return true;
+            } else {
+                return false;
+            }
+        }
+    }
+
+    public function setOrdering(){
+        if(isset( $_POST) && !empty($_POST)) {
+            $is_urgent = "";
+            foreach ($_POST as $key => $value) {
+                $$key = addslashes($value);
+            }
+
+            $is_urgent =  $is_urgent == "on" ? 1 : 0;
+
+            if($orderingId) {
+                $requestState = $this->model->getStateOrderingById($orderingId);
+                if($requestState !=0 ){
+                    $requestOrdering = $this->model->updateOrdering($orderingId,$building_site,$carried_out,$truck,
+                        $material,$machinery,$is_urgent,$note);
+                } else {
+                    $arrResponse = array('success'=>false,'message'=>'No puede modificar un pedido en curso o finalizado');
+                }
+
+            } else {
+
+                $requestOrdering = $this->model->insertOrdering($building_site,$carried_out,$truck,$material,$machinery,
+                    $is_urgent,$note);
+            }
+
+            if ($requestOrdering > 0) {
+                $arrResponse = array('success'=>true,'message'=>'Se ha creado un pedido correctametne');
+            } else if ($requestOrdering == "updated") {
+                $arrResponse = array('success'=>true,'message'=>'Se ha actualizado un pedido correctamente');
+            } else {
+                $arrResponse = array('success'=>false,'message'=>'Ha ocurrido un error');
+            }
+
+            echo json_encode($arrResponse,JSON_UNESCAPED_UNICODE);
+            die();
+        }
+    }
+
+    public function startOrder(){
+        if(isset( $_POST) && !empty($_POST)) {
+            $ordering_id = intval($_POST['ordering_id']);
+
+            if ($ordering_id>0){
+                $requestOrdering = $this->model->startOrder($ordering_id);
+
+                if($requestOrdering){
+                    $arrResponse = array("success" => true,"message"=>"Pedido en curso");
+                } else {
+                    $arrResponse = array("success" => false,"message"=>"Ha ocurrido un error");
+                }
+            }
+            echo json_encode($arrResponse,JSON_UNESCAPED_UNICODE);
+            die();
+        }
+    }
+
+    public function finishOrder(int $ordering_id) {
+        $ordering_id = intval($ordering_id);
+        if ($ordering_id>0){
+            $requestOrdering = $this->model->finishOrder($ordering_id);
+
+            if($requestOrdering){
+                $arrResponse = array("success" => true,"message"=>"Pedido entregado");
+            } else {
+                $arrResponse = array("success" => false,"message"=>"Ha ocurrido un error");
+            }
+        }
+        echo json_encode($arrResponse,JSON_UNESCAPED_UNICODE);
+        die();
+    }
+
+    public function getOrderingById(int $ordering_id){
+        $ordering_id = intval($ordering_id);
+        if ($ordering_id>0){
+            $requestOrdering = $this->model->getOrderingById($ordering_id);
+
+            if($requestOrdering){
+                $arrResponse = array("success" => true,"orderingInfo"=>$requestOrdering);
+            } else {
+                $arrResponse = array("success" => false,"message"=>"Ha ocurrido un error");
+            }
+        }
+        echo json_encode($arrResponse,JSON_UNESCAPED_UNICODE);
+        die();
+    }
+
+    public function deleteOrdering(int $outsource_id) {
+        $orderingState = self::getStateOrderingById($outsource_id);
+
+        if($orderingState) {
+            $data = $this->model->deleteOrdering($outsource_id);
+
+            if ($data){
+                $arrResponse = array("success" => true,"message"=>"Pedido eliminado correctamente");
+            } else {
+                $arrResponse = array("success" => false,"message"=>"Ha ocurrido un error");
+            }
+
+        } else {
+            $arrResponse = array("success" => false,"message"=>"No puede eliminar un pedido finalizado ni en curso");
+        }
+
+        echo json_encode($arrResponse,JSON_UNESCAPED_UNICODE);
+        die();
+    }
+
 }
 
 ?>
