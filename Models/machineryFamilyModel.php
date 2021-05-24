@@ -32,7 +32,6 @@ class machineryFamilyModel extends Mysql{
         return $response;
     }
 
-
     public function updateMachineryFamily($id,$name,$is_active) {
         var_dump($id,$name,$is_active);
         $queryUpdate = "UPDATE MACHINERY_FAMILY SET name = ?, is_active = ? WHERE id = ".$id;
@@ -42,12 +41,18 @@ class machineryFamilyModel extends Mysql{
         return $requestUpdate == "1" ? "updated" : 0;
     }
 
-
     public function getMachineryFamilyById(int $id) {
         $this->id = $id;
         $query = "SELECT * FROM MACHINERY_FAMILY WHERE id=".$id;
         $result = $this->select($query);
         return $result;
+    }
+
+    public function deleteMachineryFamily(int $id){
+        $query = "DELETE FROM MACHINERY_FAMILY WHERE id =" . $id;
+        $request = $this->delete($query);
+
+        return $request;
     }
 
 }// fin clase machineryFamilyModel

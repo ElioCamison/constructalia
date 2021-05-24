@@ -50,22 +50,33 @@ $(function (){
         order:[[0,"desc"]]
     });
 
-
-    // // TODO validar este formulario
-    $('#formMachineryFamily').submit(function (e){
-        e.preventDefault();
-        let dataString = $('#formMachineryFamily').serialize();
-        $.post( "http://localhost/tfg/constructalia/machineryFamily/setMachineryFamily/",dataString, function( response ) {
-            response=JSON.parse(response);
-            if(response.success) {
-                $('#modalFormMachineryFamily').modal('hide');
-                tableMachineryFamily.ajax.reload();
-                toastr.success(response.message);
-            } else {
-                toastr.error(response.message);
+    $('#formMachineryFamily').validate({
+        rules: {
+            name : {
+                required: true
             }
+        },
+        messages:{
+            name : {
+                required: "Este campo es obligatorio rellenarlo",
+            }
+        },
+        errorClass: "help-inline text-danger",
+        submitHandler: function (formRol,e) {
+            e.preventDefault();
+            let dataString = $('#formMachineryFamily').serialize();
+            $.post( "http://localhost/tfg/constructalia/machineryFamily/setMachineryFamily/",dataString, function( response ) {
+                response=JSON.parse(response);
+                if(response.success) {
+                    $('#modalFormMachineryFamily').modal('hide');
+                    tableMachineryFamily.ajax.reload();
+                    toastr.success(response.message);
+                } else {
+                    toastr.error(response.message);
+                }
 
-        });
+            });
+        }
     });
 
 });
@@ -89,6 +100,29 @@ function editMachineryFamily(machineryFamily_id) {
     });
 }
 
-function deleteMachineryFamily(){
-
+function deleteMachineryFamily(machineryFamily_id){
+    bootbox.confirm({
+        message: "¿Seguro que quiere eliminar esta familia de maquinaria?",
+        buttons: {
+            confirm: {
+                label: 'Confirmar',
+                className: 'btn-default'
+            },
+            cancel: {
+                label: 'Cancelar',
+                className: 'btn-dark'
+            }
+        },
+        callback: function (result) {
+            if(result) {
+                $.get( "http://localhost/tfg/constructalia/machineryFamily/deleteMachineryFamily/"+ machineryFamily_id, function( response ) {
+                    response = JSON.parse(response);
+                    if(response.success) {
+                        tableMachineryFamily.ajax.reload();
+                        toastr.error(response.message);
+                    }
+                });
+            }
+        }
+    });
 }

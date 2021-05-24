@@ -47,7 +47,6 @@ class MachineryFamily extends Controllers {
         }
     }
 
-
     public function getMachineryFamilyById(int $machineryFamily_id){
         $$machineryFamily_id = intval($machineryFamily_id);
         if ($machineryFamily_id > 0){
@@ -59,6 +58,19 @@ class MachineryFamily extends Controllers {
                 $arrResponse = array("success" => false,"message"=>"Ha ocurrido un error");
             }
         }
+        echo json_encode($arrResponse,JSON_UNESCAPED_UNICODE);
+        die();
+    }
+
+    public function deleteMachineryFamily(int $machineryFamily_id){
+        $data = $this->model->deleteMachineryFamily($machineryFamily_id);
+
+        if ($data){
+            $arrResponse = array("success" => true,"message"=>"Familia de maquinaria eliminada correctamente");
+        } else {
+            $arrResponse = array("success" => false,"message"=>"Ha ocurrido un error");
+        }
+
         echo json_encode($arrResponse,JSON_UNESCAPED_UNICODE);
         die();
     }

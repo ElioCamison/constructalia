@@ -20,10 +20,10 @@ class Outsource extends Controllers {
         die();
     }
 
-    public function getOutsourcedById(int $outsource_id){
+    public function getOutsourceById(int $outsource_id){
         $outsource_id = intval($outsource_id);
         if ($outsource_id>0){
-            $requestOutsource = $this->model->getOutsourcedById($outsource_id);
+            $requestOutsource = $this->model->getOutsourceById($outsource_id);
 
             if($requestOutsource){
                 $arrResponse = array("success" => true,"outsourceInfo"=>$requestOutsource);

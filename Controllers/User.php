@@ -32,7 +32,7 @@ class User extends Controllers {
             if($userId) {
                 $requestUser = $this->model->updateUser($userId,$name,$surname,$email,$phone,$is_active,$rol);
             } else {
-                $requestUser = $this->model->insertUser($nick,$pswd,$name,$surname,$email,$phone,$is_active,$rol);
+                $requestUser = $this->model->insertUser($username,$pswd,$name,$surname,$email,$phone,$is_active,$rol);
             }
 
             if ($requestUser > 0) {

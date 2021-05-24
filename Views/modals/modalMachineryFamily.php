@@ -10,16 +10,18 @@
             <div class="modal-body">
                 <form id="formMachineryFamily" name="formMachineryFamily">
                     <input id="machineryFamilyId" name="machineryFamilyId" hidden>
-                    <div class="mb-3">
-                        <div class="form-group">
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
                             <label for="machineryFamily_name">Nombre</label>
                             <input type="text" class="form-control" id="machineryFamily_name" name="name" placeholder="Nombre" autocomplete="off">
                         </div>
-                    </div>
-                    <div class="mb-3">
-                        <div class="form-group">
+                        <div class="form-group col-md-6">
                             <label for="machineryFamily_is_active">Estado</label>
-                            <input type="checkbox" class="custom-control-input" id="machineryFamily_is_active" name="is_active">
+                            <select id="machineryFamily_is_active" name="is_active" class="form-control">
+                                <option value="" selected>------</option>
+                                <option value="1">Activo</option>
+                                <option value="0">Inactivo</option>
+                            </select>
                         </div>
                     </div>
                     <div class="modal-footer">

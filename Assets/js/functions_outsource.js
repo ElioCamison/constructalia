@@ -1,7 +1,7 @@
 let tableOutsource;
 function openModal() {
     $('#modalFormOutsource').modal('show');
-    $('#formSupplier').trigger("reset");
+    $('#formOutsource').trigger("reset");
 }
 
 $(function (){
