@@ -81,8 +81,7 @@ class userModel extends Mysql
 
     }
 
-    public function getUser($id)
-    {
+    public function getUser($id) {
         $this->id = $id;
         $query = "SELECT user.id,
                   	     user.username,
